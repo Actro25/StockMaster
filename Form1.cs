@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using StockMaster.classes;
 
 namespace StockMaster
 {
     public partial class Form1 : Form
     {
+        CardCreationInStocks cardStocks;
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -27,6 +30,7 @@ namespace StockMaster
         public Form1()
         {
             InitializeComponent();
+            cardStocks = new CardCreationInStocks(flowLayoutPanel1);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -60,6 +64,11 @@ namespace StockMaster
                 MessageBox.Show("First, you need to log in to your account\r" +
                     "If you don't have an account, please sign up");
             userNameShowlabel.Text = "none";
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            cardStocks.AddPanel();
         }
     }
 }
