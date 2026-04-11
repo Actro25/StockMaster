@@ -32,35 +32,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.passwordLogInBox = new System.Windows.Forms.TextBox();
-            this.userNameLogInBox = new System.Windows.Forms.TextBox();
-            this.userNameLogInLabel = new System.Windows.Forms.Label();
-            this.passwordLogInLabel = new System.Windows.Forms.Label();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.passwordSingUpBox = new System.Windows.Forms.TextBox();
-            this.userNameSingUpBox = new System.Windows.Forms.TextBox();
-            this.userNameSingUpLabell = new System.Windows.Forms.Label();
-            this.passwordSingUpLabell = new System.Windows.Forms.Label();
-            this.SingUpButton = new System.Windows.Forms.Button();
-            this.passwordConfirmSingUpBox = new System.Windows.Forms.TextBox();
-            this.passwordConfirmSingUpLabel = new System.Windows.Forms.Label();
-            this.ORLabel = new System.Windows.Forms.Label();
-            this.LogInLabel = new System.Windows.Forms.Label();
-            this.SingUpLabel = new System.Windows.Forms.Label();
-            this.accountLabel = new System.Windows.Forms.Label();
-            this.userNameShowlabel = new System.Windows.Forms.Label();
             this.exitFromAccountButton = new System.Windows.Forms.Button();
+            this.userNameShowlabel = new System.Windows.Forms.Label();
+            this.accountLabel = new System.Windows.Forms.Label();
+            this.SingUpLabel = new System.Windows.Forms.Label();
+            this.LogInLabel = new System.Windows.Forms.Label();
+            this.ORLabel = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.passwordConfirmSingUpLabel = new System.Windows.Forms.Label();
+            this.passwordConfirmSingUpBox = new System.Windows.Forms.TextBox();
+            this.SingUpButton = new System.Windows.Forms.Button();
+            this.passwordSingUpLabell = new System.Windows.Forms.Label();
+            this.userNameSingUpLabell = new System.Windows.Forms.Label();
+            this.userNameSingUpBox = new System.Windows.Forms.TextBox();
+            this.passwordSingUpBox = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.LogInButton = new System.Windows.Forms.Button();
+            this.passwordLogInLabel = new System.Windows.Forms.Label();
+            this.userNameLogInLabel = new System.Windows.Forms.Label();
+            this.userNameLogInBox = new System.Windows.Forms.TextBox();
+            this.passwordLogInBox = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -91,12 +91,13 @@
             // 
             // closeButton
             // 
+            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.closeButton.FlatAppearance.BorderSize = 0;
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.closeButton.Location = new System.Drawing.Point(975, 3);
+            this.closeButton.Location = new System.Drawing.Point(987, 0);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(25, 25);
+            this.closeButton.Size = new System.Drawing.Size(25, 30);
             this.closeButton.TabIndex = 0;
             this.closeButton.Text = "X";
             this.closeButton.UseVisualStyleBackColor = true;
@@ -120,64 +121,63 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Log in/Sing up";
             // 
-            // panel3
+            // exitFromAccountButton
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.LogInButton);
-            this.panel3.Controls.Add(this.passwordLogInLabel);
-            this.panel3.Controls.Add(this.userNameLogInLabel);
-            this.panel3.Controls.Add(this.userNameLogInBox);
-            this.panel3.Controls.Add(this.passwordLogInBox);
-            this.panel3.Location = new System.Drawing.Point(69, 82);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(308, 266);
-            this.panel3.TabIndex = 2;
+            this.exitFromAccountButton.Location = new System.Drawing.Point(912, 24);
+            this.exitFromAccountButton.Name = "exitFromAccountButton";
+            this.exitFromAccountButton.Size = new System.Drawing.Size(84, 22);
+            this.exitFromAccountButton.TabIndex = 11;
+            this.exitFromAccountButton.Text = "Exit";
+            this.exitFromAccountButton.UseVisualStyleBackColor = true;
+            this.exitFromAccountButton.Click += new System.EventHandler(this.exitFromAccountButton_Click);
             // 
-            // passwordLogInBox
+            // userNameShowlabel
             // 
-            this.passwordLogInBox.Location = new System.Drawing.Point(37, 138);
-            this.passwordLogInBox.Name = "passwordLogInBox";
-            this.passwordLogInBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordLogInBox.TabIndex = 1;
+            this.userNameShowlabel.AutoSize = true;
+            this.userNameShowlabel.Location = new System.Drawing.Point(965, 8);
+            this.userNameShowlabel.Name = "userNameShowlabel";
+            this.userNameShowlabel.Size = new System.Drawing.Size(31, 13);
+            this.userNameShowlabel.TabIndex = 10;
+            this.userNameShowlabel.Text = "none";
             // 
-            // userNameLogInBox
+            // accountLabel
             // 
-            this.userNameLogInBox.Location = new System.Drawing.Point(37, 58);
-            this.userNameLogInBox.Name = "userNameLogInBox";
-            this.userNameLogInBox.Size = new System.Drawing.Size(178, 20);
-            this.userNameLogInBox.TabIndex = 0;
+            this.accountLabel.AutoSize = true;
+            this.accountLabel.Location = new System.Drawing.Point(909, 8);
+            this.accountLabel.Name = "accountLabel";
+            this.accountLabel.Size = new System.Drawing.Size(50, 13);
+            this.accountLabel.TabIndex = 9;
+            this.accountLabel.Text = "Account:";
             // 
-            // userNameLogInLabel
+            // SingUpLabel
             // 
-            this.userNameLogInLabel.AutoSize = true;
-            this.userNameLogInLabel.Location = new System.Drawing.Point(34, 42);
-            this.userNameLogInLabel.Name = "userNameLogInLabel";
-            this.userNameLogInLabel.Size = new System.Drawing.Size(58, 13);
-            this.userNameLogInLabel.TabIndex = 2;
-            this.userNameLogInLabel.Text = "Username:";
+            this.SingUpLabel.AutoSize = true;
+            this.SingUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SingUpLabel.Location = new System.Drawing.Point(606, 59);
+            this.SingUpLabel.Name = "SingUpLabel";
+            this.SingUpLabel.Size = new System.Drawing.Size(66, 20);
+            this.SingUpLabel.TabIndex = 8;
+            this.SingUpLabel.Text = "Sing Up";
             // 
-            // passwordLogInLabel
+            // LogInLabel
             // 
-            this.passwordLogInLabel.AutoSize = true;
-            this.passwordLogInLabel.Location = new System.Drawing.Point(34, 122);
-            this.passwordLogInLabel.Name = "passwordLogInLabel";
-            this.passwordLogInLabel.Size = new System.Drawing.Size(56, 13);
-            this.passwordLogInLabel.TabIndex = 3;
-            this.passwordLogInLabel.Text = "Password:";
+            this.LogInLabel.AutoSize = true;
+            this.LogInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LogInLabel.Location = new System.Drawing.Point(65, 59);
+            this.LogInLabel.Name = "LogInLabel";
+            this.LogInLabel.Size = new System.Drawing.Size(52, 20);
+            this.LogInLabel.TabIndex = 7;
+            this.LogInLabel.Text = "Log in";
             // 
-            // LogInButton
+            // ORLabel
             // 
-            this.LogInButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LogInButton.FlatAppearance.BorderSize = 0;
-            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Location = new System.Drawing.Point(37, 219);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(233, 31);
-            this.LogInButton.TabIndex = 4;
-            this.LogInButton.Text = "Log In";
-            this.LogInButton.UseVisualStyleBackColor = false;
-            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            this.ORLabel.AutoSize = true;
+            this.ORLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ORLabel.Location = new System.Drawing.Point(458, 199);
+            this.ORLabel.Name = "ORLabel";
+            this.ORLabel.Size = new System.Drawing.Size(74, 42);
+            this.ORLabel.TabIndex = 6;
+            this.ORLabel.Text = "OR";
             // 
             // panel4
             // 
@@ -195,37 +195,21 @@
             this.panel4.Size = new System.Drawing.Size(308, 294);
             this.panel4.TabIndex = 5;
             // 
-            // passwordSingUpBox
+            // passwordConfirmSingUpLabel
             // 
-            this.passwordSingUpBox.Location = new System.Drawing.Point(37, 116);
-            this.passwordSingUpBox.Name = "passwordSingUpBox";
-            this.passwordSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordSingUpBox.TabIndex = 1;
+            this.passwordConfirmSingUpLabel.AutoSize = true;
+            this.passwordConfirmSingUpLabel.Location = new System.Drawing.Point(34, 161);
+            this.passwordConfirmSingUpLabel.Name = "passwordConfirmSingUpLabel";
+            this.passwordConfirmSingUpLabel.Size = new System.Drawing.Size(93, 13);
+            this.passwordConfirmSingUpLabel.TabIndex = 6;
+            this.passwordConfirmSingUpLabel.Text = "Password confirm:";
             // 
-            // userNameSingUpBox
+            // passwordConfirmSingUpBox
             // 
-            this.userNameSingUpBox.Location = new System.Drawing.Point(37, 58);
-            this.userNameSingUpBox.Name = "userNameSingUpBox";
-            this.userNameSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.userNameSingUpBox.TabIndex = 0;
-            // 
-            // userNameSingUpLabell
-            // 
-            this.userNameSingUpLabell.AutoSize = true;
-            this.userNameSingUpLabell.Location = new System.Drawing.Point(34, 42);
-            this.userNameSingUpLabell.Name = "userNameSingUpLabell";
-            this.userNameSingUpLabell.Size = new System.Drawing.Size(58, 13);
-            this.userNameSingUpLabell.TabIndex = 2;
-            this.userNameSingUpLabell.Text = "Username:";
-            // 
-            // passwordSingUpLabell
-            // 
-            this.passwordSingUpLabell.AutoSize = true;
-            this.passwordSingUpLabell.Location = new System.Drawing.Point(34, 100);
-            this.passwordSingUpLabell.Name = "passwordSingUpLabell";
-            this.passwordSingUpLabell.Size = new System.Drawing.Size(56, 13);
-            this.passwordSingUpLabell.TabIndex = 3;
-            this.passwordSingUpLabell.Text = "Password:";
+            this.passwordConfirmSingUpBox.Location = new System.Drawing.Point(37, 177);
+            this.passwordConfirmSingUpBox.Name = "passwordConfirmSingUpBox";
+            this.passwordConfirmSingUpBox.Size = new System.Drawing.Size(178, 20);
+            this.passwordConfirmSingUpBox.TabIndex = 5;
             // 
             // SingUpButton
             // 
@@ -240,79 +224,96 @@
             this.SingUpButton.UseVisualStyleBackColor = false;
             this.SingUpButton.Click += new System.EventHandler(this.SingUpButton_Click);
             // 
-            // passwordConfirmSingUpBox
+            // passwordSingUpLabell
             // 
-            this.passwordConfirmSingUpBox.Location = new System.Drawing.Point(37, 177);
-            this.passwordConfirmSingUpBox.Name = "passwordConfirmSingUpBox";
-            this.passwordConfirmSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordConfirmSingUpBox.TabIndex = 5;
+            this.passwordSingUpLabell.AutoSize = true;
+            this.passwordSingUpLabell.Location = new System.Drawing.Point(34, 100);
+            this.passwordSingUpLabell.Name = "passwordSingUpLabell";
+            this.passwordSingUpLabell.Size = new System.Drawing.Size(56, 13);
+            this.passwordSingUpLabell.TabIndex = 3;
+            this.passwordSingUpLabell.Text = "Password:";
             // 
-            // passwordConfirmSingUpLabel
+            // userNameSingUpLabell
             // 
-            this.passwordConfirmSingUpLabel.AutoSize = true;
-            this.passwordConfirmSingUpLabel.Location = new System.Drawing.Point(34, 161);
-            this.passwordConfirmSingUpLabel.Name = "passwordConfirmSingUpLabel";
-            this.passwordConfirmSingUpLabel.Size = new System.Drawing.Size(93, 13);
-            this.passwordConfirmSingUpLabel.TabIndex = 6;
-            this.passwordConfirmSingUpLabel.Text = "Password confirm:";
+            this.userNameSingUpLabell.AutoSize = true;
+            this.userNameSingUpLabell.Location = new System.Drawing.Point(34, 42);
+            this.userNameSingUpLabell.Name = "userNameSingUpLabell";
+            this.userNameSingUpLabell.Size = new System.Drawing.Size(58, 13);
+            this.userNameSingUpLabell.TabIndex = 2;
+            this.userNameSingUpLabell.Text = "Username:";
             // 
-            // ORLabel
+            // userNameSingUpBox
             // 
-            this.ORLabel.AutoSize = true;
-            this.ORLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ORLabel.Location = new System.Drawing.Point(458, 199);
-            this.ORLabel.Name = "ORLabel";
-            this.ORLabel.Size = new System.Drawing.Size(74, 42);
-            this.ORLabel.TabIndex = 6;
-            this.ORLabel.Text = "OR";
+            this.userNameSingUpBox.Location = new System.Drawing.Point(37, 58);
+            this.userNameSingUpBox.Name = "userNameSingUpBox";
+            this.userNameSingUpBox.Size = new System.Drawing.Size(178, 20);
+            this.userNameSingUpBox.TabIndex = 0;
             // 
-            // LogInLabel
+            // passwordSingUpBox
             // 
-            this.LogInLabel.AutoSize = true;
-            this.LogInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LogInLabel.Location = new System.Drawing.Point(65, 59);
-            this.LogInLabel.Name = "LogInLabel";
-            this.LogInLabel.Size = new System.Drawing.Size(52, 20);
-            this.LogInLabel.TabIndex = 7;
-            this.LogInLabel.Text = "Log in";
+            this.passwordSingUpBox.Location = new System.Drawing.Point(37, 116);
+            this.passwordSingUpBox.Name = "passwordSingUpBox";
+            this.passwordSingUpBox.Size = new System.Drawing.Size(178, 20);
+            this.passwordSingUpBox.TabIndex = 1;
             // 
-            // SingUpLabel
+            // panel3
             // 
-            this.SingUpLabel.AutoSize = true;
-            this.SingUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SingUpLabel.Location = new System.Drawing.Point(606, 59);
-            this.SingUpLabel.Name = "SingUpLabel";
-            this.SingUpLabel.Size = new System.Drawing.Size(66, 20);
-            this.SingUpLabel.TabIndex = 8;
-            this.SingUpLabel.Text = "Sing Up";
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.LogInButton);
+            this.panel3.Controls.Add(this.passwordLogInLabel);
+            this.panel3.Controls.Add(this.userNameLogInLabel);
+            this.panel3.Controls.Add(this.userNameLogInBox);
+            this.panel3.Controls.Add(this.passwordLogInBox);
+            this.panel3.Location = new System.Drawing.Point(69, 82);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(308, 266);
+            this.panel3.TabIndex = 2;
             // 
-            // accountLabel
+            // LogInButton
             // 
-            this.accountLabel.AutoSize = true;
-            this.accountLabel.Location = new System.Drawing.Point(909, 8);
-            this.accountLabel.Name = "accountLabel";
-            this.accountLabel.Size = new System.Drawing.Size(50, 13);
-            this.accountLabel.TabIndex = 9;
-            this.accountLabel.Text = "Account:";
+            this.LogInButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LogInButton.FlatAppearance.BorderSize = 0;
+            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogInButton.Location = new System.Drawing.Point(37, 219);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(233, 31);
+            this.LogInButton.TabIndex = 4;
+            this.LogInButton.Text = "Log In";
+            this.LogInButton.UseVisualStyleBackColor = false;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
-            // userNameShowlabel
+            // passwordLogInLabel
             // 
-            this.userNameShowlabel.AutoSize = true;
-            this.userNameShowlabel.Location = new System.Drawing.Point(965, 8);
-            this.userNameShowlabel.Name = "userNameShowlabel";
-            this.userNameShowlabel.Size = new System.Drawing.Size(31, 13);
-            this.userNameShowlabel.TabIndex = 10;
-            this.userNameShowlabel.Text = "none";
+            this.passwordLogInLabel.AutoSize = true;
+            this.passwordLogInLabel.Location = new System.Drawing.Point(34, 122);
+            this.passwordLogInLabel.Name = "passwordLogInLabel";
+            this.passwordLogInLabel.Size = new System.Drawing.Size(56, 13);
+            this.passwordLogInLabel.TabIndex = 3;
+            this.passwordLogInLabel.Text = "Password:";
             // 
-            // exitFromAccountButton
+            // userNameLogInLabel
             // 
-            this.exitFromAccountButton.Location = new System.Drawing.Point(912, 24);
-            this.exitFromAccountButton.Name = "exitFromAccountButton";
-            this.exitFromAccountButton.Size = new System.Drawing.Size(84, 22);
-            this.exitFromAccountButton.TabIndex = 11;
-            this.exitFromAccountButton.Text = "Exit";
-            this.exitFromAccountButton.UseVisualStyleBackColor = true;
-            this.exitFromAccountButton.Click += new System.EventHandler(this.exitFromAccountButton_Click);
+            this.userNameLogInLabel.AutoSize = true;
+            this.userNameLogInLabel.Location = new System.Drawing.Point(34, 42);
+            this.userNameLogInLabel.Name = "userNameLogInLabel";
+            this.userNameLogInLabel.Size = new System.Drawing.Size(58, 13);
+            this.userNameLogInLabel.TabIndex = 2;
+            this.userNameLogInLabel.Text = "Username:";
+            // 
+            // userNameLogInBox
+            // 
+            this.userNameLogInBox.Location = new System.Drawing.Point(37, 58);
+            this.userNameLogInBox.Name = "userNameLogInBox";
+            this.userNameLogInBox.Size = new System.Drawing.Size(178, 20);
+            this.userNameLogInBox.TabIndex = 0;
+            // 
+            // passwordLogInBox
+            // 
+            this.passwordLogInBox.Location = new System.Drawing.Point(37, 138);
+            this.passwordLogInBox.Name = "passwordLogInBox";
+            this.passwordLogInBox.Size = new System.Drawing.Size(178, 20);
+            this.passwordLogInBox.TabIndex = 1;
             // 
             // tabPage1
             // 
@@ -325,6 +326,16 @@
             this.tabPage1.Size = new System.Drawing.Size(1004, 477);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stocks";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(998, 401);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel2
             // 
@@ -361,16 +372,6 @@
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(998, 401);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,14 +383,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);

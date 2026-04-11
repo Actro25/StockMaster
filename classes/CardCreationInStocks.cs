@@ -9,8 +9,10 @@ namespace StockMaster.classes
 {
     internal class CardCreationInStocks
     {
+        private static StockDataShowForm _formStock = new StockDataShowForm();
         private List<Panel> _panels = new List<Panel>();
         private FlowLayoutPanel _flowPanel;
+        private Form1 _myForm;
 
         private const int _baseGapsX = 14;
         private const int _baseGapsY = 15;
@@ -18,21 +20,28 @@ namespace StockMaster.classes
         private const int _basicPanelWidth = 207;
         private const int _basicPanelHeight = 124;
 
-        public CardCreationInStocks(FlowLayoutPanel flowPanel) {
+        public CardCreationInStocks(FlowLayoutPanel flowPanel, Form1 myForm) {
             this._flowPanel = flowPanel;
+            this._myForm = myForm;
         }
         public void AddPanel() 
         {
-            Panel tempPanel = new Panel();
-            tempPanel.Size = new System.Drawing.Size(_basicPanelWidth, _basicPanelHeight);
-            tempPanel.BackColor = ColorTranslator.FromHtml("#82CFFF");
-            tempPanel.Margin = new Padding(_baseGapsX, _baseGapsY, _baseGapsX, _baseGapsY);
+            Panel tempPanel = new Panel() { 
+                Size = new System.Drawing.Size(_basicPanelWidth, _basicPanelHeight),
+                BackColor = ColorTranslator.FromHtml("#82CFFF"),
+                Margin = new Padding(_baseGapsX, _baseGapsY, _baseGapsX, _baseGapsY),
+            };
 
-            Button tempButton = new Button();
-            tempButton.Dock = DockStyle.Bottom;
-            tempButton.Text = "Delete";
-            tempButton.BackColor = ColorTranslator.FromHtml("#5BB1DF");
-            tempButton.FlatStyle = FlatStyle.Flat;
+            tempPanel.Click += (s, e) => {
+                _formStock.ShowDialog();
+            };
+
+            Button tempButton = new Button() { 
+                Dock = DockStyle.Bottom,
+                Text = "Видалити",
+                BackColor = ColorTranslator.FromHtml("#5BB1DF"),
+                FlatStyle = FlatStyle.Flat,
+            };
             tempButton.FlatAppearance.BorderSize = 0;
 
             tempButton.Click += (s, e) =>

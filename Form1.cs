@@ -30,7 +30,10 @@ namespace StockMaster
         public Form1()
         {
             InitializeComponent();
-            cardStocks = new CardCreationInStocks(flowLayoutPanel1);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cardStocks = new CardCreationInStocks(flowLayoutPanel1, this);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -68,7 +71,12 @@ namespace StockMaster
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            cardStocks.AddPanel();
+            using (AddNewStockForm addNewStock = new AddNewStockForm()) {
+                if (addNewStock.ShowDialog() == DialogResult.OK) {
+                    cardStocks.AddPanel();
+                }
+            }
         }
+        
     }
 }
