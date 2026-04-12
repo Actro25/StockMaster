@@ -15,9 +15,9 @@ namespace StockMaster.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBase", "database.db");
-            if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
-                Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBase", "database.db"); // Створюємо шлях до місця де буде БД
+            if (!Directory.Exists(Path.GetDirectoryName(dbPath))) // Перевіряємо чи існує такий шлях
+                Directory.CreateDirectory(Path.GetDirectoryName(dbPath)); // Створюємо такий шлях якщо його неіснувало
 
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
