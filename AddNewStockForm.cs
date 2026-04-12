@@ -1,13 +1,13 @@
-﻿using StockMaster.classes;
+﻿using StockMaster.Classes.CardCreation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using StockMaster.Classes.MoveForm;
 
 namespace StockMaster
 {
@@ -15,23 +15,13 @@ namespace StockMaster
     {
         CardCreationInStocks cardStocks;
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int WParam, int lParam);
-
-        private void MoveForm(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, 0x112, 0xf012, 0);
-            }
-        }
         public AddNewStockForm()
         {
             InitializeComponent();
+        }
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MoveFormClass.MoveForm(sender, e, this);
         }
         private void AddNewStockForm_Load(object sender, EventArgs e)
         {
@@ -43,16 +33,13 @@ namespace StockMaster
             Close();
         }
 
-        string password;
-        string confpassword;
         private void confirmPasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             if (confirmPasswordTextBox.Text == "")
                 return;
 
-            confpassword = confirmPasswordTextBox.Text;
 
-            if (confpassword == password)
+            if (confirmPasswordTextBox.Text == passwordTextBox.Text)
             {
                 infoPasswordLabel.Text = "Паролі сходяться";
                 infoPasswordLabel.ForeColor = Color.Green;
@@ -67,7 +54,16 @@ namespace StockMaster
         {
             if (passwordTextBox.Text == "") 
                 return;
-            password = passwordTextBox.Text;
+            if (confirmPasswordTextBox.Text != "" && (confirmPasswordTextBox.Text == passwordTextBox.Text))
+            {
+                infoPasswordLabel.Text = "Паролі сходяться";
+                infoPasswordLabel.ForeColor = Color.Green;
+            }
+            else
+            {
+                infoPasswordLabel.Text = "Паролі несходяться";
+                infoPasswordLabel.ForeColor = Color.Red;
+            }
         }
 
         private void privatRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -106,8 +102,19 @@ namespace StockMaster
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if (nameOfStock.Text == "")
+            {
+                MessageBox.Show("Ви не ввели назву склада.","",MessageBoxButtons.OK);
+                return;
+            }
+            if (privatRadioButton.Checked && ((passwordTextBox.Text != confirmPasswordTextBox.Text) || (passwordTextBox.Text == "" && confirmPasswordTextBox.Text == ""))) {
+                MessageBox.Show("Ваші паролі незбігаються.", "", MessageBoxButtons.OK);
+                return;
+            }
             DialogResult = DialogResult.OK;
             Close();
         }
+
+
     }
 }

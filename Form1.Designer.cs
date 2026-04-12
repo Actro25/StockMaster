@@ -76,7 +76,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1012, 30);
             this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveForm);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label1
             // 
@@ -87,7 +87,7 @@
             this.label1.Size = new System.Drawing.Size(91, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "StockMaster";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveForm);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // closeButton
             // 

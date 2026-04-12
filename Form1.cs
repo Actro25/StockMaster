@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using StockMaster.classes;
+using StockMaster.Classes.CardCreation;
+using StockMaster.Classes.MoveForm;
 
 namespace StockMaster
 {
@@ -15,21 +16,13 @@ namespace StockMaster
     {
         CardCreationInStocks cardStocks;
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int WParam, int lParam);
-
-        private void MoveForm(object sender, MouseEventArgs e) {
-            if (e.Button == MouseButtons.Left) {
-                ReleaseCapture();
-                SendMessage(this.Handle,0x112,0xf012,0);
-            }
-        }
         public Form1()
         {
             InitializeComponent();
+        }
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MoveFormClass.MoveForm(sender, e, this);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -77,6 +70,7 @@ namespace StockMaster
                 }
             }
         }
-        
+
+
     }
 }
