@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Classes.MoveForm;
+using StockMaster.Data;
 
 namespace StockMaster
 {
@@ -45,6 +46,7 @@ namespace StockMaster
 
         private void SingUpButton_Click(object sender, EventArgs e)
         {
+
             if (passwordConfirmSingUpBox.Text != passwordSingUpBox.Text) {
                 MessageBox.Show("You entered an incorrect password, or the username is already taken");
                 return;
