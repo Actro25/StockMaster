@@ -15,6 +15,9 @@ namespace StockMaster.Data
         {
         }
 
+        /*
+         Тут пхеном наші моделі для таблиць
+         */
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

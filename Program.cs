@@ -21,16 +21,30 @@ namespace StockMaster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var host = Host.CreateDefaultBuilder().ConfigureServices((context, services) => {
-                services.AddDbContext<NyDatabaseContext>(options => {
+            /*
+              Як це працює?
+             */
+
+            var host = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
+            {
+                /*
+                 Тут передаємо в функцію ConfigureServices люмда вираз з параметрами. 
+                По логіці передаємо services, це фігнюшка в якій ми реєструємо наші клас в яких хочемо за нашим бажанням базово отримувати dbcontext
+                 */
+                services.AddDbContext<NyDatabaseContext>(options =>
+                {
+                    /*
+                        Ось тут ми просто створюємо наш context, але як зробити по патерну DRY щоб неповторювалося в NyDatabaseContext я хз.
+                     */
                     string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBase", "database.db");
-                    if (!Directory.Exists(Path.GetDirectoryName(dbPath))) 
+                    if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
                         Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
                     options.UseSqlite($"Data Source={dbPath}");
                 });
-                services.AddTransient<Form1>();
+                services.AddTransient<Form1>(); //Незнаю
             }).Build();
-            using var scope = host.Services.CreateScope();
+
+            using var scope = host.Services.CreateScope(); //Я предполагаю тут створюємо продовжуваність життя нашого context
             var form = scope.ServiceProvider.GetRequiredService<Form1>();
 
             Application.Run(form);
