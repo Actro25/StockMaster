@@ -10,16 +10,23 @@ using System.Runtime.InteropServices;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Classes.MoveForm;
 using StockMaster.Data;
+using StockMaster.Services;
 
 namespace StockMaster
 {
     public partial class Form1 : Form
     {
+        DataBaseQueries _queries;
+        ValidationService _validation;
+
         CardCreationInStocks cardStocks;
 
-        public Form1()
+
+        public Form1(DataBaseQueries queries, ValidationService validation)
         {
             InitializeComponent();
+            _queries = queries;
+            _validation = validation;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -38,6 +45,11 @@ namespace StockMaster
         private void LogInButton_Click(object sender, EventArgs e)
         {
 
+            if (!_queries.IsUserExist(new Models.User { UserName = userNameLogInBox.Text, UserPassword = passwordLogInBox.Text }))
+            {
+                MessageBox.Show("You entered wrong username or password.");
+                return;
+            }
             userNameShowlabel.Text = userNameLogInBox.Text;
 
             userNameLogInBox.Text = "";
@@ -46,11 +58,23 @@ namespace StockMaster
 
         private void SingUpButton_Click(object sender, EventArgs e)
         {
-
-            if (passwordConfirmSingUpBox.Text != passwordSingUpBox.Text) {
-                MessageBox.Show("You entered an incorrect password, or the username is already taken");
+            if (!_validation.IsValidUserName(userNameSingUpBox.Text) || _queries.IsNameTaken(userNameSingUpBox.Text))
+            {
+                MessageBox.Show("You entered an incorrect username or username is already taken.");
                 return;
             }
+
+            var pas = passwordSingUpBox.Text;
+            var pasC = passwordConfirmSingUpBox.Text;
+
+            if (!_validation.IsValidPassword(pas) || !_validation.IsValidPassword(pasC) || pas != pasC)
+            {
+                MessageBox.Show("You entered an incorrect password.");
+                return;
+            }
+
+            _queries.AddUser(new Models.User { UserName = userNameSingUpBox.Text, UserPassword = passwordSingUpBox.Text });
+
             userNameSingUpBox.Text = "";
             passwordSingUpBox.Text = "";
             passwordConfirmSingUpBox.Text = "";
@@ -64,15 +88,20 @@ namespace StockMaster
             userNameShowlabel.Text = "none";
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void addButton_Click(object sender, EventArgs e)
         {
-            using (AddNewStockForm addNewStock = new AddNewStockForm()) {
-                if (addNewStock.ShowDialog() == DialogResult.OK) {
+            using (AddNewStockForm addNewStock = new AddNewStockForm())
+            {
+                if (addNewStock.ShowDialog() == DialogResult.OK)
+                {
                     cardStocks.AddPanel();
                 }
             }
         }
-
-
     }
 }

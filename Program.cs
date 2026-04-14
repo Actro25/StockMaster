@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using StockMaster.Data;
+using StockMaster.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +42,8 @@ namespace StockMaster
                         Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
                     options.UseSqlite($"Data Source={dbPath}");
                 });
+                services.AddScoped<DataBaseQueries>(); // Реєструємо наш клас для отримання context
+                services.AddScoped<ValidationService>();
                 services.AddTransient<Form1>(); //Незнаю
             }).Build();
 

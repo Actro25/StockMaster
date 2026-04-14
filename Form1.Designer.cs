@@ -28,374 +28,417 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.exitFromAccountButton = new System.Windows.Forms.Button();
-            this.userNameShowlabel = new System.Windows.Forms.Label();
-            this.accountLabel = new System.Windows.Forms.Label();
-            this.SingUpLabel = new System.Windows.Forms.Label();
-            this.LogInLabel = new System.Windows.Forms.Label();
-            this.ORLabel = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.passwordConfirmSingUpLabel = new System.Windows.Forms.Label();
-            this.passwordConfirmSingUpBox = new System.Windows.Forms.TextBox();
-            this.SingUpButton = new System.Windows.Forms.Button();
-            this.passwordSingUpLabell = new System.Windows.Forms.Label();
-            this.userNameSingUpLabell = new System.Windows.Forms.Label();
-            this.userNameSingUpBox = new System.Windows.Forms.TextBox();
-            this.passwordSingUpBox = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.passwordLogInLabel = new System.Windows.Forms.Label();
-            this.userNameLogInLabel = new System.Windows.Forms.Label();
-            this.userNameLogInBox = new System.Windows.Forms.TextBox();
-            this.passwordLogInBox = new System.Windows.Forms.TextBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.addButton = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.panel1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            closeButton = new System.Windows.Forms.Button();
+            tabPage3 = new System.Windows.Forms.TabPage();
+            exitFromAccountButton = new System.Windows.Forms.Button();
+            userNameShowlabel = new System.Windows.Forms.Label();
+            accountLabel = new System.Windows.Forms.Label();
+            SingUpLabel = new System.Windows.Forms.Label();
+            LogInLabel = new System.Windows.Forms.Label();
+            ORLabel = new System.Windows.Forms.Label();
+            panel4 = new System.Windows.Forms.Panel();
+            passwordConfirmSingUpLabel = new System.Windows.Forms.Label();
+            passwordConfirmSingUpBox = new System.Windows.Forms.TextBox();
+            SingUpButton = new System.Windows.Forms.Button();
+            passwordSingUpLabell = new System.Windows.Forms.Label();
+            userNameSingUpLabell = new System.Windows.Forms.Label();
+            userNameSingUpBox = new System.Windows.Forms.TextBox();
+            passwordSingUpBox = new System.Windows.Forms.TextBox();
+            panel3 = new System.Windows.Forms.Panel();
+            LogInButton = new System.Windows.Forms.Button();
+            passwordLogInLabel = new System.Windows.Forms.Label();
+            userNameLogInLabel = new System.Windows.Forms.Label();
+            userNameLogInBox = new System.Windows.Forms.TextBox();
+            passwordLogInBox = new System.Windows.Forms.TextBox();
+            tabPage1 = new System.Windows.Forms.TabPage();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            panel2 = new System.Windows.Forms.Panel();
+            addButton = new System.Windows.Forms.Button();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            deleteButton = new System.Windows.Forms.Button();
+            panel1.SuspendLayout();
+            tabPage3.SuspendLayout();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel2.SuspendLayout();
+            tabControl1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.closeButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1012, 30);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(closeButton);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1181, 35);
+            panel1.TabIndex = 0;
+            panel1.MouseDown += panel1_MouseDown;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bodoni MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "StockMaster";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Bodoni MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
+            label1.Location = new System.Drawing.Point(4, 5);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(91, 21);
+            label1.TabIndex = 1;
+            label1.Text = "StockMaster";
+            label1.MouseDown += panel1_MouseDown;
             // 
             // closeButton
             // 
-            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.closeButton.Location = new System.Drawing.Point(987, 0);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(25, 30);
-            this.closeButton.TabIndex = 0;
-            this.closeButton.Text = "X";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            closeButton.Dock = System.Windows.Forms.DockStyle.Right;
+            closeButton.FlatAppearance.BorderSize = 0;
+            closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            closeButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            closeButton.Location = new System.Drawing.Point(1152, 0);
+            closeButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new System.Drawing.Size(29, 35);
+            closeButton.TabIndex = 0;
+            closeButton.Text = "X";
+            closeButton.UseVisualStyleBackColor = true;
+            closeButton.Click += closeButton_Click;
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage3.Controls.Add(this.exitFromAccountButton);
-            this.tabPage3.Controls.Add(this.userNameShowlabel);
-            this.tabPage3.Controls.Add(this.accountLabel);
-            this.tabPage3.Controls.Add(this.SingUpLabel);
-            this.tabPage3.Controls.Add(this.LogInLabel);
-            this.tabPage3.Controls.Add(this.ORLabel);
-            this.tabPage3.Controls.Add(this.panel4);
-            this.tabPage3.Controls.Add(this.panel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1004, 477);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Log in/Sing up";
+            tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
+            tabPage3.Controls.Add(deleteButton);
+            tabPage3.Controls.Add(exitFromAccountButton);
+            tabPage3.Controls.Add(userNameShowlabel);
+            tabPage3.Controls.Add(accountLabel);
+            tabPage3.Controls.Add(SingUpLabel);
+            tabPage3.Controls.Add(LogInLabel);
+            tabPage3.Controls.Add(ORLabel);
+            tabPage3.Controls.Add(panel4);
+            tabPage3.Controls.Add(panel3);
+            tabPage3.Location = new System.Drawing.Point(4, 24);
+            tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPage3.Size = new System.Drawing.Size(1173, 552);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Log in/Sing up";
             // 
             // exitFromAccountButton
             // 
-            this.exitFromAccountButton.Location = new System.Drawing.Point(912, 24);
-            this.exitFromAccountButton.Name = "exitFromAccountButton";
-            this.exitFromAccountButton.Size = new System.Drawing.Size(84, 22);
-            this.exitFromAccountButton.TabIndex = 11;
-            this.exitFromAccountButton.Text = "Exit";
-            this.exitFromAccountButton.UseVisualStyleBackColor = true;
-            this.exitFromAccountButton.Click += new System.EventHandler(this.exitFromAccountButton_Click);
+            exitFromAccountButton.Location = new System.Drawing.Point(1064, 28);
+            exitFromAccountButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            exitFromAccountButton.Name = "exitFromAccountButton";
+            exitFromAccountButton.Size = new System.Drawing.Size(98, 25);
+            exitFromAccountButton.TabIndex = 11;
+            exitFromAccountButton.Text = "Exit";
+            exitFromAccountButton.UseVisualStyleBackColor = true;
+            exitFromAccountButton.Click += exitFromAccountButton_Click;
             // 
             // userNameShowlabel
             // 
-            this.userNameShowlabel.AutoSize = true;
-            this.userNameShowlabel.Location = new System.Drawing.Point(965, 8);
-            this.userNameShowlabel.Name = "userNameShowlabel";
-            this.userNameShowlabel.Size = new System.Drawing.Size(31, 13);
-            this.userNameShowlabel.TabIndex = 10;
-            this.userNameShowlabel.Text = "none";
+            userNameShowlabel.AutoSize = true;
+            userNameShowlabel.Location = new System.Drawing.Point(1126, 9);
+            userNameShowlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            userNameShowlabel.Name = "userNameShowlabel";
+            userNameShowlabel.Size = new System.Drawing.Size(34, 15);
+            userNameShowlabel.TabIndex = 10;
+            userNameShowlabel.Text = "none";
             // 
             // accountLabel
             // 
-            this.accountLabel.AutoSize = true;
-            this.accountLabel.Location = new System.Drawing.Point(909, 8);
-            this.accountLabel.Name = "accountLabel";
-            this.accountLabel.Size = new System.Drawing.Size(50, 13);
-            this.accountLabel.TabIndex = 9;
-            this.accountLabel.Text = "Account:";
+            accountLabel.AutoSize = true;
+            accountLabel.Location = new System.Drawing.Point(1060, 9);
+            accountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            accountLabel.Name = "accountLabel";
+            accountLabel.Size = new System.Drawing.Size(55, 15);
+            accountLabel.TabIndex = 9;
+            accountLabel.Text = "Account:";
             // 
             // SingUpLabel
             // 
-            this.SingUpLabel.AutoSize = true;
-            this.SingUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SingUpLabel.Location = new System.Drawing.Point(606, 59);
-            this.SingUpLabel.Name = "SingUpLabel";
-            this.SingUpLabel.Size = new System.Drawing.Size(66, 20);
-            this.SingUpLabel.TabIndex = 8;
-            this.SingUpLabel.Text = "Sing Up";
+            SingUpLabel.AutoSize = true;
+            SingUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            SingUpLabel.Location = new System.Drawing.Point(707, 68);
+            SingUpLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            SingUpLabel.Name = "SingUpLabel";
+            SingUpLabel.Size = new System.Drawing.Size(66, 20);
+            SingUpLabel.TabIndex = 8;
+            SingUpLabel.Text = "Sing Up";
             // 
             // LogInLabel
             // 
-            this.LogInLabel.AutoSize = true;
-            this.LogInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LogInLabel.Location = new System.Drawing.Point(65, 59);
-            this.LogInLabel.Name = "LogInLabel";
-            this.LogInLabel.Size = new System.Drawing.Size(52, 20);
-            this.LogInLabel.TabIndex = 7;
-            this.LogInLabel.Text = "Log in";
+            LogInLabel.AutoSize = true;
+            LogInLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            LogInLabel.Location = new System.Drawing.Point(76, 68);
+            LogInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LogInLabel.Name = "LogInLabel";
+            LogInLabel.Size = new System.Drawing.Size(52, 20);
+            LogInLabel.TabIndex = 7;
+            LogInLabel.Text = "Log in";
             // 
             // ORLabel
             // 
-            this.ORLabel.AutoSize = true;
-            this.ORLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ORLabel.Location = new System.Drawing.Point(458, 199);
-            this.ORLabel.Name = "ORLabel";
-            this.ORLabel.Size = new System.Drawing.Size(74, 42);
-            this.ORLabel.TabIndex = 6;
-            this.ORLabel.Text = "OR";
+            ORLabel.AutoSize = true;
+            ORLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            ORLabel.Location = new System.Drawing.Point(534, 230);
+            ORLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            ORLabel.Name = "ORLabel";
+            ORLabel.Size = new System.Drawing.Size(74, 42);
+            ORLabel.TabIndex = 6;
+            ORLabel.Text = "OR";
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.passwordConfirmSingUpLabel);
-            this.panel4.Controls.Add(this.passwordConfirmSingUpBox);
-            this.panel4.Controls.Add(this.SingUpButton);
-            this.panel4.Controls.Add(this.passwordSingUpLabell);
-            this.panel4.Controls.Add(this.userNameSingUpLabell);
-            this.panel4.Controls.Add(this.userNameSingUpBox);
-            this.panel4.Controls.Add(this.passwordSingUpBox);
-            this.panel4.Location = new System.Drawing.Point(610, 82);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 294);
-            this.panel4.TabIndex = 5;
+            panel4.BackColor = System.Drawing.SystemColors.Control;
+            panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel4.Controls.Add(passwordConfirmSingUpLabel);
+            panel4.Controls.Add(passwordConfirmSingUpBox);
+            panel4.Controls.Add(SingUpButton);
+            panel4.Controls.Add(passwordSingUpLabell);
+            panel4.Controls.Add(userNameSingUpLabell);
+            panel4.Controls.Add(userNameSingUpBox);
+            panel4.Controls.Add(passwordSingUpBox);
+            panel4.Location = new System.Drawing.Point(712, 95);
+            panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(359, 339);
+            panel4.TabIndex = 5;
             // 
             // passwordConfirmSingUpLabel
             // 
-            this.passwordConfirmSingUpLabel.AutoSize = true;
-            this.passwordConfirmSingUpLabel.Location = new System.Drawing.Point(34, 161);
-            this.passwordConfirmSingUpLabel.Name = "passwordConfirmSingUpLabel";
-            this.passwordConfirmSingUpLabel.Size = new System.Drawing.Size(93, 13);
-            this.passwordConfirmSingUpLabel.TabIndex = 6;
-            this.passwordConfirmSingUpLabel.Text = "Password confirm:";
+            passwordConfirmSingUpLabel.AutoSize = true;
+            passwordConfirmSingUpLabel.Location = new System.Drawing.Point(40, 186);
+            passwordConfirmSingUpLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordConfirmSingUpLabel.Name = "passwordConfirmSingUpLabel";
+            passwordConfirmSingUpLabel.Size = new System.Drawing.Size(105, 15);
+            passwordConfirmSingUpLabel.TabIndex = 6;
+            passwordConfirmSingUpLabel.Text = "Password confirm:";
             // 
             // passwordConfirmSingUpBox
             // 
-            this.passwordConfirmSingUpBox.Location = new System.Drawing.Point(37, 177);
-            this.passwordConfirmSingUpBox.Name = "passwordConfirmSingUpBox";
-            this.passwordConfirmSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordConfirmSingUpBox.TabIndex = 5;
+            passwordConfirmSingUpBox.Location = new System.Drawing.Point(43, 204);
+            passwordConfirmSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordConfirmSingUpBox.Name = "passwordConfirmSingUpBox";
+            passwordConfirmSingUpBox.Size = new System.Drawing.Size(207, 23);
+            passwordConfirmSingUpBox.TabIndex = 5;
             // 
             // SingUpButton
             // 
-            this.SingUpButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.SingUpButton.FlatAppearance.BorderSize = 0;
-            this.SingUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SingUpButton.Location = new System.Drawing.Point(37, 249);
-            this.SingUpButton.Name = "SingUpButton";
-            this.SingUpButton.Size = new System.Drawing.Size(233, 31);
-            this.SingUpButton.TabIndex = 4;
-            this.SingUpButton.Text = "Sing up";
-            this.SingUpButton.UseVisualStyleBackColor = false;
-            this.SingUpButton.Click += new System.EventHandler(this.SingUpButton_Click);
+            SingUpButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            SingUpButton.FlatAppearance.BorderSize = 0;
+            SingUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            SingUpButton.Location = new System.Drawing.Point(43, 287);
+            SingUpButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            SingUpButton.Name = "SingUpButton";
+            SingUpButton.Size = new System.Drawing.Size(272, 36);
+            SingUpButton.TabIndex = 4;
+            SingUpButton.Text = "Sing up";
+            SingUpButton.UseVisualStyleBackColor = false;
+            SingUpButton.Click += SingUpButton_Click;
             // 
             // passwordSingUpLabell
             // 
-            this.passwordSingUpLabell.AutoSize = true;
-            this.passwordSingUpLabell.Location = new System.Drawing.Point(34, 100);
-            this.passwordSingUpLabell.Name = "passwordSingUpLabell";
-            this.passwordSingUpLabell.Size = new System.Drawing.Size(56, 13);
-            this.passwordSingUpLabell.TabIndex = 3;
-            this.passwordSingUpLabell.Text = "Password:";
+            passwordSingUpLabell.AutoSize = true;
+            passwordSingUpLabell.Location = new System.Drawing.Point(40, 115);
+            passwordSingUpLabell.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordSingUpLabell.Name = "passwordSingUpLabell";
+            passwordSingUpLabell.Size = new System.Drawing.Size(60, 15);
+            passwordSingUpLabell.TabIndex = 3;
+            passwordSingUpLabell.Text = "Password:";
             // 
             // userNameSingUpLabell
             // 
-            this.userNameSingUpLabell.AutoSize = true;
-            this.userNameSingUpLabell.Location = new System.Drawing.Point(34, 42);
-            this.userNameSingUpLabell.Name = "userNameSingUpLabell";
-            this.userNameSingUpLabell.Size = new System.Drawing.Size(58, 13);
-            this.userNameSingUpLabell.TabIndex = 2;
-            this.userNameSingUpLabell.Text = "Username:";
+            userNameSingUpLabell.AutoSize = true;
+            userNameSingUpLabell.Location = new System.Drawing.Point(40, 48);
+            userNameSingUpLabell.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            userNameSingUpLabell.Name = "userNameSingUpLabell";
+            userNameSingUpLabell.Size = new System.Drawing.Size(63, 15);
+            userNameSingUpLabell.TabIndex = 2;
+            userNameSingUpLabell.Text = "Username:";
             // 
             // userNameSingUpBox
             // 
-            this.userNameSingUpBox.Location = new System.Drawing.Point(37, 58);
-            this.userNameSingUpBox.Name = "userNameSingUpBox";
-            this.userNameSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.userNameSingUpBox.TabIndex = 0;
+            userNameSingUpBox.Location = new System.Drawing.Point(43, 67);
+            userNameSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userNameSingUpBox.Name = "userNameSingUpBox";
+            userNameSingUpBox.Size = new System.Drawing.Size(207, 23);
+            userNameSingUpBox.TabIndex = 0;
             // 
             // passwordSingUpBox
             // 
-            this.passwordSingUpBox.Location = new System.Drawing.Point(37, 116);
-            this.passwordSingUpBox.Name = "passwordSingUpBox";
-            this.passwordSingUpBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordSingUpBox.TabIndex = 1;
+            passwordSingUpBox.Location = new System.Drawing.Point(43, 134);
+            passwordSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordSingUpBox.Name = "passwordSingUpBox";
+            passwordSingUpBox.Size = new System.Drawing.Size(207, 23);
+            passwordSingUpBox.TabIndex = 1;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.LogInButton);
-            this.panel3.Controls.Add(this.passwordLogInLabel);
-            this.panel3.Controls.Add(this.userNameLogInLabel);
-            this.panel3.Controls.Add(this.userNameLogInBox);
-            this.panel3.Controls.Add(this.passwordLogInBox);
-            this.panel3.Location = new System.Drawing.Point(69, 82);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(308, 266);
-            this.panel3.TabIndex = 2;
+            panel3.BackColor = System.Drawing.SystemColors.Control;
+            panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel3.Controls.Add(LogInButton);
+            panel3.Controls.Add(passwordLogInLabel);
+            panel3.Controls.Add(userNameLogInLabel);
+            panel3.Controls.Add(userNameLogInBox);
+            panel3.Controls.Add(passwordLogInBox);
+            panel3.Location = new System.Drawing.Point(80, 95);
+            panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(359, 307);
+            panel3.TabIndex = 2;
             // 
             // LogInButton
             // 
-            this.LogInButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LogInButton.FlatAppearance.BorderSize = 0;
-            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Location = new System.Drawing.Point(37, 219);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(233, 31);
-            this.LogInButton.TabIndex = 4;
-            this.LogInButton.Text = "Log In";
-            this.LogInButton.UseVisualStyleBackColor = false;
-            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            LogInButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            LogInButton.FlatAppearance.BorderSize = 0;
+            LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            LogInButton.Location = new System.Drawing.Point(43, 253);
+            LogInButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            LogInButton.Name = "LogInButton";
+            LogInButton.Size = new System.Drawing.Size(272, 36);
+            LogInButton.TabIndex = 4;
+            LogInButton.Text = "Log In";
+            LogInButton.UseVisualStyleBackColor = false;
+            LogInButton.Click += LogInButton_Click;
             // 
             // passwordLogInLabel
             // 
-            this.passwordLogInLabel.AutoSize = true;
-            this.passwordLogInLabel.Location = new System.Drawing.Point(34, 122);
-            this.passwordLogInLabel.Name = "passwordLogInLabel";
-            this.passwordLogInLabel.Size = new System.Drawing.Size(56, 13);
-            this.passwordLogInLabel.TabIndex = 3;
-            this.passwordLogInLabel.Text = "Password:";
+            passwordLogInLabel.AutoSize = true;
+            passwordLogInLabel.Location = new System.Drawing.Point(40, 141);
+            passwordLogInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passwordLogInLabel.Name = "passwordLogInLabel";
+            passwordLogInLabel.Size = new System.Drawing.Size(60, 15);
+            passwordLogInLabel.TabIndex = 3;
+            passwordLogInLabel.Text = "Password:";
             // 
             // userNameLogInLabel
             // 
-            this.userNameLogInLabel.AutoSize = true;
-            this.userNameLogInLabel.Location = new System.Drawing.Point(34, 42);
-            this.userNameLogInLabel.Name = "userNameLogInLabel";
-            this.userNameLogInLabel.Size = new System.Drawing.Size(58, 13);
-            this.userNameLogInLabel.TabIndex = 2;
-            this.userNameLogInLabel.Text = "Username:";
+            userNameLogInLabel.AutoSize = true;
+            userNameLogInLabel.Location = new System.Drawing.Point(40, 48);
+            userNameLogInLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            userNameLogInLabel.Name = "userNameLogInLabel";
+            userNameLogInLabel.Size = new System.Drawing.Size(63, 15);
+            userNameLogInLabel.TabIndex = 2;
+            userNameLogInLabel.Text = "Username:";
             // 
             // userNameLogInBox
             // 
-            this.userNameLogInBox.Location = new System.Drawing.Point(37, 58);
-            this.userNameLogInBox.Name = "userNameLogInBox";
-            this.userNameLogInBox.Size = new System.Drawing.Size(178, 20);
-            this.userNameLogInBox.TabIndex = 0;
+            userNameLogInBox.Location = new System.Drawing.Point(43, 67);
+            userNameLogInBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userNameLogInBox.Name = "userNameLogInBox";
+            userNameLogInBox.Size = new System.Drawing.Size(207, 23);
+            userNameLogInBox.TabIndex = 0;
             // 
             // passwordLogInBox
             // 
-            this.passwordLogInBox.Location = new System.Drawing.Point(37, 138);
-            this.passwordLogInBox.Name = "passwordLogInBox";
-            this.passwordLogInBox.Size = new System.Drawing.Size(178, 20);
-            this.passwordLogInBox.TabIndex = 1;
+            passwordLogInBox.Location = new System.Drawing.Point(43, 159);
+            passwordLogInBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordLogInBox.Name = "passwordLogInBox";
+            passwordLogInBox.Size = new System.Drawing.Size(207, 23);
+            passwordLogInBox.TabIndex = 1;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1004, 477);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Stocks";
+            tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            tabPage1.Controls.Add(flowLayoutPanel1);
+            tabPage1.Controls.Add(panel2);
+            tabPage1.Location = new System.Drawing.Point(4, 24);
+            tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabPage1.Size = new System.Drawing.Size(1173, 552);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Stocks";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(998, 401);
-            this.flowLayoutPanel1.TabIndex = 2;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
+            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(23, 23, 23, 23);
+            flowLayoutPanel1.Size = new System.Drawing.Size(1165, 463);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel2.Controls.Add(this.addButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 410);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(998, 64);
-            this.panel2.TabIndex = 0;
+            panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            panel2.Controls.Add(addButton);
+            panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel2.Location = new System.Drawing.Point(4, 475);
+            panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(1165, 74);
+            panel2.TabIndex = 0;
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.GhostWhite;
-            this.addButton.FlatAppearance.BorderSize = 0;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Location = new System.Drawing.Point(20, 18);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(102, 30);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Добавити";
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            addButton.BackColor = System.Drawing.Color.GhostWhite;
+            addButton.FlatAppearance.BorderSize = 0;
+            addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            addButton.Location = new System.Drawing.Point(23, 21);
+            addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            addButton.Name = "addButton";
+            addButton.Size = new System.Drawing.Size(119, 35);
+            addButton.TabIndex = 0;
+            addButton.Text = "Добавити";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 30);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1012, 503);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 1;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl1.Location = new System.Drawing.Point(0, 35);
+            tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(1181, 580);
+            tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            tabControl1.TabIndex = 1;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Location = new System.Drawing.Point(1064, 59);
+            deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new System.Drawing.Size(98, 25);
+            deleteButton.TabIndex = 12;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1012, 533);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.ButtonFace;
+            ClientSize = new System.Drawing.Size(1181, 615);
+            Controls.Add(tabControl1);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tabPage1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
@@ -430,6 +473,7 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

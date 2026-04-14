@@ -13,6 +13,6 @@ namespace StockMaster.Models
         [Required]
         public string UserName { get; set; }
         [Required]
-        public int UserPassword { get; set; }
+        public string UserPassword { get; set; }
     }
 }
