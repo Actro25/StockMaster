@@ -10,6 +10,6 @@ namespace StockMaster.Services
     public class ValidationService
     {
         public bool IsValidPassword(string password) => Regex.IsMatch(password, @"^\S+$");
-        public bool IsValidUserName(string user) => Regex.IsMatch(user, @"^\S+$");
+        public bool IsValidName(string user) => Regex.IsMatch(user, @"^\S+$");
     }
 }

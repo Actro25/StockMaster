@@ -32,6 +32,7 @@
             label1 = new System.Windows.Forms.Label();
             closeButton = new System.Windows.Forms.Button();
             tabPage3 = new System.Windows.Forms.TabPage();
+            deleteButton = new System.Windows.Forms.Button();
             exitFromAccountButton = new System.Windows.Forms.Button();
             userNameShowlabel = new System.Windows.Forms.Label();
             accountLabel = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             panel2 = new System.Windows.Forms.Panel();
             addButton = new System.Windows.Forms.Button();
             tabControl1 = new System.Windows.Forms.TabControl();
-            deleteButton = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             tabPage3.SuspendLayout();
             panel4.SuspendLayout();
@@ -126,6 +126,17 @@
             tabPage3.Size = new System.Drawing.Size(1173, 552);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Log in/Sing up";
+            // 
+            // deleteButton
+            // 
+            deleteButton.Location = new System.Drawing.Point(1064, 59);
+            deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new System.Drawing.Size(98, 25);
+            deleteButton.TabIndex = 12;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // exitFromAccountButton
             // 
@@ -361,7 +372,7 @@
             flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
             flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(23, 23, 23, 23);
+            flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(23);
             flowLayoutPanel1.Size = new System.Drawing.Size(1165, 463);
             flowLayoutPanel1.TabIndex = 2;
             // 
@@ -402,17 +413,6 @@
             tabControl1.Size = new System.Drawing.Size(1181, 580);
             tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             tabControl1.TabIndex = 1;
-            // 
-            // deleteButton
-            // 
-            deleteButton.Location = new System.Drawing.Point(1064, 59);
-            deleteButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            deleteButton.Name = "deleteButton";
-            deleteButton.Size = new System.Drawing.Size(98, 25);
-            deleteButton.TabIndex = 12;
-            deleteButton.Text = "Delete";
-            deleteButton.UseVisualStyleBackColor = true;
-            deleteButton.Click += deleteButton_Click;
             // 
             // Form1
             // 

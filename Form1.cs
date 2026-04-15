@@ -64,7 +64,7 @@ namespace StockMaster
 
         private void SingUpButton_Click(object sender, EventArgs e)
         {
-            if (!_validation.IsValidUserName(userNameSingUpBox.Text) || _queries.IsNameTaken(userNameSingUpBox.Text))
+            if (!_validation.IsValidName(userNameSingUpBox.Text) || _queries.IsNameTaken(userNameSingUpBox.Text))
             {
                 MessageBox.Show("You entered an incorrect username or username is already taken.");
                 return;
@@ -109,7 +109,11 @@ namespace StockMaster
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            using (AddNewStockForm addNewStock = new AddNewStockForm())
+            if (!_userSession.IsLogined()) {
+                MessageBox.Show("Please, firstly login or sing up in your account to create your own stocks.");
+                return;
+            }
+            using (AddNewStockForm addNewStock = new AddNewStockForm(_userSession, _validation, _queries))
             {
                 if (addNewStock.ShowDialog() == DialogResult.OK)
                 {

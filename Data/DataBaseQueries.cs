@@ -24,5 +24,10 @@ namespace StockMaster.Data
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
+        public Stock AddStock(Stock stock) {
+            _context.Stocks.Add(stock);
+            _context.SaveChanges();
+            return stock;
+        }
     }
 }
