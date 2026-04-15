@@ -11,6 +11,8 @@ using StockMaster.Classes.CardCreation;
 using StockMaster.Classes.MoveForm;
 using StockMaster.Data;
 using StockMaster.Services;
+using StockMaster.Classes;
+using StockMaster.Models;
 
 namespace StockMaster
 {
@@ -18,15 +20,17 @@ namespace StockMaster
     {
         DataBaseQueries _queries;
         ValidationService _validation;
+        UserSession _userSession;
 
         CardCreationInStocks cardStocks;
 
 
-        public Form1(DataBaseQueries queries, ValidationService validation)
+        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession)
         {
             InitializeComponent();
             _queries = queries;
             _validation = validation;
+            _userSession = userSession;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -44,12 +48,14 @@ namespace StockMaster
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
-
-            if (!_queries.IsUserExist(new Models.User { UserName = userNameLogInBox.Text, UserPassword = passwordLogInBox.Text }))
+            var user = _queries.IsUserExist(new User { UserName = userNameLogInBox.Text, UserPassword = passwordLogInBox.Text });
+            if (user == null)
             {
                 MessageBox.Show("You entered wrong username or password.");
                 return;
             }
+
+            _userSession.Login(user);
             userNameShowlabel.Text = userNameLogInBox.Text;
 
             userNameLogInBox.Text = "";
@@ -82,15 +88,23 @@ namespace StockMaster
 
         private void exitFromAccountButton_Click(object sender, EventArgs e)
         {
-            if (userNameShowlabel.Text == "none")
+            if (!_userSession.IsLogined())
                 MessageBox.Show("First, you need to log in to your account\r" +
                     "If you don't have an account, please sign up");
+            
+            _userSession.Logout();
             userNameShowlabel.Text = "none";
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            if (!_userSession.IsLogined())
+                MessageBox.Show("First, you need to log in to your account\r" +
+                    "If you don't have an account, please sign up");
 
+            _queries.DeleteUser(_userSession.CurrentUser);
+            _userSession.Logout();
+            userNameShowlabel.Text = "none";
         }
 
         private void addButton_Click(object sender, EventArgs e)

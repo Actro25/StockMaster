@@ -19,10 +19,10 @@ namespace StockMaster.Data
             _context.Users.Add(user);
             _context.SaveChanges();
         }
-        public bool IsUserExist(User user) {
-
-            return _context.Users.Any(u => u.UserName == user.UserName && u.UserPassword == user.UserPassword);
-            
+        public User? IsUserExist(User user) => _context.Users.FirstOrDefault(u => u.UserName == user.UserName && u.UserPassword == user.UserPassword);
+        public void DeleteUser(User user) {
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
     }
 }

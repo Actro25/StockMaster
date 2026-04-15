@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using StockMaster.Classes;
 using StockMaster.Data;
 using StockMaster.Services;
 using System;
@@ -43,7 +44,8 @@ namespace StockMaster
                     options.UseSqlite($"Data Source={dbPath}");
                 });
                 services.AddScoped<DataBaseQueries>(); // Реєструємо наш клас для отримання context
-                services.AddScoped<ValidationService>();
+                services.AddScoped<ValidationService>(); // Ще один клас для валідації
+                services.AddSingleton<UserSession>(); // Клас для зберігання сесії
                 services.AddTransient<Form1>(); //Незнаю
             }).Build();
 
