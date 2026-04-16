@@ -46,6 +46,8 @@ namespace StockMaster
                 services.AddScoped<DataBaseQueries>(); // Реєструємо наш клас для отримання context
                 services.AddScoped<ValidationService>(); // Ще один клас для валідації
                 services.AddSingleton<UserSession>(); // Клас для зберігання сесії
+
+                services.AddTransient<AddNewStockForm>();
                 services.AddTransient<Form1>(); //Незнаю
             }).Build();
 

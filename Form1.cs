@@ -13,6 +13,7 @@ using StockMaster.Data;
 using StockMaster.Services;
 using StockMaster.Classes;
 using StockMaster.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace StockMaster
 {
@@ -21,16 +22,18 @@ namespace StockMaster
         DataBaseQueries _queries;
         ValidationService _validation;
         UserSession _userSession;
+        IServiceProvider _serviceProcider;
 
         CardCreationInStocks cardStocks;
 
 
-        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession)
+        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _queries = queries;
             _validation = validation;
             _userSession = userSession;
+            _serviceProcider = serviceProvider;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -113,7 +116,7 @@ namespace StockMaster
                 MessageBox.Show("Please, firstly login or sing up in your account to create your own stocks.");
                 return;
             }
-            using (AddNewStockForm addNewStock = new AddNewStockForm(_userSession, _validation, _queries))
+            using (var addNewStock = _serviceProcider.GetRequiredService<AddNewStockForm>())
             {
                 if (addNewStock.ShowDialog() == DialogResult.OK)
                 {
