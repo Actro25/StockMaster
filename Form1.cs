@@ -23,25 +23,25 @@ namespace StockMaster
         ValidationService _validation;
         UserSession _userSession;
         IServiceProvider _serviceProcider;
+        CardCreationInStocks _cardStocks;
 
-        CardCreationInStocks cardStocks;
 
-
-        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, IServiceProvider serviceProvider)
+        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, IServiceProvider serviceProvider, CardCreationInStocks cardStocks)
         {
             InitializeComponent();
             _queries = queries;
             _validation = validation;
             _userSession = userSession;
             _serviceProcider = serviceProvider;
+            _cardStocks = cardStocks;
+
+            _cardStocks.Create(flowLayoutPanel1, this);
+            _userSession.OnLoginSuccess += _cardStocks.RefreshPanel;
+            _userSession.OnLogoutSuccess += _cardStocks.ClearPanel;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             MoveFormClass.MoveForm(sender, e, this);
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            cardStocks = new CardCreationInStocks(flowLayoutPanel1, this);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace StockMaster
             {
                 if (addNewStock.ShowDialog() == DialogResult.OK)
                 {
-                    cardStocks.AddPanel();
+                    _cardStocks.RefreshPanel();
                 }
             }
         }

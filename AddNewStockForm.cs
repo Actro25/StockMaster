@@ -21,10 +21,6 @@ namespace StockMaster
         ValidationService _validation;
         DataBaseQueries _queries;
 
-        /*
-            ЗАВДАННЯ НА ЗАВТРА:
-            Треба підкоректувати CardCreationInStocks щоб він спочатку перевіряв чи є сесія зараз. А потім шукав всі стоки по айді пользователя.
-         */
         CardCreationInStocks cardStocks;
 
         public AddNewStockForm(UserSession userSession, ValidationService validation, DataBaseQueries queries)

@@ -397,7 +397,7 @@
             addButton.Name = "addButton";
             addButton.Size = new System.Drawing.Size(119, 35);
             addButton.TabIndex = 0;
-            addButton.Text = "Добавити";
+            addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = false;
             addButton.Click += addButton_Click;
             // 
@@ -426,7 +426,6 @@
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabPage3.ResumeLayout(false);

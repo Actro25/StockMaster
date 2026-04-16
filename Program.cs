@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using StockMaster.Classes;
+using StockMaster.Classes.CardCreation;
 using StockMaster.Data;
 using StockMaster.Services;
 using System;
@@ -44,7 +45,8 @@ namespace StockMaster
                     options.UseSqlite($"Data Source={dbPath}");
                 });
                 services.AddScoped<DataBaseQueries>(); // Реєструємо наш клас для отримання context
-                services.AddScoped<ValidationService>(); // Ще один клас для валідації
+                services.AddSingleton<ValidationService>(); // Ще один клас для валідації
+                services.AddSingleton<CardCreationInStocks>(); // Клас для виведення карточок
                 services.AddSingleton<UserSession>(); // Клас для зберігання сесії
 
                 services.AddTransient<AddNewStockForm>();

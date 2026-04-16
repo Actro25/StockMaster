@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using StockMaster.Data;
+using StockMaster.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,12 +10,15 @@ using System.Windows.Forms;
 
 namespace StockMaster.Classes.CardCreation
 {
-    internal class CardCreationInStocks
+    public class CardCreationInStocks
     {
         private static StockDataShowForm _formStock = new StockDataShowForm();
-        private List<Panel> _panels = new List<Panel>();
+        private List<(Panel panel, int idPanel)> _panels = new List<(Panel panel, int idPanel)>();
         private FlowLayoutPanel _flowPanel;
         private Form1 _myForm;
+        private DataBaseQueries _queries;
+
+
 
         private const int _baseGapsX = 14;
         private const int _baseGapsY = 15;
@@ -20,11 +26,30 @@ namespace StockMaster.Classes.CardCreation
         private const int _basicPanelWidth = 207;
         private const int _basicPanelHeight = 124;
 
-        public CardCreationInStocks(FlowLayoutPanel flowPanel, Form1 myForm) {
-            this._flowPanel = flowPanel;
-            this._myForm = myForm;
+        public CardCreationInStocks(DataBaseQueries queries) {
+            _queries = queries;
         }
-        public void AddPanel() 
+        public void Create(FlowLayoutPanel flowPanel, Form1 myForm) {
+            _flowPanel = flowPanel;
+            _myForm = myForm;
+        }
+        public void ClearPanel() => _flowPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose()); // Перетворюємо наш контрол в зрозумілий для LINQ клас щоб пройтися по ньому та очистити всі данні з панелі
+
+        public async void RefreshPanel() {
+            _flowPanel.SuspendLayout();
+            try
+            {
+                ClearPanel();
+                var temp = await _queries.GetAllStocks();
+                foreach (var item in temp) {
+                    AddPanel(item);
+                }
+            }
+            finally {
+                _flowPanel.ResumeLayout();
+            }
+        }
+        public void AddPanel(Stock stock) 
         {
             Panel tempPanel = new Panel() { 
                 Size = new System.Drawing.Size(_basicPanelWidth, _basicPanelHeight),
@@ -32,9 +57,121 @@ namespace StockMaster.Classes.CardCreation
                 Margin = new Padding(_baseGapsX, _baseGapsY, _baseGapsX, _baseGapsY),
             };
 
-            tempPanel.Click += (s, e) => {
-                _formStock.ShowDialog();
+            FlowLayoutPanel innerPanel = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(10),
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
             };
+            innerPanel.Click += (s, e) => {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _formStock.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    _formStock.ShowDialog();
+                }
+            };
+
+            Label nameStock = new Label()
+            {
+                Text = "Name: " + stock.StockName,
+                AutoSize = true,
+                Font = new Font(SystemFonts.DefaultFont.FontFamily, 14, FontStyle.Bold),
+            };
+            nameStock.Click += (s, e) => {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _formStock.ShowDialog();
+                        }
+                    }
+                }
+                else {
+                    _formStock.ShowDialog();
+                }
+            };
+
+            Label typeOfStock = new Label()
+            {
+                Text = (stock.KindOfStock == TypeOfStocks.FunctionalStock) ? "TypeOfStock: FunctionalStock" : "TypeOfStock: PhysicalStock",
+                AutoSize = true,
+            };
+            typeOfStock.Click += (s, e) => {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _formStock.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    _formStock.ShowDialog();
+                }
+            };
+
+            Label accessStock = new Label() {
+                Text = (stock.AccessStock == AccessOfStocks.Private) ? "Access: Private" : "Access: Public",
+                AutoSize = true,
+            };
+            accessStock.Click += (s, e) => {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _formStock.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    _formStock.ShowDialog();
+                }
+            };
+
+            Label creator = new Label()
+            {
+                Text = "Creator: " + stock.Creator.UserName,
+                AutoSize = true,
+            };
+            creator.Click += (s, e) => {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _formStock.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    _formStock.ShowDialog();
+                }
+            };
+
+            innerPanel.Controls.Add(nameStock);
+            innerPanel.Controls.Add(typeOfStock);
+            innerPanel.Controls.Add(accessStock);
+            innerPanel.Controls.Add(creator);
 
             Button tempButton = new Button() { 
                 Dock = DockStyle.Bottom,
@@ -50,16 +187,18 @@ namespace StockMaster.Classes.CardCreation
                 if (dialog == DialogResult.Yes)
                 {
                     _flowPanel.Controls.Remove(tempPanel);
-                    _panels.Remove(tempPanel);
+                    _panels.Remove((tempPanel, stock.Id));
                     tempPanel.Dispose();
+                    _queries.DeleteStockById(stock.Id);
                 }
             };
 
-            tempPanel.Controls.Add(tempButton);
 
+            tempPanel.Controls.Add(tempButton);
+            tempPanel.Controls.Add(innerPanel);
             _flowPanel.Controls.Add(tempPanel);
 
-            _panels.Add(tempPanel);
+            _panels.Add((tempPanel, stock.Id));
         }
 
     }

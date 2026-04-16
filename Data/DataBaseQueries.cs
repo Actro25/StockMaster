@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StockMaster.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace StockMaster.Data
 {
@@ -28,6 +29,14 @@ namespace StockMaster.Data
             _context.Stocks.Add(stock);
             _context.SaveChanges();
             return stock;
+        }
+        public async Task<List<Stock>> GetAllStocks() => await _context.Stocks.Include(s => s.Creator).ToListAsync();
+        public void DeleteStockById(int id) {
+            var stock = _context.Stocks.FirstOrDefault(s => s.Id == id);
+            if (stock == null)
+                return;
+            _context.Stocks.Remove(stock);
+            _context.SaveChanges();
         }
     }
 }

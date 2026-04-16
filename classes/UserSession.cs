@@ -11,8 +11,16 @@ namespace StockMaster.Classes
     {
         public User? CurrentUser { get; private set; }
 
-        public void Login(User user) => CurrentUser = user; // Записуємо user в сесію
-        public void Logout() => CurrentUser = null; // Видаляємо user з сесії
+        public event Action? OnLoginSuccess;
+        public event Action? OnLogoutSuccess;
+        public void Login(User user) { 
+            CurrentUser = user;  // Записуємо user в сесію
+            OnLoginSuccess?.Invoke(); // Запускаємо функції під час входу в акаунт
+        }
+        public void Logout() { 
+            CurrentUser = null;  // Видаляємо user з сесії
+            OnLogoutSuccess?.Invoke();// Запускаємо функції під час виходу з акаунту
+        }
         public bool IsLogined() => CurrentUser != null; // Перевіряємо чи user залогінений
     }
 }
