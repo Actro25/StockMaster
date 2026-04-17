@@ -25,6 +25,46 @@ namespace StockMaster
             Close();
         }
 
+        private void addDataButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var temp1 = new Label()
+                {
+                    Text = "Apple"
+                };
+                var temp2 = new Label()
+                {
+                    Text = "Banne"
+                };
+                var temp3 = new Label()
+                {
+                    Text = "Cherry"
+                };
+                var temp4 = new Label()
+                {
+                    Text = "Coconut"
+                };
+                var temp5 = new Label()
+                {
+                    Text = "Blubbery"
+                };
+                flowLayoutPanelId.Controls.AddRange(temp1);
+                flowLayoutPanelId.Controls.AddRange(temp2);
+                flowLayoutPanelId.Controls.AddRange(temp3);
+                flowLayoutPanelId.Controls.AddRange(temp4);
+                flowLayoutPanelId.Controls.AddRange(temp5);
+            }
+        }
 
+        private void StockDataShowForm_Load(object sender, EventArgs e)
+        {
+            flowLayoutPanelId.BackColor = ColorTranslator.FromHtml("#B3E5FC");
+            flowLayoutPanelNameOfGood.BackColor = ColorTranslator.FromHtml("#A5D4F0");
+            flowLayoutPanelQuantity.BackColor = ColorTranslator.FromHtml("#B3E5FC");
+            flowLayoutPanelDateOfArrival.BackColor = ColorTranslator.FromHtml("#A5D4F0");
+            flowLayoutPanelPrice.BackColor = ColorTranslator.FromHtml("#B3E5FC");
+            flowLayoutPanelStockInfo.BackColor = Color.FromArgb(128, 135, 215, 255);
+        }
     }
 }
