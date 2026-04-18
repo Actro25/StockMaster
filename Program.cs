@@ -50,6 +50,7 @@ namespace StockMaster
                 services.AddSingleton<CardCreationInStocks>(); // Клас для виведення карточок
                 services.AddSingleton<UserSession>(); // Клас для зберігання сесії
                 services.AddSingleton<StockStorage>(); // Передаємо данні про сто між головною формою та формою показу данних
+                services.AddSingleton<ShowDataInStockClass>(); // Для вивода данних в таблицю
 
                 services.AddTransient<AddDataInStock>();
                 services.AddTransient<AddNewStockForm>();

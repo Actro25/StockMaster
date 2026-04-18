@@ -62,6 +62,7 @@ namespace StockMaster
                 Price = Convert.ToDecimal(priceTextBox.Text),
                 StockId = _mainStock.Current.Id
             });
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 

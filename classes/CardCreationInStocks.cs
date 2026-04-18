@@ -98,6 +98,9 @@ namespace StockMaster.Classes.CardCreation
             {
                 if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
                 {
+                    var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
+                    stockToTransfer.Current = stock;
+
                     _myForm.Hide();
                     if (_formStock.ShowDialog() == DialogResult.Abort)
                     {
