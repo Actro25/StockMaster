@@ -6,15 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Classes.MoveForm;
 namespace StockMaster
 {
     public partial class StockDataShowForm : Form
     {
-
-        public StockDataShowForm()
+        IServiceProvider _serviceProvider;
+        public StockDataShowForm(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _serviceProvider = serviceProvider;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -27,7 +29,12 @@ namespace StockMaster
 
         private void addDataButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 10; i++)
+            using (var addNewDataStock = _serviceProvider.GetRequiredService<AddDataInStock>()) {
+                if (addNewDataStock.ShowDialog() == DialogResult.OK) {
+                    
+                }
+            }
+/*            for (int i = 0; i < 10; i++)
             {
                 var temp1 = new Label()
                 {
@@ -53,8 +60,7 @@ namespace StockMaster
                 flowLayoutPanelId.Controls.AddRange(temp2);
                 flowLayoutPanelId.Controls.AddRange(temp3);
                 flowLayoutPanelId.Controls.AddRange(temp4);
-                flowLayoutPanelId.Controls.AddRange(temp5);
-            }
+                flowLayoutPanelId.Controls.AddRange(temp5);*/
         }
 
         private void StockDataShowForm_Load(object sender, EventArgs e)

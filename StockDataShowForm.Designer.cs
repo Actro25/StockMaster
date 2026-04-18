@@ -200,7 +200,7 @@
             addDataButton.Name = "addDataButton";
             addDataButton.Size = new System.Drawing.Size(144, 38);
             addDataButton.TabIndex = 4;
-            addDataButton.Text = "Add";
+            addDataButton.Text = "Add data";
             addDataButton.UseVisualStyleBackColor = true;
             addDataButton.Click += addDataButton_Click;
             // 
