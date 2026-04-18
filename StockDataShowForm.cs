@@ -8,15 +8,19 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Classes.MoveForm;
+using StockMaster.Models;
+using StockMaster.Services;
 namespace StockMaster
 {
     public partial class StockDataShowForm : Form
     {
-        IServiceProvider _serviceProvider;
-        public StockDataShowForm(IServiceProvider serviceProvider)
+        private IServiceProvider _serviceProvider;
+        private StockStorage _mainStock;
+        public StockDataShowForm(IServiceProvider serviceProvider, StockStorage stock)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
+            _mainStock = stock;
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -24,7 +28,8 @@ namespace StockMaster
         }
         private void closeFormButton_Click(object sender, EventArgs e)
         {
-            Close();
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
         }
 
         private void addDataButton_Click(object sender, EventArgs e)

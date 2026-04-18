@@ -38,10 +38,10 @@
             label5 = new System.Windows.Forms.Label();
             nameOfGoodTextBox = new System.Windows.Forms.TextBox();
             quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             priceTextBox = new System.Windows.Forms.TextBox();
             createButton = new System.Windows.Forms.Button();
             cancelButton = new System.Windows.Forms.Button();
+            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)quantityNumericUpDown).BeginInit();
             SuspendLayout();
@@ -122,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(240, 50);
+            label4.Location = new System.Drawing.Point(229, 50);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(83, 15);
             label4.TabIndex = 6;
@@ -131,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(15, 176);
+            label5.Location = new System.Drawing.Point(229, 110);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(36, 15);
             label5.TabIndex = 7;
@@ -155,23 +155,18 @@
             quantityNumericUpDown.TabIndex = 9;
             quantityNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // monthCalendar1
-            // 
-            monthCalendar1.Location = new System.Drawing.Point(240, 68);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 10;
-            // 
             // priceTextBox
             // 
-            priceTextBox.Location = new System.Drawing.Point(15, 194);
+            priceTextBox.Location = new System.Drawing.Point(229, 128);
             priceTextBox.Name = "priceTextBox";
             priceTextBox.Size = new System.Drawing.Size(182, 23);
             priceTextBox.TabIndex = 11;
+            priceTextBox.Text = "0";
             priceTextBox.KeyPress += priceTextBox_KeyPress;
             // 
             // createButton
             // 
-            createButton.Location = new System.Drawing.Point(9, 242);
+            createButton.Location = new System.Drawing.Point(9, 166);
             createButton.Name = "createButton";
             createButton.Size = new System.Drawing.Size(200, 45);
             createButton.TabIndex = 12;
@@ -181,7 +176,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new System.Drawing.Point(215, 242);
+            cancelButton.Location = new System.Drawing.Point(215, 166);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new System.Drawing.Size(200, 45);
             cancelButton.TabIndex = 13;
@@ -189,15 +184,23 @@
             cancelButton.UseVisualStyleBackColor = true;
             cancelButton.Click += cancelButton_Click;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
+            dateTimePicker1.Location = new System.Drawing.Point(229, 68);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new System.Drawing.Size(168, 23);
+            dateTimePicker1.TabIndex = 14;
+            // 
             // AddDataInStock
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(427, 290);
+            ClientSize = new System.Drawing.Size(427, 217);
+            Controls.Add(dateTimePicker1);
             Controls.Add(cancelButton);
             Controls.Add(createButton);
             Controls.Add(priceTextBox);
-            Controls.Add(monthCalendar1);
             Controls.Add(quantityNumericUpDown);
             Controls.Add(nameOfGoodTextBox);
             Controls.Add(label5);
@@ -228,9 +231,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox nameOfGoodTextBox;
         private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

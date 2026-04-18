@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using StockMaster.Classes;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Data;
+using StockMaster.Models;
 using StockMaster.Services;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,7 @@ namespace StockMaster
                 services.AddSingleton<ValidationService>(); // Ще один клас для валідації
                 services.AddSingleton<CardCreationInStocks>(); // Клас для виведення карточок
                 services.AddSingleton<UserSession>(); // Клас для зберігання сесії
+                services.AddSingleton<StockStorage>(); // Передаємо данні про сто між головною формою та формою показу данних
 
                 services.AddTransient<AddDataInStock>();
                 services.AddTransient<AddNewStockForm>();

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Data;
 using StockMaster.Models;
+using StockMaster.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,6 +18,8 @@ namespace StockMaster.Classes.CardCreation
         private List<(Panel panel, int idPanel)> _panels = new List<(Panel panel, int idPanel)>();
         private FlowLayoutPanel _flowPanel;
         private Form1 _myForm;
+
+        
 
         private IServiceScopeFactory _scopeFactory;
         private IServiceProvider _serviceProvider;
@@ -79,8 +82,13 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
                         {
+                            var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
+                            stockToTransfer.Current = stock;
+
                             _myForm.Hide();
-                            _formStock.ShowDialog();
+                            if (_formStock.ShowDialog() == DialogResult.Abort) {
+                                Application.Exit();
+                            }
                             _myForm.Show();
                         }
                     }
@@ -91,7 +99,10 @@ namespace StockMaster.Classes.CardCreation
                 if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
                 {
                     _myForm.Hide();
-                    _formStock.ShowDialog();
+                    if (_formStock.ShowDialog() == DialogResult.Abort)
+                    {
+                        Application.Exit();
+                    }
                     _myForm.Show();
                 }
             }

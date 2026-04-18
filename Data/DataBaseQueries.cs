@@ -38,5 +38,9 @@ namespace StockMaster.Data
             _context.Stocks.Remove(stock);
             _context.SaveChanges();
         }
+        public void AddFunctionStockData(FunctionStockData data) {
+            _context.FunctionStockData.Add(data);
+            _context.SaveChanges();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using StockMaster.Classes.MoveForm;
 using StockMaster.Data;
+using StockMaster.Models;
 using StockMaster.Services;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,13 @@ namespace StockMaster
     {
         private ValidationService _validation;
         private DataBaseQueries _queries;
-        public AddDataInStock(ValidationService validation, DataBaseQueries queries)
+        private StockStorage _mainStock;
+        public AddDataInStock(ValidationService validation, DataBaseQueries queries, StockStorage stock)
         {
             InitializeComponent();
             _validation = validation;
             _queries = queries;
+            _mainStock = stock;
         }
 
         private void closeFormButton_Click(object sender, EventArgs e)
@@ -43,9 +46,23 @@ namespace StockMaster
         {
             if (!_validation.IsValidName(nameOfGoodTextBox.Text))
             {
-                MessageBox.Show("You entered incorrect name");
+                MessageBox.Show("You entered incorrect name.");
                 return;
             }
+            if (priceTextBox.Text == "")
+            {
+                MessageBox.Show("You don't enter price for your data.");
+                return;
+            }
+            _queries.AddFunctionStockData(new Models.FunctionStockData
+            {
+                NameOfGood = nameOfGoodTextBox.Text,
+                Quantity = (int)quantityNumericUpDown.Value,
+                DateOfArrival = dateTimePicker1.Value,
+                Price = Convert.ToDecimal(priceTextBox.Text),
+                StockId = _mainStock.Current.Id
+            });
+            this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -69,7 +86,9 @@ namespace StockMaster
 
         private void AddDataInStock_Load(object sender, EventArgs e)
         {
-            monthCalendar1.MinDate = DateTime.Today;
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
+            dateTimePicker1.ShowUpDown = true;
         }
     }
 }
