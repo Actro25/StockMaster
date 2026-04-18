@@ -133,6 +133,7 @@
             // 
             nameOfStock.Location = new System.Drawing.Point(26, 112);
             nameOfStock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            nameOfStock.MaxLength = 10;
             nameOfStock.Name = "nameOfStock";
             nameOfStock.Size = new System.Drawing.Size(218, 23);
             nameOfStock.TabIndex = 5;
@@ -190,6 +191,7 @@
             // 
             confirmPasswordTextBox.Location = new System.Drawing.Point(15, 81);
             confirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            confirmPasswordTextBox.MaxLength = 30;
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             confirmPasswordTextBox.Size = new System.Drawing.Size(174, 23);
             confirmPasswordTextBox.TabIndex = 12;
@@ -199,6 +201,7 @@
             // 
             passwordTextBox.Location = new System.Drawing.Point(15, 36);
             passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordTextBox.MaxLength = 30;
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new System.Drawing.Size(174, 23);
             passwordTextBox.TabIndex = 10;

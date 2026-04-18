@@ -233,6 +233,7 @@
             // 
             passwordConfirmSingUpBox.Location = new System.Drawing.Point(43, 204);
             passwordConfirmSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordConfirmSingUpBox.MaxLength = 30;
             passwordConfirmSingUpBox.Name = "passwordConfirmSingUpBox";
             passwordConfirmSingUpBox.Size = new System.Drawing.Size(207, 23);
             passwordConfirmSingUpBox.TabIndex = 5;
@@ -275,6 +276,7 @@
             // 
             userNameSingUpBox.Location = new System.Drawing.Point(43, 67);
             userNameSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userNameSingUpBox.MaxLength = 10;
             userNameSingUpBox.Name = "userNameSingUpBox";
             userNameSingUpBox.Size = new System.Drawing.Size(207, 23);
             userNameSingUpBox.TabIndex = 0;
@@ -283,6 +285,7 @@
             // 
             passwordSingUpBox.Location = new System.Drawing.Point(43, 134);
             passwordSingUpBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordSingUpBox.MaxLength = 30;
             passwordSingUpBox.Name = "passwordSingUpBox";
             passwordSingUpBox.Size = new System.Drawing.Size(207, 23);
             passwordSingUpBox.TabIndex = 1;
@@ -340,6 +343,7 @@
             // 
             userNameLogInBox.Location = new System.Drawing.Point(43, 67);
             userNameLogInBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            userNameLogInBox.MaxLength = 10;
             userNameLogInBox.Name = "userNameLogInBox";
             userNameLogInBox.Size = new System.Drawing.Size(207, 23);
             userNameLogInBox.TabIndex = 0;
@@ -348,6 +352,7 @@
             // 
             passwordLogInBox.Location = new System.Drawing.Point(43, 159);
             passwordLogInBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            passwordLogInBox.MaxLength = 30;
             passwordLogInBox.Name = "passwordLogInBox";
             passwordLogInBox.Size = new System.Drawing.Size(207, 23);
             passwordLogInBox.TabIndex = 1;

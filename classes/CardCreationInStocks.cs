@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Data;
 using StockMaster.Models;
 using System;
@@ -16,7 +17,7 @@ namespace StockMaster.Classes.CardCreation
         private List<(Panel panel, int idPanel)> _panels = new List<(Panel panel, int idPanel)>();
         private FlowLayoutPanel _flowPanel;
         private Form1 _myForm;
-        private DataBaseQueries _queries;
+        private IServiceScopeFactory _scopeFactory;
 
 
 
@@ -26,8 +27,8 @@ namespace StockMaster.Classes.CardCreation
         private const int _basicPanelWidth = 207;
         private const int _basicPanelHeight = 124;
 
-        public CardCreationInStocks(DataBaseQueries queries) {
-            _queries = queries;
+        public CardCreationInStocks(IServiceScopeFactory scopeFactory) {
+            _scopeFactory = scopeFactory;
         }
         public void Create(FlowLayoutPanel flowPanel, Form1 myForm) {
             _flowPanel = flowPanel;
@@ -39,14 +40,25 @@ namespace StockMaster.Classes.CardCreation
             _flowPanel.SuspendLayout();
             try
             {
-                ClearPanel();
-                var temp = await _queries.GetAllStocks();
-                foreach (var item in temp) {
-                    AddPanel(item);
+                using (var scopedQueries = _scopeFactory.CreateScope())
+                {
+                    var query = scopedQueries.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                    ClearPanel();
+                    var temp = await query.GetAllStocks();
+                    foreach (var item in temp)
+                    {
+                        AddPanel(item);
+                    }
                 }
             }
             finally {
                 _flowPanel.ResumeLayout();
+            }
+        }
+        private void DeleteData(int Id) {
+            using (var scope = _scopeFactory.CreateScope()) {
+                var query = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                query.DeleteStockById(Id);
             }
         }
         public void AddPanel(Stock stock) 
@@ -71,13 +83,15 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (checkPsw.ShowDialog() == DialogResult.OK)
                         {
-                            _formStock.ShowDialog();
+                            if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                                _formStock.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    _formStock.ShowDialog();
+                    if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        _formStock.ShowDialog();
                 }
             };
 
@@ -94,12 +108,14 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (checkPsw.ShowDialog() == DialogResult.OK)
                         {
-                            _formStock.ShowDialog();
+                            if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                                _formStock.ShowDialog();
                         }
                     }
                 }
                 else {
-                    _formStock.ShowDialog();
+                    if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        _formStock.ShowDialog();
                 }
             };
 
@@ -115,13 +131,15 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (checkPsw.ShowDialog() == DialogResult.OK)
                         {
-                            _formStock.ShowDialog();
+                            if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                                _formStock.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    _formStock.ShowDialog();
+                    if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        _formStock.ShowDialog();
                 }
             };
 
@@ -136,13 +154,15 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (checkPsw.ShowDialog() == DialogResult.OK)
                         {
-                            _formStock.ShowDialog();
+                            if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                                _formStock.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    _formStock.ShowDialog();
+                    if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        _formStock.ShowDialog();
                 }
             };
 
@@ -158,13 +178,15 @@ namespace StockMaster.Classes.CardCreation
                     {
                         if (checkPsw.ShowDialog() == DialogResult.OK)
                         {
-                            _formStock.ShowDialog();
+                            if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                                _formStock.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    _formStock.ShowDialog();
+                    if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        _formStock.ShowDialog();
                 }
             };
 
@@ -189,7 +211,7 @@ namespace StockMaster.Classes.CardCreation
                     _flowPanel.Controls.Remove(tempPanel);
                     _panels.Remove((tempPanel, stock.Id));
                     tempPanel.Dispose();
-                    _queries.DeleteStockById(stock.Id);
+                    DeleteData(stock.Id);
                 }
             };
 

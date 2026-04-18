@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace StockMaster.Models
 {
-    public class User
+    public class FunctionStockData
     {
         [Key]
         public int Id { get; set; }
         [MaxLength(10)]
         [Required]
-        public string UserName { get; set; }
-        [MaxLength(30)]
+        public string NameOfGood { get; set; }
         [Required]
-        public string UserPassword { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime DateOfArrival { get; set; }
+        [Required]
+        public decimal Price { get; set; }
     }
 }

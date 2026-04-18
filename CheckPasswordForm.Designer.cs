@@ -80,6 +80,7 @@
             // textBox1
             // 
             textBox1.Location = new System.Drawing.Point(12, 62);
+            textBox1.MaxLength = 30;
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(409, 23);
             textBox1.TabIndex = 2;

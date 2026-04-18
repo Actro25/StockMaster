@@ -20,6 +20,7 @@ namespace StockMaster.Data
          */
         public DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<FunctionStockData> FunctionStockData { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)

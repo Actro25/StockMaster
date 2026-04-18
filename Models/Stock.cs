@@ -36,7 +36,7 @@ namespace StockMaster.Models
         public virtual User Creator { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(10)]
         public string StockName { get; set; }
 
         [Required]
@@ -44,7 +44,7 @@ namespace StockMaster.Models
 
         [Required]
         public AccessOfStocks AccessStock { get; set; }
-
+        [MaxLength(30)]
         public string? Password { get; set; }
     }
 }

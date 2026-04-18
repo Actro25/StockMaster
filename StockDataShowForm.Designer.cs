@@ -128,7 +128,7 @@
             // 
             flowLayoutPanelId.AutoSize = true;
             flowLayoutPanelId.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            flowLayoutPanelId.BackColor = System.Drawing.Color.LightSkyBlue;
+            flowLayoutPanelId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelId.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelId.Location = new System.Drawing.Point(3, 3);
             flowLayoutPanelId.MaximumSize = new System.Drawing.Size(66, 0);
@@ -142,7 +142,7 @@
             // 
             flowLayoutPanelNameOfGood.AutoSize = true;
             flowLayoutPanelNameOfGood.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            flowLayoutPanelNameOfGood.BackColor = System.Drawing.Color.RoyalBlue;
+            flowLayoutPanelNameOfGood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelNameOfGood.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelNameOfGood.Location = new System.Drawing.Point(75, 3);
             flowLayoutPanelNameOfGood.MaximumSize = new System.Drawing.Size(365, 0);
@@ -156,7 +156,7 @@
             // 
             flowLayoutPanelQuantity.AutoSize = true;
             flowLayoutPanelQuantity.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            flowLayoutPanelQuantity.BackColor = System.Drawing.Color.LightSkyBlue;
+            flowLayoutPanelQuantity.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelQuantity.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelQuantity.Location = new System.Drawing.Point(446, 3);
             flowLayoutPanelQuantity.MaximumSize = new System.Drawing.Size(80, 0);
@@ -170,6 +170,7 @@
             // 
             flowLayoutPanelDateOfArrival.AutoSize = true;
             flowLayoutPanelDateOfArrival.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            flowLayoutPanelDateOfArrival.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelDateOfArrival.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelDateOfArrival.Location = new System.Drawing.Point(532, 3);
             flowLayoutPanelDateOfArrival.MaximumSize = new System.Drawing.Size(125, 0);
@@ -183,7 +184,7 @@
             // 
             flowLayoutPanelPrice.AutoSize = true;
             flowLayoutPanelPrice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            flowLayoutPanelPrice.BackColor = System.Drawing.Color.LightSkyBlue;
+            flowLayoutPanelPrice.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelPrice.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelPrice.Location = new System.Drawing.Point(663, 3);
             flowLayoutPanelPrice.MaximumSize = new System.Drawing.Size(72, 0);
