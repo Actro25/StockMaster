@@ -46,11 +46,34 @@ namespace StockMaster.Classes
             ClearRows();
             using (var scopedQueries = _scopeFactory.CreateScope()) {
                 var queries = scopedQueries.ServiceProvider.GetRequiredService<DataBaseQueries>();
-                var temp = await queries.GetAllDataStocksById(_mainStock.Current.Id);
+                var temp = await queries.GetAllFunctionDataStocksById(_mainStock.Current.Id);
                 UpdateEveryRow(temp);
             }
         }
-        public void ClearRows() {
+
+        public bool DeleteCurrentDataRow() {
+            if (_lastSelectedId == -1)
+                return false;
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                queries.DeleteFunctionDataById(_lastSelectedId);
+            }
+            return true;
+        }
+
+        public bool GetCurrentDataRow() {
+            if (_lastSelectedId == -1)
+                return false;
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                _currentDataSelected.Current = queries.GetFunctionDataStockById(_lastSelectedId);
+            }
+            return true;
+        }
+
+        private void ClearRows() {
             _idPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
             _idPanel.Controls.Clear();
 
@@ -74,7 +97,7 @@ namespace StockMaster.Classes
                 Label lbId = new Label { Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter };
                 Label lbName = new Label { Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
                 Label lbQuan = new Label { Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbData = new Label { Text = item.DateOfArrival.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbData = new Label { Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
                 Label lbPrice = new Label { Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
 
                 Panel idPanHolder = new Panel{
@@ -154,12 +177,6 @@ namespace StockMaster.Classes
 
             try
             {
-                //using (var scope = _scopeFactory.CreateScope())
-                //{
-                //    var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
-                //    _currentDataSelected.Current = queries.GetDataStockById(Id);
-                //}
-
                 // Змінюємо колір у минулих панелях
                 if (_lastSelectedId != -1 && _rowGroups.TryGetValue(_lastSelectedId, out List<Panel> panelsOld))
                 {

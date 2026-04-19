@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace StockMaster
 {
-    public partial class AddDataInStock : Form
+    public partial class AddFunctionalDataInStock : Form
     {
         private ValidationService _validation;
         private DataBaseQueries _queries;
         private StockStorage _mainStock;
-        public AddDataInStock(ValidationService validation, DataBaseQueries queries, StockStorage stock)
+        public AddFunctionalDataInStock(ValidationService validation, DataBaseQueries queries, StockStorage stock)
         {
             InitializeComponent();
             _validation = validation;

@@ -44,7 +44,7 @@ namespace StockMaster.Migrations
 
                     b.HasIndex("StockId");
 
-                    b.ToTable("FunctionStockData");
+                    b.ToTable("FunctionStockData", (string)null);
                 });
 
             modelBuilder.Entity("StockMaster.Models.Stock", b =>
@@ -75,7 +75,7 @@ namespace StockMaster.Migrations
 
                     b.HasIndex("CreatorId");
 
-                    b.ToTable("Stocks");
+                    b.ToTable("Stocks", (string)null);
                 });
 
             modelBuilder.Entity("StockMaster.Models.User", b =>
@@ -96,7 +96,7 @@ namespace StockMaster.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("StockMaster.Models.FunctionStockData", b =>

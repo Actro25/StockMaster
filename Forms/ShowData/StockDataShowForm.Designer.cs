@@ -40,7 +40,7 @@
             flowLayoutPanelPrice = new System.Windows.Forms.FlowLayoutPanel();
             addDataButton = new System.Windows.Forms.Button();
             moreInformationButton = new System.Windows.Forms.Button();
-            changeDataButton = new System.Windows.Forms.Button();
+            updateDataButton = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
             deleteDataButton = new System.Windows.Forms.Button();
@@ -214,14 +214,15 @@
             moreInformationButton.Text = "More information";
             moreInformationButton.UseVisualStyleBackColor = true;
             // 
-            // changeDataButton
+            // updateDataButton
             // 
-            changeDataButton.Location = new System.Drawing.Point(777, 199);
-            changeDataButton.Name = "changeDataButton";
-            changeDataButton.Size = new System.Drawing.Size(144, 38);
-            changeDataButton.TabIndex = 6;
-            changeDataButton.Text = "Change data";
-            changeDataButton.UseVisualStyleBackColor = true;
+            updateDataButton.Location = new System.Drawing.Point(777, 199);
+            updateDataButton.Name = "updateDataButton";
+            updateDataButton.Size = new System.Drawing.Size(144, 38);
+            updateDataButton.TabIndex = 6;
+            updateDataButton.Text = "Update data";
+            updateDataButton.UseVisualStyleBackColor = true;
+            updateDataButton.Click += updateDataButton_Click;
             // 
             // button4
             // 
@@ -249,7 +250,7 @@
             deleteDataButton.TabIndex = 7;
             deleteDataButton.Text = "Delete data";
             deleteDataButton.UseVisualStyleBackColor = true;
-            deleteDataButton.Click += deleteDataButton_Click;
+            deleteDataButton.Click += deleteDataButton_Click_1;
             // 
             // inputDataTextBox
             // 
@@ -358,7 +359,7 @@
             Controls.Add(button4);
             Controls.Add(button5);
             Controls.Add(deleteDataButton);
-            Controls.Add(changeDataButton);
+            Controls.Add(updateDataButton);
             Controls.Add(moreInformationButton);
             Controls.Add(addDataButton);
             Controls.Add(flowLayoutPanelStockInfo);
@@ -386,7 +387,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelStockInfo;
         private System.Windows.Forms.Button addDataButton;
         private System.Windows.Forms.Button moreInformationButton;
-        private System.Windows.Forms.Button changeDataButton;
+        private System.Windows.Forms.Button updateDataButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button deleteDataButton;

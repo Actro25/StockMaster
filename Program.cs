@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using StockMaster.Classes;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Data;
+using StockMaster.Forms.Quick;
 using StockMaster.Models;
 using StockMaster.Services;
 using System;
@@ -53,7 +54,8 @@ namespace StockMaster
                 services.AddSingleton<ShowDataInStockClass>(); // Для вивода данних в таблицю
                 services.AddSingleton<FunctionalDataStorage>();
 
-                services.AddTransient<AddDataInStock>();
+                services.AddTransient<UpdateFunctionalStockData>();
+                services.AddTransient<AddFunctionalDataInStock>();
                 services.AddTransient<AddNewStockForm>();
                 services.AddTransient<StockDataShowForm>();
                 services.AddTransient<Form1>(); //Незнаю

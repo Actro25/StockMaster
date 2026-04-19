@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Classes;
 using StockMaster.Classes.MoveForm;
+using StockMaster.Forms.Quick;
 using StockMaster.Models;
 using StockMaster.Services;
 namespace StockMaster
@@ -39,7 +41,7 @@ namespace StockMaster
 
         private async void addDataButton_Click(object sender, EventArgs e)
         {
-            using (var addNewDataStock = _serviceProvider.GetRequiredService<AddDataInStock>())
+            using (var addNewDataStock = _serviceProvider.GetRequiredService<AddFunctionalDataInStock>())
             {
                 if (addNewDataStock.ShowDialog() == DialogResult.OK)
                 {
@@ -68,7 +70,36 @@ namespace StockMaster
 
         private void deleteDataButton_Click(object sender, EventArgs e)
         {
+            if (!_showDataInStock.GetCurrentDataRow())
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+        }
+        private async void updateDataButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.GetCurrentDataRow())
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+            using (var updateDataForStock = _serviceProvider.GetRequiredService<UpdateFunctionalStockData>())
+            {
+                if (updateDataForStock.ShowDialog() == DialogResult.OK)
+                {
+                    await _showDataInStock.UpdateDataTable();
+                }
+            }
+        }
 
+        private async void deleteDataButton_Click_1(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.DeleteCurrentDataRow())
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+            await _showDataInStock.UpdateDataTable();
         }
     }
 }

@@ -42,7 +42,18 @@ namespace StockMaster.Data
             _context.FunctionStockData.Add(data);
             _context.SaveChanges();
         }
-        public async Task<List<FunctionStockData>> GetAllDataStocksById(int id) => await _context.FunctionStockData.Where(f => f.StockId == id).ToListAsync();
-        public FunctionStockData GetDataStockById(int id) => _context.FunctionStockData.FirstOrDefault(f => f.Id == id);
+        public async Task<List<FunctionStockData>> GetAllFunctionDataStocksById(int id) => await _context.FunctionStockData.Where(f => f.StockId == id).ToListAsync();
+        public FunctionStockData GetFunctionDataStockById(int id) => _context.FunctionStockData.FirstOrDefault(f => f.Id == id);
+        public void UpdateFunctionDataStock(FunctionStockData data) {
+            _context.FunctionStockData.Update(data);
+            _context.SaveChanges();
+        }
+        public void DeleteFunctionDataById(int id) {
+            var temp = _context.FunctionStockData.Find(id);
+            if (temp != null) {
+                _context.FunctionStockData.Remove(temp);
+                _context.SaveChanges();
+            }
+        }
     }
 }

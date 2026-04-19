@@ -21,8 +21,16 @@ namespace StockMaster.Models
         public string NameOfGood { get; set; }
         [Required]
         public int Quantity { get; set; }
+
+        private DateTime _dateOfArrival;
         [Required]
-        public DateTime DateOfArrival { get; set; }
+        public DateTime DateOfArrival {
+            get => _dateOfArrival;
+            set => _dateOfArrival = new DateTime(
+                value.Year, value.Month, value.Day,
+                value.Hour, value.Minute, 0, 0 
+            );
+        }
         [Required]
         public decimal Price { get; set; }
     }

@@ -1,6 +1,6 @@
 ﻿namespace StockMaster
 {
-    partial class AddDataInStock
+    partial class AddFunctionalDataInStock
     {
         /// <summary>
         /// Required designer variable.
@@ -68,9 +68,9 @@
             label1.Location = new System.Drawing.Point(4, 5);
             label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(123, 21);
+            label1.Size = new System.Drawing.Size(129, 21);
             label1.TabIndex = 1;
-            label1.Text = "AddDataToStock";
+            label1.Text = "AddDataForStock";
             label1.MouseDown += panel1_MouseDown;
             // 
             // panel1
@@ -104,7 +104,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(15, 50);
+            label2.Location = new System.Drawing.Point(15, 44);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(87, 15);
             label2.TabIndex = 4;
@@ -113,7 +113,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(15, 111);
+            label3.Location = new System.Drawing.Point(15, 105);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(56, 15);
             label3.TabIndex = 5;
@@ -122,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(229, 50);
+            label4.Location = new System.Drawing.Point(229, 44);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(83, 15);
             label4.TabIndex = 6;
@@ -131,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(229, 110);
+            label5.Location = new System.Drawing.Point(229, 104);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(36, 15);
             label5.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             // nameOfGoodTextBox
             // 
-            nameOfGoodTextBox.Location = new System.Drawing.Point(15, 68);
+            nameOfGoodTextBox.Location = new System.Drawing.Point(15, 62);
             nameOfGoodTextBox.MaxLength = 10;
             nameOfGoodTextBox.Name = "nameOfGoodTextBox";
             nameOfGoodTextBox.Size = new System.Drawing.Size(182, 23);
@@ -147,7 +147,7 @@
             // 
             // quantityNumericUpDown
             // 
-            quantityNumericUpDown.Location = new System.Drawing.Point(15, 129);
+            quantityNumericUpDown.Location = new System.Drawing.Point(15, 123);
             quantityNumericUpDown.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             quantityNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             quantityNumericUpDown.Name = "quantityNumericUpDown";
@@ -157,7 +157,7 @@
             // 
             // priceTextBox
             // 
-            priceTextBox.Location = new System.Drawing.Point(229, 128);
+            priceTextBox.Location = new System.Drawing.Point(229, 122);
             priceTextBox.Name = "priceTextBox";
             priceTextBox.Size = new System.Drawing.Size(182, 23);
             priceTextBox.TabIndex = 11;
@@ -166,7 +166,7 @@
             // 
             // createButton
             // 
-            createButton.Location = new System.Drawing.Point(9, 166);
+            createButton.Location = new System.Drawing.Point(9, 160);
             createButton.Name = "createButton";
             createButton.Size = new System.Drawing.Size(200, 45);
             createButton.TabIndex = 12;
@@ -176,7 +176,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new System.Drawing.Point(215, 166);
+            cancelButton.Location = new System.Drawing.Point(215, 160);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new System.Drawing.Size(200, 45);
             cancelButton.TabIndex = 13;
@@ -187,12 +187,12 @@
             // dateTimePicker1
             // 
             dateTimePicker1.CustomFormat = "dd.MM.yyyy HH:mm";
-            dateTimePicker1.Location = new System.Drawing.Point(229, 68);
+            dateTimePicker1.Location = new System.Drawing.Point(229, 62);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new System.Drawing.Size(168, 23);
             dateTimePicker1.TabIndex = 14;
             // 
-            // AddDataInStock
+            // AddFunctionalDataInStock
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Name = "AddDataInStock";
+            Name = "AddFunctionalDataInStock";
             Text = "AddDataInStock";
             Load += AddDataInStock_Load;
             panel1.ResumeLayout(false);
