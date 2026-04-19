@@ -147,9 +147,9 @@
             flowLayoutPanelNameOfGood.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             flowLayoutPanelNameOfGood.Location = new System.Drawing.Point(75, 3);
             flowLayoutPanelNameOfGood.MaximumSize = new System.Drawing.Size(365, 0);
-            flowLayoutPanelNameOfGood.MinimumSize = new System.Drawing.Size(365, 345);
+            flowLayoutPanelNameOfGood.MinimumSize = new System.Drawing.Size(350, 345);
             flowLayoutPanelNameOfGood.Name = "flowLayoutPanelNameOfGood";
-            flowLayoutPanelNameOfGood.Size = new System.Drawing.Size(365, 345);
+            flowLayoutPanelNameOfGood.Size = new System.Drawing.Size(350, 345);
             flowLayoutPanelNameOfGood.TabIndex = 1;
             flowLayoutPanelNameOfGood.WrapContents = false;
             // 
@@ -159,7 +159,7 @@
             flowLayoutPanelQuantity.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             flowLayoutPanelQuantity.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelQuantity.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanelQuantity.Location = new System.Drawing.Point(446, 3);
+            flowLayoutPanelQuantity.Location = new System.Drawing.Point(431, 3);
             flowLayoutPanelQuantity.MaximumSize = new System.Drawing.Size(80, 0);
             flowLayoutPanelQuantity.MinimumSize = new System.Drawing.Size(80, 345);
             flowLayoutPanelQuantity.Name = "flowLayoutPanelQuantity";
@@ -173,7 +173,7 @@
             flowLayoutPanelDateOfArrival.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             flowLayoutPanelDateOfArrival.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelDateOfArrival.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanelDateOfArrival.Location = new System.Drawing.Point(532, 3);
+            flowLayoutPanelDateOfArrival.Location = new System.Drawing.Point(517, 3);
             flowLayoutPanelDateOfArrival.MaximumSize = new System.Drawing.Size(125, 0);
             flowLayoutPanelDateOfArrival.MinimumSize = new System.Drawing.Size(125, 345);
             flowLayoutPanelDateOfArrival.Name = "flowLayoutPanelDateOfArrival";
@@ -187,11 +187,11 @@
             flowLayoutPanelPrice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             flowLayoutPanelPrice.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             flowLayoutPanelPrice.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanelPrice.Location = new System.Drawing.Point(663, 3);
+            flowLayoutPanelPrice.Location = new System.Drawing.Point(648, 3);
             flowLayoutPanelPrice.MaximumSize = new System.Drawing.Size(72, 0);
-            flowLayoutPanelPrice.MinimumSize = new System.Drawing.Size(72, 345);
+            flowLayoutPanelPrice.MinimumSize = new System.Drawing.Size(85, 345);
             flowLayoutPanelPrice.Name = "flowLayoutPanelPrice";
-            flowLayoutPanelPrice.Size = new System.Drawing.Size(72, 345);
+            flowLayoutPanelPrice.Size = new System.Drawing.Size(85, 345);
             flowLayoutPanelPrice.TabIndex = 4;
             flowLayoutPanelPrice.WrapContents = false;
             // 

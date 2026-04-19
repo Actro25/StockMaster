@@ -43,5 +43,6 @@ namespace StockMaster.Data
             _context.SaveChanges();
         }
         public async Task<List<FunctionStockData>> GetAllDataStocksById(int id) => await _context.FunctionStockData.Where(f => f.StockId == id).ToListAsync();
+        public FunctionStockData GetDataStockById(int id) => _context.FunctionStockData.FirstOrDefault(f => f.Id == id);
     }
 }
