@@ -249,6 +249,7 @@
             deleteDataButton.TabIndex = 7;
             deleteDataButton.Text = "Delete data";
             deleteDataButton.UseVisualStyleBackColor = true;
+            deleteDataButton.Click += deleteDataButton_Click;
             // 
             // inputDataTextBox
             // 
@@ -299,7 +300,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label4.Location = new System.Drawing.Point(458, 118);
+            label4.Location = new System.Drawing.Point(443, 118);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(77, 21);
             label4.TabIndex = 15;
@@ -309,7 +310,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label5.Location = new System.Drawing.Point(544, 118);
+            label5.Location = new System.Drawing.Point(529, 118);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(119, 21);
             label5.TabIndex = 16;
@@ -319,7 +320,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label6.Location = new System.Drawing.Point(675, 118);
+            label6.Location = new System.Drawing.Point(660, 118);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(48, 21);
             label6.TabIndex = 17;
