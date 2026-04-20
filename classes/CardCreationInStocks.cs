@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Data;
+using StockMaster.Forms.Quick;
 using StockMaster.Models;
 using StockMaster.Services;
 using System;
@@ -160,28 +161,87 @@ namespace StockMaster.Classes.CardCreation
             innerPanel.Controls.Add(accessStock);
             innerPanel.Controls.Add(creator);
 
-            Button tempButton = new Button() { 
-                Dock = DockStyle.Bottom,
-                Text = "Видалити",
-                BackColor = ColorTranslator.FromHtml("#5BB1DF"),
-                FlatStyle = FlatStyle.Flat,
-            };
-            tempButton.FlatAppearance.BorderSize = 0;
-
-            tempButton.Click += (s, e) =>
+            Button settingButton = new Button()
             {
-                DialogResult dialog = MessageBox.Show("Чи ви дійсно хочете удалити цей склад?","",MessageBoxButtons.YesNo);
-                if (dialog == DialogResult.Yes)
+                FlatStyle = FlatStyle.Flat,
+                Size = new Size(25, 25),
+                Location = new Point(tempPanel.Width - 50, tempPanel.Height - 25),
+                BackgroundImage = Properties.Resources.cog,
+                BackgroundImageLayout = ImageLayout.Zoom,
+
+            };
+            settingButton.FlatAppearance.BorderSize = 0;
+
+            settingButton.Click += (s, e) => {
+                _serviceProvider.GetRequiredService<StockStorage>().Current = stock;
+
+                if (stock.AccessStock == AccessOfStocks.Private)
                 {
-                    _flowPanel.Controls.Remove(tempPanel);
-                    _panels.Remove((tempPanel, stock.Id));
-                    tempPanel.Dispose();
-                    DeleteData(stock.Id);
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var settingForm = _serviceProvider.GetRequiredService<StockSettingsForm>()) {
+                                if (settingForm.ShowDialog() == DialogResult.OK) {
+                                    RefreshPanel();
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (var settingForm = _serviceProvider.GetRequiredService<StockSettingsForm>())
+                    {
+                        if (settingForm.ShowDialog() == DialogResult.OK)
+                        {
+                            RefreshPanel();
+                        }
+                    }
                 }
             };
 
+            Button deleteButton = new Button()
+            {
+                FlatStyle = FlatStyle.Flat,
+                Size = new Size(25, 25),
+                Location = new Point(tempPanel.Width - 25, tempPanel.Height - 25),
+                BackgroundImage = Properties.Resources.rubbish_bin,
+                BackgroundImageLayout = ImageLayout.Zoom,
 
-            tempPanel.Controls.Add(tempButton);
+            };
+            deleteButton.FlatAppearance.BorderSize = 0;
+            
+            deleteButton.Click += (s, e) =>
+            {
+                if (stock.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(stock.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _flowPanel.Controls.Remove(tempPanel);
+                            _panels.Remove((tempPanel, stock.Id));
+                            tempPanel.Dispose();
+                            DeleteData(stock.Id);
+                        }
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("Чи ви дійсно хочете удалити цей склад?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        _flowPanel.Controls.Remove(tempPanel);
+                        _panels.Remove((tempPanel, stock.Id));
+                        tempPanel.Dispose();
+                        DeleteData(stock.Id);
+                    }
+                }
+
+            };
+
+            tempPanel.Controls.Add(settingButton);
+            tempPanel.Controls.Add(deleteButton);
             tempPanel.Controls.Add(innerPanel);
             _flowPanel.Controls.Add(tempPanel);
 

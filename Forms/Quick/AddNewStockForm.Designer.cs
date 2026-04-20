@@ -65,7 +65,7 @@
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(727, 35);
+            panel1.Size = new System.Drawing.Size(640, 35);
             panel1.TabIndex = 1;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -75,7 +75,7 @@
             closeFormButton.FlatAppearance.BorderSize = 0;
             closeFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             closeFormButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            closeFormButton.Location = new System.Drawing.Point(698, 0);
+            closeFormButton.Location = new System.Drawing.Point(611, 0);
             closeFormButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             closeFormButton.Name = "closeFormButton";
             closeFormButton.Size = new System.Drawing.Size(29, 35);
@@ -112,7 +112,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(24, 81);
+            label2.Location = new System.Drawing.Point(19, 50);
             label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(87, 15);
@@ -122,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(476, 81);
+            label4.Location = new System.Drawing.Point(386, 50);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(46, 15);
@@ -131,7 +131,7 @@
             // 
             // nameOfStock
             // 
-            nameOfStock.Location = new System.Drawing.Point(26, 112);
+            nameOfStock.Location = new System.Drawing.Point(21, 81);
             nameOfStock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             nameOfStock.MaxLength = 10;
             nameOfStock.Name = "nameOfStock";
@@ -142,7 +142,7 @@
             // 
             publicRadioButton.AutoSize = true;
             publicRadioButton.Checked = true;
-            publicRadioButton.Location = new System.Drawing.Point(479, 99);
+            publicRadioButton.Location = new System.Drawing.Point(389, 68);
             publicRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             publicRadioButton.Name = "publicRadioButton";
             publicRadioButton.Size = new System.Drawing.Size(58, 19);
@@ -155,7 +155,7 @@
             // privatRadioButton
             // 
             privatRadioButton.AutoSize = true;
-            privatRadioButton.Location = new System.Drawing.Point(479, 126);
+            privatRadioButton.Location = new System.Drawing.Point(389, 95);
             privatRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             privatRadioButton.Name = "privatRadioButton";
             privatRadioButton.Size = new System.Drawing.Size(61, 19);
@@ -171,7 +171,7 @@
             accessPrivatePanel.Controls.Add(passwordTextBox);
             accessPrivatePanel.Controls.Add(label6);
             accessPrivatePanel.Controls.Add(label5);
-            accessPrivatePanel.Location = new System.Drawing.Point(482, 152);
+            accessPrivatePanel.Location = new System.Drawing.Point(392, 121);
             accessPrivatePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             accessPrivatePanel.Name = "accessPrivatePanel";
             accessPrivatePanel.Size = new System.Drawing.Size(216, 144);
@@ -231,7 +231,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(24, 151);
+            label7.Location = new System.Drawing.Point(19, 120);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(76, 15);
@@ -242,7 +242,7 @@
             // 
             chooseTypeOfStock.FormattingEnabled = true;
             chooseTypeOfStock.Items.AddRange(new object[] { "Функціональний склад", "Фізичний склад" });
-            chooseTypeOfStock.Location = new System.Drawing.Point(28, 182);
+            chooseTypeOfStock.Location = new System.Drawing.Point(23, 151);
             chooseTypeOfStock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chooseTypeOfStock.Name = "chooseTypeOfStock";
             chooseTypeOfStock.Size = new System.Drawing.Size(140, 23);
@@ -253,7 +253,7 @@
             // 
             importantTextPanel.Controls.Add(infoStockLabel);
             importantTextPanel.Controls.Add(label8);
-            importantTextPanel.Location = new System.Drawing.Point(28, 225);
+            importantTextPanel.Location = new System.Drawing.Point(23, 194);
             importantTextPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             importantTextPanel.Name = "importantTextPanel";
             importantTextPanel.Size = new System.Drawing.Size(348, 75);
@@ -286,7 +286,7 @@
             addButton.BackColor = System.Drawing.Color.RoyalBlue;
             addButton.FlatAppearance.BorderSize = 0;
             addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            addButton.Location = new System.Drawing.Point(26, 352);
+            addButton.Location = new System.Drawing.Point(25, 284);
             addButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             addButton.Name = "addButton";
             addButton.Size = new System.Drawing.Size(119, 35);
@@ -300,7 +300,7 @@
             denyButton.BackColor = System.Drawing.Color.CornflowerBlue;
             denyButton.FlatAppearance.BorderSize = 0;
             denyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            denyButton.Location = new System.Drawing.Point(152, 352);
+            denyButton.Location = new System.Drawing.Point(151, 284);
             denyButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             denyButton.Name = "denyButton";
             denyButton.Size = new System.Drawing.Size(119, 35);
@@ -315,7 +315,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ButtonHighlight;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            ClientSize = new System.Drawing.Size(727, 400);
+            ClientSize = new System.Drawing.Size(640, 340);
             Controls.Add(denyButton);
             Controls.Add(addButton);
             Controls.Add(importantTextPanel);

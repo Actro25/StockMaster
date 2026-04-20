@@ -39,7 +39,6 @@
             flowLayoutPanelDateOfArrival = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanelPrice = new System.Windows.Forms.FlowLayoutPanel();
             addDataButton = new System.Windows.Forms.Button();
-            moreInformationButton = new System.Windows.Forms.Button();
             updateDataButton = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
@@ -197,7 +196,7 @@
             // 
             // addDataButton
             // 
-            addDataButton.Location = new System.Drawing.Point(777, 111);
+            addDataButton.Location = new System.Drawing.Point(777, 202);
             addDataButton.Name = "addDataButton";
             addDataButton.Size = new System.Drawing.Size(144, 38);
             addDataButton.TabIndex = 4;
@@ -205,18 +204,9 @@
             addDataButton.UseVisualStyleBackColor = true;
             addDataButton.Click += addDataButton_Click;
             // 
-            // moreInformationButton
-            // 
-            moreInformationButton.Location = new System.Drawing.Point(777, 155);
-            moreInformationButton.Name = "moreInformationButton";
-            moreInformationButton.Size = new System.Drawing.Size(144, 38);
-            moreInformationButton.TabIndex = 5;
-            moreInformationButton.Text = "More information";
-            moreInformationButton.UseVisualStyleBackColor = true;
-            // 
             // updateDataButton
             // 
-            updateDataButton.Location = new System.Drawing.Point(777, 199);
+            updateDataButton.Location = new System.Drawing.Point(777, 246);
             updateDataButton.Name = "updateDataButton";
             updateDataButton.Size = new System.Drawing.Size(144, 38);
             updateDataButton.TabIndex = 6;
@@ -226,7 +216,7 @@
             // 
             // button4
             // 
-            button4.Location = new System.Drawing.Point(777, 333);
+            button4.Location = new System.Drawing.Point(777, 412);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(144, 38);
             button4.TabIndex = 9;
@@ -235,7 +225,7 @@
             // 
             // button5
             // 
-            button5.Location = new System.Drawing.Point(777, 289);
+            button5.Location = new System.Drawing.Point(777, 368);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(144, 38);
             button5.TabIndex = 8;
@@ -244,7 +234,7 @@
             // 
             // deleteDataButton
             // 
-            deleteDataButton.Location = new System.Drawing.Point(777, 245);
+            deleteDataButton.Location = new System.Drawing.Point(777, 292);
             deleteDataButton.Name = "deleteDataButton";
             deleteDataButton.Size = new System.Drawing.Size(144, 38);
             deleteDataButton.TabIndex = 7;
@@ -360,7 +350,6 @@
             Controls.Add(button5);
             Controls.Add(deleteDataButton);
             Controls.Add(updateDataButton);
-            Controls.Add(moreInformationButton);
             Controls.Add(addDataButton);
             Controls.Add(flowLayoutPanelStockInfo);
             Controls.Add(panel1);
@@ -386,7 +375,6 @@
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelStockInfo;
         private System.Windows.Forms.Button addDataButton;
-        private System.Windows.Forms.Button moreInformationButton;
         private System.Windows.Forms.Button updateDataButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

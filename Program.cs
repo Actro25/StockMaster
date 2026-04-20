@@ -54,6 +54,7 @@ namespace StockMaster
                 services.AddSingleton<ShowDataInStockClass>(); // Для вивода данних в таблицю
                 services.AddSingleton<FunctionalDataStorage>();
 
+                services.AddTransient<StockSettingsForm>();
                 services.AddTransient<UpdateFunctionalStockData>();
                 services.AddTransient<AddFunctionalDataInStock>();
                 services.AddTransient<AddNewStockForm>();

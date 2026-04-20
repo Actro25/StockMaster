@@ -17,6 +17,11 @@ namespace StockMaster
 {
     public partial class StockDataShowForm : Form
     {
+        /*
+            ЗАДВАННЯ:
+            1)Зробити можливість обновляти стоки (добавити кнопку з фоткою cog)
+            2)Подумати над швидкою сортировкою або пошуком за введеними данними.
+         */
         private IServiceProvider _serviceProvider;
         private StockStorage _mainStock;
         private ShowDataInStockClass _showDataInStock;
