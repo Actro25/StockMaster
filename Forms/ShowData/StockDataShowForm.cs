@@ -50,7 +50,7 @@ namespace StockMaster
             {
                 if (addNewDataStock.ShowDialog() == DialogResult.OK)
                 {
-                    await _showDataInStock.UpdateDataTable();
+                    await _showDataInStock.UpdateDataTableWithNewData();
                 }
             }
         }
@@ -64,7 +64,7 @@ namespace StockMaster
             flowLayoutPanelPrice.BackColor = ColorTranslator.FromHtml("#B3E5FC");
             flowLayoutPanelStockInfo.BackColor = Color.FromArgb(128, 135, 215, 255);
 
-            await _showDataInStock.UpdateDataTable();
+            await _showDataInStock.UpdateDataTableWithNewData();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace StockMaster
             {
                 if (updateDataForStock.ShowDialog() == DialogResult.OK)
                 {
-                    await _showDataInStock.UpdateDataTable();
+                    await _showDataInStock.UpdateDataTableWithNewData();
                 }
             }
         }
@@ -104,7 +104,17 @@ namespace StockMaster
                 MessageBox.Show("You don't choose data to update");
                 return;
             }
-            await _showDataInStock.UpdateDataTable();
+            await _showDataInStock.UpdateDataTableWithNewData();
         }
+
+        private void nameOfGoodsUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByNameColumn();
+
+        private void idUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByIdColumn();
+
+        private void quantityUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByQuantityColumn();
+
+        private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByDateColumn();
+
+        private void priceUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByPriceColumn();
     }
 }

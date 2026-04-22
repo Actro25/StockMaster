@@ -44,7 +44,7 @@ namespace StockMaster
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            if (!_validation.IsValidName(nameOfGoodTextBox.Text))
+            if (!_validation.IsValidNameGood(nameOfGoodTextBox.Text))
             {
                 MessageBox.Show("You entered incorrect name.");
                 return;

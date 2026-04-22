@@ -42,15 +42,39 @@ namespace StockMaster.Classes
             _dataPanel = datap;
             _pricePanel = pricep;
         }
-        public async Task UpdateDataTable() {
-            ClearRows();
+        public async Task UpdateDataTableWithNewData() {
+            ClearRowsWithdata();
             using (var scopedQueries = _scopeFactory.CreateScope()) {
                 var queries = scopedQueries.ServiceProvider.GetRequiredService<DataBaseQueries>();
                 var temp = await queries.GetAllFunctionDataStocksById(_mainStock.Current.Id);
                 UpdateEveryRow(temp);
             }
         }
-
+        public void RefreshDataTable() {
+            _idPanel.SuspendLayout();
+            _namePanel.SuspendLayout();
+            _quantityPanel.SuspendLayout();
+            _dataPanel.SuspendLayout();
+            _pricePanel.SuspendLayout();
+            try
+            {
+                foreach (var item in _rowGroups)
+                {
+                    _idPanel.Controls.Add(item.Value[0]);
+                    _namePanel.Controls.Add(item.Value[1]);
+                    _quantityPanel.Controls.Add(item.Value[2]);
+                    _dataPanel.Controls.Add(item.Value[3]);
+                    _pricePanel.Controls.Add(item.Value[4]);
+                }
+            }
+            finally {
+                _idPanel.ResumeLayout();
+                _namePanel.ResumeLayout();
+                _quantityPanel.ResumeLayout();
+                _dataPanel.ResumeLayout();
+                _pricePanel.ResumeLayout();
+            }
+        }
         public bool DeleteCurrentDataRow() {
             if (_lastSelectedId == -1)
                 return false;
@@ -61,7 +85,6 @@ namespace StockMaster.Classes
             }
             return true;
         }
-
         public bool GetCurrentDataRow() {
             if (_lastSelectedId == -1)
                 return false;
@@ -72,7 +95,6 @@ namespace StockMaster.Classes
             }
             return true;
         }
-
         private void ClearRows() {
             _idPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
             _idPanel.Controls.Clear();
@@ -88,17 +110,20 @@ namespace StockMaster.Classes
 
             _pricePanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
             _pricePanel.Controls.Clear();
+        }
+        private void ClearRowsWithdata() {
+            ClearRows();
 
             _rowGroups.Clear();
             _lastSelectedId = -1;
         }
         private void UpdateEveryRow(List<FunctionStockData> data) {
             foreach (var item in data) {
-                Label lbId = new Label { Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter };
-                Label lbName = new Label { Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbQuan = new Label { Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbData = new Label { Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbPrice = new Label { Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbId = new Label { Name = "idLabel" , Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter };
+                Label lbName = new Label { Name = "nameLabel", Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbQuan = new Label { Name = "quantitylabel", Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbData = new Label { Name = "datelabel", Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbPrice = new Label { Name = "priceLabel", Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
 
                 Panel idPanHolder = new Panel{
                     Margin = new Padding(0),
@@ -201,6 +226,26 @@ namespace StockMaster.Classes
                 _dataPanel.ResumeLayout();
                 _pricePanel.ResumeLayout();
             }
+        }
+        public void SortDataByIdColumn() {
+            _rowGroups = SortPanelDataService.SortById(_rowGroups);
+            RefreshDataTable();
+        }
+        public void SortDataByNameColumn() {
+            _rowGroups = SortPanelDataService.SortByName(_rowGroups);
+            RefreshDataTable();
+        }
+        public void SortDataByQuantityColumn() {
+            _rowGroups = SortPanelDataService.SortByQuantity(_rowGroups);
+            RefreshDataTable();
+        }
+        public void SortDataByDateColumn() {
+            _rowGroups = SortPanelDataService.SortByDate(_rowGroups);
+            RefreshDataTable();
+        }
+        public void SortDataByPriceColumn() {
+            _rowGroups = SortPanelDataService.SortByPrice(_rowGroups);
+            RefreshDataTable();
         }
     }
 }

@@ -46,11 +46,11 @@
             inputDataTextBox = new System.Windows.Forms.TextBox();
             searchByComboBox = new System.Windows.Forms.ComboBox();
             searchDataButton = new System.Windows.Forms.Button();
-            label2 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
+            idUpperLabel = new System.Windows.Forms.Label();
+            nameOfGoodsUpperLabel = new System.Windows.Forms.Label();
+            quantityUpperLabel = new System.Windows.Forms.Label();
+            dataOfArrivalUpperLabel = new System.Windows.Forms.Label();
+            priceUpperLabel = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
@@ -267,55 +267,60 @@
             searchDataButton.Text = "Search";
             searchDataButton.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // idUpperLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label2.Location = new System.Drawing.Point(15, 118);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(25, 21);
-            label2.TabIndex = 13;
-            label2.Text = "Id";
+            idUpperLabel.AutoSize = true;
+            idUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            idUpperLabel.Location = new System.Drawing.Point(15, 118);
+            idUpperLabel.Name = "idUpperLabel";
+            idUpperLabel.Size = new System.Drawing.Size(25, 21);
+            idUpperLabel.TabIndex = 13;
+            idUpperLabel.Text = "Id";
+            idUpperLabel.Click += idUpperLabel_Click;
             // 
-            // label3
+            // nameOfGoodsUpperLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label3.Location = new System.Drawing.Point(87, 118);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(120, 21);
-            label3.TabIndex = 14;
-            label3.Text = "Name of good";
+            nameOfGoodsUpperLabel.AutoSize = true;
+            nameOfGoodsUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            nameOfGoodsUpperLabel.Location = new System.Drawing.Point(87, 118);
+            nameOfGoodsUpperLabel.Name = "nameOfGoodsUpperLabel";
+            nameOfGoodsUpperLabel.Size = new System.Drawing.Size(120, 21);
+            nameOfGoodsUpperLabel.TabIndex = 14;
+            nameOfGoodsUpperLabel.Text = "Name of good";
+            nameOfGoodsUpperLabel.Click += nameOfGoodsUpperLabel_Click;
             // 
-            // label4
+            // quantityUpperLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label4.Location = new System.Drawing.Point(443, 118);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(77, 21);
-            label4.TabIndex = 15;
-            label4.Text = "Quantity";
+            quantityUpperLabel.AutoSize = true;
+            quantityUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            quantityUpperLabel.Location = new System.Drawing.Point(443, 118);
+            quantityUpperLabel.Name = "quantityUpperLabel";
+            quantityUpperLabel.Size = new System.Drawing.Size(77, 21);
+            quantityUpperLabel.TabIndex = 15;
+            quantityUpperLabel.Text = "Quantity";
+            quantityUpperLabel.Click += quantityUpperLabel_Click;
             // 
-            // label5
+            // dataOfArrivalUpperLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label5.Location = new System.Drawing.Point(529, 118);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(119, 21);
-            label5.TabIndex = 16;
-            label5.Text = "Date of arrival";
+            dataOfArrivalUpperLabel.AutoSize = true;
+            dataOfArrivalUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            dataOfArrivalUpperLabel.Location = new System.Drawing.Point(529, 118);
+            dataOfArrivalUpperLabel.Name = "dataOfArrivalUpperLabel";
+            dataOfArrivalUpperLabel.Size = new System.Drawing.Size(119, 21);
+            dataOfArrivalUpperLabel.TabIndex = 16;
+            dataOfArrivalUpperLabel.Text = "Date of arrival";
+            dataOfArrivalUpperLabel.Click += dataOfArrivalUpperLabel_Click;
             // 
-            // label6
+            // priceUpperLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            label6.Location = new System.Drawing.Point(660, 118);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(48, 21);
-            label6.TabIndex = 17;
-            label6.Text = "Price";
+            priceUpperLabel.AutoSize = true;
+            priceUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            priceUpperLabel.Location = new System.Drawing.Point(660, 118);
+            priceUpperLabel.Name = "priceUpperLabel";
+            priceUpperLabel.Size = new System.Drawing.Size(48, 21);
+            priceUpperLabel.TabIndex = 17;
+            priceUpperLabel.Text = "Price";
+            priceUpperLabel.Click += priceUpperLabel_Click;
             // 
             // button1
             // 
@@ -338,11 +343,11 @@
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(933, 519);
             Controls.Add(button1);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(priceUpperLabel);
+            Controls.Add(dataOfArrivalUpperLabel);
+            Controls.Add(quantityUpperLabel);
+            Controls.Add(nameOfGoodsUpperLabel);
+            Controls.Add(idUpperLabel);
             Controls.Add(searchDataButton);
             Controls.Add(searchByComboBox);
             Controls.Add(inputDataTextBox);
@@ -385,11 +390,11 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelId;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelNameOfGood;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelQuantity;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label idUpperLabel;
+        private System.Windows.Forms.Label nameOfGoodsUpperLabel;
+        private System.Windows.Forms.Label quantityUpperLabel;
+        private System.Windows.Forms.Label dataOfArrivalUpperLabel;
+        private System.Windows.Forms.Label priceUpperLabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDateOfArrival;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPrice;
         private System.Windows.Forms.Button button1;
