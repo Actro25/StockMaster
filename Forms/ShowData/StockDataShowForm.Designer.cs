@@ -275,6 +275,7 @@
             idUpperLabel.Name = "idUpperLabel";
             idUpperLabel.Size = new System.Drawing.Size(25, 21);
             idUpperLabel.TabIndex = 13;
+            idUpperLabel.Tag = "false";
             idUpperLabel.Text = "Id";
             idUpperLabel.Click += idUpperLabel_Click;
             // 
@@ -286,6 +287,7 @@
             nameOfGoodsUpperLabel.Name = "nameOfGoodsUpperLabel";
             nameOfGoodsUpperLabel.Size = new System.Drawing.Size(120, 21);
             nameOfGoodsUpperLabel.TabIndex = 14;
+            nameOfGoodsUpperLabel.Tag = "false";
             nameOfGoodsUpperLabel.Text = "Name of good";
             nameOfGoodsUpperLabel.Click += nameOfGoodsUpperLabel_Click;
             // 
@@ -297,6 +299,7 @@
             quantityUpperLabel.Name = "quantityUpperLabel";
             quantityUpperLabel.Size = new System.Drawing.Size(77, 21);
             quantityUpperLabel.TabIndex = 15;
+            quantityUpperLabel.Tag = "false";
             quantityUpperLabel.Text = "Quantity";
             quantityUpperLabel.Click += quantityUpperLabel_Click;
             // 
@@ -308,6 +311,7 @@
             dataOfArrivalUpperLabel.Name = "dataOfArrivalUpperLabel";
             dataOfArrivalUpperLabel.Size = new System.Drawing.Size(119, 21);
             dataOfArrivalUpperLabel.TabIndex = 16;
+            dataOfArrivalUpperLabel.Tag = "false";
             dataOfArrivalUpperLabel.Text = "Date of arrival";
             dataOfArrivalUpperLabel.Click += dataOfArrivalUpperLabel_Click;
             // 
@@ -319,6 +323,7 @@
             priceUpperLabel.Name = "priceUpperLabel";
             priceUpperLabel.Size = new System.Drawing.Size(48, 21);
             priceUpperLabel.TabIndex = 17;
+            priceUpperLabel.Tag = "false";
             priceUpperLabel.Text = "Price";
             priceUpperLabel.Click += priceUpperLabel_Click;
             // 

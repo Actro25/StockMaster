@@ -107,14 +107,67 @@ namespace StockMaster
             await _showDataInStock.UpdateDataTableWithNewData();
         }
 
-        private void nameOfGoodsUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByNameColumn();
+        private void idUpperLabel_Click(object sender, EventArgs e) {
+            if (bool.TryParse(idUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+                _showDataInStock.SortDataByIdColumn(isFromHiger);
+                idUpperLabel.Tag = isFromHiger ? "false" : "true";
+                idUpperLabel.Text = isFromHiger ? "Id▼" : "Id▲";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+                quantityUpperLabel.Text = "Quantity";
+                dataOfArrivalUpperLabel.Text = "Date of arrival";
+                priceUpperLabel.Text = "Price";
+            }
+        }
 
-        private void idUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByIdColumn();
+        private void nameOfGoodsUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(nameOfGoodsUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
+                _showDataInStock.SortDataByNameColumn(isFromHiger);
+                nameOfGoodsUpperLabel.Tag = isFromHiger ? "false" : "true";
+                nameOfGoodsUpperLabel.Text = isFromHiger ? "Name of good▼" : "Name of good▲";
+                idUpperLabel.Text = "Id";
+                quantityUpperLabel.Text = "Quantity";
+                dataOfArrivalUpperLabel.Text = "Date of arrival";
+                priceUpperLabel.Text = "Price";
+            }
+        }
 
-        private void quantityUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByQuantityColumn();
+        private void quantityUpperLabel_Click(object sender, EventArgs e) {
+            if (bool.TryParse(quantityUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+                _showDataInStock.SortDataByQuantityColumn(isFromHiger);
+                quantityUpperLabel.Tag = isFromHiger ? "false" : "true";
+                quantityUpperLabel.Text = isFromHiger ? "Quantity▼" : "Quantity▲";
+                idUpperLabel.Text = "Id";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+                dataOfArrivalUpperLabel.Text = "Date of arrival";
+                priceUpperLabel.Text = "Price";
+            }
+                
+        }
 
-        private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByDateColumn();
+        private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e) {
+            if (bool.TryParse(dataOfArrivalUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+                _showDataInStock.SortDataByDateColumn(isFromHiger);
+                dataOfArrivalUpperLabel.Tag = isFromHiger ? "false" : "true";
+                dataOfArrivalUpperLabel.Text = isFromHiger ? "Date of arrival▼" : "Date of arrival▲";
+                idUpperLabel.Text = "Id";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+                quantityUpperLabel.Text = "Quantity";
+                priceUpperLabel.Text = "Price";
+            }
+        }
 
-        private void priceUpperLabel_Click(object sender, EventArgs e) => _showDataInStock.SortDataByPriceColumn();
+        private void priceUpperLabel_Click(object sender, EventArgs e) {
+            if (bool.TryParse(priceUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+                _showDataInStock.SortDataByPriceColumn(isFromHiger);
+                priceUpperLabel.Tag = isFromHiger ? "false" : "true";
+                priceUpperLabel.Text = isFromHiger ? "Price▼" : "Price▲";
+                idUpperLabel.Text = "Id";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+                quantityUpperLabel.Text = "Quantity";
+                dataOfArrivalUpperLabel.Text = "Date of arrival";
+            }
+        }
     }
 }

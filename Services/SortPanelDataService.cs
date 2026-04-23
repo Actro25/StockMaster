@@ -8,55 +8,30 @@ namespace StockMaster.Services
 {
     static public class SortPanelDataService
     {
-        static public Dictionary<int, List<Panel>> SortById(Dictionary<int, List<Panel>> data)
+        static public Dictionary<int, List<Panel>> SortById(Dictionary<int, List<Panel>> data, bool isFromHigher = false)
         {
-            return data
-                .OrderBy(d => {
-                    string dataText = d.Value[0].Controls["idLabel"].Text ?? "";
-                    if (int.TryParse(dataText, out int result))
-                        return result;
-                    return 0;
-                })
-                .ToDictionary(p => p.Key, p => p.Value);
+            var sorted = data.OrderBy(d => int.TryParse(d.Value[0].Controls["idLabel"].Text, out int res) ? res : 0);
+            return (isFromHigher ? sorted.Reverse() : sorted).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public Dictionary<int, List<Panel>> SortByName(Dictionary<int, List<Panel>> data)
+        static public Dictionary<int, List<Panel>> SortByName(Dictionary<int, List<Panel>> data, bool isFromHigher = false)
         {
-            return data
-                .OrderBy(d => d.Value[1].Controls["nameLabel"].Text ?? "")
-                .ToDictionary(p => p.Key, p => p.Value);
+            var sorted = data.OrderBy(d => d.Value[1].Controls["nameLabel"].Text ?? "");
+            return (isFromHigher ? sorted.Reverse() : sorted).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public Dictionary<int, List<Panel>> SortByQuantity(Dictionary<int, List<Panel>> data)
+        static public Dictionary<int, List<Panel>> SortByQuantity(Dictionary<int, List<Panel>> data, bool isFromHigher = false)
         {
-            return data
-                .OrderBy(d => {
-                    string dataText = d.Value[2].Controls["quantitylabel"].Text ?? "";
-                    if (int.TryParse(dataText, out int result))
-                        return result;
-                    return 0;
-                })
-                .ToDictionary(p => p.Key, p => p.Value);
+            var sorted = data.OrderBy(d => int.TryParse(d.Value[2].Controls["quantityLabel"].Text, out int res) ? res : 0);
+            return (isFromHigher ? sorted.Reverse() : sorted).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public Dictionary<int, List<Panel>> SortByDate(Dictionary<int, List<Panel>> data)
+        static public Dictionary<int, List<Panel>> SortByDate(Dictionary<int, List<Panel>> data, bool isFromHigher = false)
         {
-            return data
-                .OrderBy(d => {
-                    string dataText = d.Value[3].Controls["datelabel"].Text ?? "";
-                    if (DateTime.TryParse(dataText, out DateTime result))
-                        return result;
-                    return DateTime.MinValue;
-                })
-                .ToDictionary(p => p.Key, p => p.Value); ;
+            var sorted = data.OrderBy(d => DateTime.TryParse(d.Value[3].Controls["dateLabel"].Text, out DateTime res) ? res : DateTime.MinValue);
+            return (isFromHigher ? sorted.Reverse() : sorted).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public Dictionary<int, List<Panel>> SortByPrice(Dictionary<int, List<Panel>> data)
+        static public Dictionary<int, List<Panel>> SortByPrice(Dictionary<int, List<Panel>> data, bool isFromHigher = false)
         {
-            return data
-                .OrderBy(d => {
-                    string dataText = d.Value[4].Controls["priceLabel"].Text ?? "";
-                    if (decimal.TryParse(dataText, out decimal result))
-                        return result;
-                    return 0.0M;
-                })
-                .ToDictionary(p => p.Key, p => p.Value);
+            var sorted = data.OrderBy(d => decimal.TryParse(d.Value[4].Controls["priceLabel"].Text, out decimal res) ? res : 0.0M);
+            return (isFromHigher ? sorted.Reverse() : sorted).ToDictionary(p => p.Key, p => p.Value);
         }
     }
 }

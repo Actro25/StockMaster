@@ -121,8 +121,8 @@ namespace StockMaster.Classes
             foreach (var item in data) {
                 Label lbId = new Label { Name = "idLabel" , Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter };
                 Label lbName = new Label { Name = "nameLabel", Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbQuan = new Label { Name = "quantitylabel", Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbData = new Label { Name = "datelabel", Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbQuan = new Label { Name = "quantityLabel", Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                Label lbData = new Label { Name = "dateLabel", Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
                 Label lbPrice = new Label { Name = "priceLabel", Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
 
                 Panel idPanHolder = new Panel{
@@ -227,24 +227,24 @@ namespace StockMaster.Classes
                 _pricePanel.ResumeLayout();
             }
         }
-        public void SortDataByIdColumn() {
-            _rowGroups = SortPanelDataService.SortById(_rowGroups);
+        public void SortDataByIdColumn(bool isFromHigher) {
+            _rowGroups = SortPanelDataService.SortById(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
-        public void SortDataByNameColumn() {
-            _rowGroups = SortPanelDataService.SortByName(_rowGroups);
+        public void SortDataByNameColumn(bool isFromHigher) {
+            _rowGroups = SortPanelDataService.SortByName(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
-        public void SortDataByQuantityColumn() {
-            _rowGroups = SortPanelDataService.SortByQuantity(_rowGroups);
+        public void SortDataByQuantityColumn(bool isFromHigher) {
+            _rowGroups = SortPanelDataService.SortByQuantity(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
-        public void SortDataByDateColumn() {
-            _rowGroups = SortPanelDataService.SortByDate(_rowGroups);
+        public void SortDataByDateColumn(bool isFromHigher) {
+            _rowGroups = SortPanelDataService.SortByDate(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
-        public void SortDataByPriceColumn() {
-            _rowGroups = SortPanelDataService.SortByPrice(_rowGroups);
+        public void SortDataByPriceColumn(bool isFromHigher) {
+            _rowGroups = SortPanelDataService.SortByPrice(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
     }
