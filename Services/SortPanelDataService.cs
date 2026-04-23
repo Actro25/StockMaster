@@ -14,9 +14,7 @@ namespace StockMaster.Services
                 .OrderBy(d => {
                     string dataText = d.Value[0].Controls["idLabel"].Text ?? "";
                     if (int.TryParse(dataText, out int result))
-                    {
                         return result;
-                    }
                     return 0;
                 })
                 .ToDictionary(p => p.Key, p => p.Value);
@@ -29,42 +27,36 @@ namespace StockMaster.Services
         }
         static public Dictionary<int, List<Panel>> SortByQuantity(Dictionary<int, List<Panel>> data)
         {
-            var temp = data
+            return data
                 .OrderBy(d => {
                     string dataText = d.Value[2].Controls["quantitylabel"].Text ?? "";
-                    if (int.TryParse(dataText, out int result)) {
+                    if (int.TryParse(dataText, out int result))
                         return result;
-                    }
                     return 0;
                 })
                 .ToDictionary(p => p.Key, p => p.Value);
-            return temp;
         }
         static public Dictionary<int, List<Panel>> SortByDate(Dictionary<int, List<Panel>> data)
         {
-            var temp = data
+            return data
                 .OrderBy(d => {
                     string dataText = d.Value[3].Controls["datelabel"].Text ?? "";
-                    if (DateTime.TryParse(dataText, out DateTime result)) {
+                    if (DateTime.TryParse(dataText, out DateTime result))
                         return result;
-                    }
                     return DateTime.MinValue;
                 })
-                .ToDictionary(p => p.Key, p => p.Value);
-            return temp;
+                .ToDictionary(p => p.Key, p => p.Value); ;
         }
         static public Dictionary<int, List<Panel>> SortByPrice(Dictionary<int, List<Panel>> data)
         {
-            var temp = data
+            return data
                 .OrderBy(d => {
                     string dataText = d.Value[4].Controls["priceLabel"].Text ?? "";
-                    if (decimal.TryParse(dataText, out decimal result)) {
+                    if (decimal.TryParse(dataText, out decimal result))
                         return result;
-                    }
                     return 0.0M;
                 })
                 .ToDictionary(p => p.Key, p => p.Value);
-            return temp;
         }
     }
 }
