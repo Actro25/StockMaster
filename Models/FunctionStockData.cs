@@ -33,5 +33,7 @@ namespace StockMaster.Models
         }
         [Required]
         public decimal Price { get; set; }
+        public bool isArrived { get; set; } = false;
+        public bool isOverdue { get; set; } = false;
     }
 }

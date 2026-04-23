@@ -75,7 +75,9 @@ namespace StockMaster.Forms.Quick
                 DateOfArrival = dateTimePicker1.Value,
                 Price = Convert.ToDecimal(priceTextBox.Text),
                 StockId = _currentData.Current.StockId,
-                MainStock = _currentData.Current.MainStock
+                MainStock = _currentData.Current.MainStock,
+                isArrived = _currentData.Current.isArrived,
+                isOverdue = _currentData.Current.isOverdue
             });
             this.DialogResult = DialogResult.OK;
             this.Close();

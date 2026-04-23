@@ -40,8 +40,8 @@
             flowLayoutPanelPrice = new System.Windows.Forms.FlowLayoutPanel();
             addDataButton = new System.Windows.Forms.Button();
             updateDataButton = new System.Windows.Forms.Button();
-            button4 = new System.Windows.Forms.Button();
-            button5 = new System.Windows.Forms.Button();
+            overdueButton = new System.Windows.Forms.Button();
+            arrivedButton = new System.Windows.Forms.Button();
             deleteDataButton = new System.Windows.Forms.Button();
             inputDataTextBox = new System.Windows.Forms.TextBox();
             searchByComboBox = new System.Windows.Forms.ComboBox();
@@ -214,23 +214,23 @@
             updateDataButton.UseVisualStyleBackColor = true;
             updateDataButton.Click += updateDataButton_Click;
             // 
-            // button4
+            // overdueButton
             // 
-            button4.Location = new System.Drawing.Point(777, 412);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(144, 38);
-            button4.TabIndex = 9;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            overdueButton.Location = new System.Drawing.Point(777, 412);
+            overdueButton.Name = "overdueButton";
+            overdueButton.Size = new System.Drawing.Size(144, 38);
+            overdueButton.TabIndex = 9;
+            overdueButton.Text = "Overdue";
+            overdueButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // arrivedButton
             // 
-            button5.Location = new System.Drawing.Point(777, 368);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(144, 38);
-            button5.TabIndex = 8;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            arrivedButton.Location = new System.Drawing.Point(777, 368);
+            arrivedButton.Name = "arrivedButton";
+            arrivedButton.Size = new System.Drawing.Size(144, 38);
+            arrivedButton.TabIndex = 8;
+            arrivedButton.Text = "Arrived";
+            arrivedButton.UseVisualStyleBackColor = true;
             // 
             // deleteDataButton
             // 
@@ -356,8 +356,8 @@
             Controls.Add(searchDataButton);
             Controls.Add(searchByComboBox);
             Controls.Add(inputDataTextBox);
-            Controls.Add(button4);
-            Controls.Add(button5);
+            Controls.Add(overdueButton);
+            Controls.Add(arrivedButton);
             Controls.Add(deleteDataButton);
             Controls.Add(updateDataButton);
             Controls.Add(addDataButton);
@@ -386,8 +386,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelStockInfo;
         private System.Windows.Forms.Button addDataButton;
         private System.Windows.Forms.Button updateDataButton;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button overdueButton;
+        private System.Windows.Forms.Button arrivedButton;
         private System.Windows.Forms.Button deleteDataButton;
         private System.Windows.Forms.TextBox inputDataTextBox;
         private System.Windows.Forms.ComboBox searchByComboBox;

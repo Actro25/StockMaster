@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StockMaster.Data;
 
@@ -10,9 +11,11 @@ using StockMaster.Data;
 namespace StockMaster.Migrations
 {
     [DbContext(typeof(NyDatabaseContext))]
-    partial class NyDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20260423151651_AddNewTwoColumsInFunctionStock")]
+    partial class AddNewTwoColumsInFunctionStock
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.14");
@@ -43,7 +46,7 @@ namespace StockMaster.Migrations
                     b.Property<bool>("isArrived")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("isOverdue")
+                    b.Property<bool>("isDepart")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
