@@ -85,6 +85,30 @@ namespace StockMaster.Classes
             }
             return true;
         }
+        public bool ArrivedOrOverdueCurrentDataRow(bool isArrived, bool isOverdue) {
+            if (_lastSelectedId == -1)
+                return false;
+            
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                FunctionStockData currentFunctionStockData;
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                currentFunctionStockData = queries.GetFunctionDataStockById(_lastSelectedId);
+
+                currentFunctionStockData.isArrived = isArrived;
+                currentFunctionStockData.isOverdue = isOverdue;
+
+                queries.UpdateFunctionDataStock(currentFunctionStockData);
+            }
+
+            if (_rowGroups.TryGetValue(_lastSelectedId, out List<Panel> panelsOld)) {
+                foreach (var item in panelsOld)
+                    item.Tag = (isArrived) ? Color.FromArgb(46, 204, 113) : (isOverdue ? Color.FromArgb(231, 76, 60) : Color.Transparent);
+            }
+            
+
+            return true;
+        }
         public bool GetCurrentDataRow() {
             if (_lastSelectedId == -1)
                 return false;
@@ -119,64 +143,70 @@ namespace StockMaster.Classes
         }
         private void UpdateEveryRow(List<FunctionStockData> data) {
             foreach (var item in data) {
-                Label lbId = new Label { Name = "idLabel" , Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter };
-                Label lbName = new Label { Name = "nameLabel", Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbQuan = new Label { Name = "quantityLabel", Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbData = new Label { Name = "dateLabel", Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
-                Label lbPrice = new Label { Name = "priceLabel", Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft };
+                var currentColorForPanHolder = (item.isArrived) ? Color.FromArgb(46, 204, 113) : (item.isOverdue ? Color.FromArgb(231, 76, 60) : Color.Transparent);
+                Label lbId = new Label { Name = "idLabel" , Text = item.Id.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleCenter, Tag = item.Id };
+                Label lbName = new Label { Name = "nameLabel", Text = item.NameOfGood, Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Tag = item.Id };
+                Label lbQuan = new Label { Name = "quantityLabel", Text = item.Quantity.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Tag = item.Id };
+                Label lbData = new Label { Name = "dateLabel", Text = item.DateOfArrival.ToString("dd.MM.yyyy HH:mm"), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Tag = item.Id };
+                Label lbPrice = new Label { Name = "priceLabel", Text = item.Price.ToString(), Dock = DockStyle.Fill, TextAlign = ContentAlignment.MiddleLeft, Tag = item.Id };
 
                 Panel idPanHolder = new Panel{
+                    BackColor = currentColorForPanHolder,
                     Margin = new Padding(0),
                     Size = new Size(_idPanel.Size.Width, 25),
                     AutoScroll = false,
-                    Tag = item.Id
+                    Tag = currentColorForPanHolder
                 };
-                idPanHolder.Click += (s, e) => SelectRowGroup((int)idPanHolder.Tag);
-                lbId.Click += (s, e) => SelectRowGroup((int)idPanHolder.Tag);
+                idPanHolder.Click += (s, e) => SelectRowGroup((int)lbId.Tag);
+                lbId.Click += (s, e) => SelectRowGroup((int)lbId.Tag);
                 idPanHolder.Controls.Add(lbId);
 
                 Panel namePanHolder = new Panel {
+                    BackColor = currentColorForPanHolder,
                     Margin = new Padding(0),
                     Size = new Size(_namePanel.Size.Width, 25),
                     AutoScroll = false,
                     Padding = new Padding(10, 0, 0, 0),
-                    Tag = item.Id
+                    Tag = currentColorForPanHolder
                 };
-                namePanHolder.Click += (s, e) => SelectRowGroup((int)namePanHolder.Tag);
-                lbName.Click += (s, e) => SelectRowGroup((int)namePanHolder.Tag);
+                namePanHolder.Click += (s, e) => SelectRowGroup((int)lbName.Tag);
+                lbName.Click += (s, e) => SelectRowGroup((int)lbName.Tag);
                 namePanHolder.Controls.Add(lbName);
 
                 Panel quanPanHolder = new Panel {
+                    BackColor = currentColorForPanHolder,
                     Margin = new Padding(0),
                     Size = new Size(_quantityPanel.Size.Width, 25),
                     AutoScroll = false,
                     Padding = new Padding(10, 0, 0, 0),
-                    Tag = item.Id
+                    Tag = currentColorForPanHolder
                 };
-                quanPanHolder.Click += (s, e) => SelectRowGroup((int)quanPanHolder.Tag);
-                lbQuan.Click += (s, e) => SelectRowGroup((int)quanPanHolder.Tag);
+                quanPanHolder.Click += (s, e) => SelectRowGroup((int)lbQuan.Tag);
+                lbQuan.Click += (s, e) => SelectRowGroup((int)lbQuan.Tag);
                 quanPanHolder.Controls.Add(lbQuan);
 
                 Panel dataPanHolder = new Panel {
+                    BackColor = currentColorForPanHolder,
                     Margin = new Padding(0),
                     Size = new Size(_dataPanel.Size.Width, 25),
                     AutoScroll = false,
                     Padding = new Padding(10, 0, 0, 0),
-                    Tag = item.Id
+                    Tag = currentColorForPanHolder
                 };
-                dataPanHolder.Click += (s, e) => SelectRowGroup((int)dataPanHolder.Tag);
-                lbData.Click += (s, e) => SelectRowGroup((int)dataPanHolder.Tag);
+                dataPanHolder.Click += (s, e) => SelectRowGroup((int)lbData.Tag);
+                lbData.Click += (s, e) => SelectRowGroup((int)lbData.Tag);
                 dataPanHolder.Controls.Add(lbData);
 
                 Panel pricePanHolder = new Panel {
+                    BackColor = currentColorForPanHolder,
                     Margin = new Padding(0),
                     Size = new Size(_pricePanel.Size.Width, 25),
                     AutoScroll = false,
                     Padding = new Padding(10, 0, 0, 0),
-                    Tag = item.Id
+                    Tag = currentColorForPanHolder
                 };
-                pricePanHolder.Click += (s, e) => SelectRowGroup((int)pricePanHolder.Tag);
-                lbPrice.Click += (s, e) => SelectRowGroup((int)pricePanHolder.Tag);
+                pricePanHolder.Click += (s, e) => SelectRowGroup((int)lbPrice.Tag);
+                lbPrice.Click += (s, e) => SelectRowGroup((int)lbPrice.Tag);
                 pricePanHolder.Controls.Add(lbPrice);
 
                 
@@ -206,13 +236,16 @@ namespace StockMaster.Classes
                 if (_lastSelectedId != -1 && _rowGroups.TryGetValue(_lastSelectedId, out List<Panel> panelsOld))
                 {
                     foreach (var item in panelsOld)
-                        item.BackColor = Color.Transparent;
+                        item.BackColor = (Color)item.Tag;
                 }
                 // Змінюємо колір у нових панелях
                 if (_rowGroups.TryGetValue(Id, out List<Panel> panelsNew))
                 {
                     foreach (var item in panelsNew)
+                    {
+                        item.Tag = item.BackColor;
                         item.BackColor = Color.LightBlue;
+                    }
 
                     _lastSelectedId = Id;
                 }

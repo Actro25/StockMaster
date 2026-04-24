@@ -107,8 +107,10 @@ namespace StockMaster
             await _showDataInStock.UpdateDataTableWithNewData();
         }
 
-        private void idUpperLabel_Click(object sender, EventArgs e) {
-            if (bool.TryParse(idUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+        private void idUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(idUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
                 _showDataInStock.SortDataByIdColumn(isFromHiger);
                 idUpperLabel.Tag = isFromHiger ? "false" : "true";
                 idUpperLabel.Text = isFromHiger ? "Id▼" : "Id▲";
@@ -133,8 +135,10 @@ namespace StockMaster
             }
         }
 
-        private void quantityUpperLabel_Click(object sender, EventArgs e) {
-            if (bool.TryParse(quantityUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+        private void quantityUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(quantityUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
                 _showDataInStock.SortDataByQuantityColumn(isFromHiger);
                 quantityUpperLabel.Tag = isFromHiger ? "false" : "true";
                 quantityUpperLabel.Text = isFromHiger ? "Quantity▼" : "Quantity▲";
@@ -143,11 +147,13 @@ namespace StockMaster
                 dataOfArrivalUpperLabel.Text = "Date of arrival";
                 priceUpperLabel.Text = "Price";
             }
-                
+
         }
 
-        private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e) {
-            if (bool.TryParse(dataOfArrivalUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+        private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(dataOfArrivalUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
                 _showDataInStock.SortDataByDateColumn(isFromHiger);
                 dataOfArrivalUpperLabel.Tag = isFromHiger ? "false" : "true";
                 dataOfArrivalUpperLabel.Text = isFromHiger ? "Date of arrival▼" : "Date of arrival▲";
@@ -158,8 +164,10 @@ namespace StockMaster
             }
         }
 
-        private void priceUpperLabel_Click(object sender, EventArgs e) {
-            if (bool.TryParse(priceUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger)){
+        private void priceUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(priceUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
                 _showDataInStock.SortDataByPriceColumn(isFromHiger);
                 priceUpperLabel.Tag = isFromHiger ? "false" : "true";
                 priceUpperLabel.Text = isFromHiger ? "Price▼" : "Price▲";
@@ -167,6 +175,33 @@ namespace StockMaster
                 nameOfGoodsUpperLabel.Text = "Name of good";
                 quantityUpperLabel.Text = "Quantity";
                 dataOfArrivalUpperLabel.Text = "Date of arrival";
+            }
+        }
+
+        private void arrivedButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(true, false))
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+        }
+
+        private void overdueButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(false, true))
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(false, false))
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
             }
         }
     }

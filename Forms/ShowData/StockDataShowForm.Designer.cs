@@ -52,6 +52,7 @@
             dataOfArrivalUpperLabel = new System.Windows.Forms.Label();
             priceUpperLabel = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
             SuspendLayout();
@@ -196,7 +197,7 @@
             // 
             // addDataButton
             // 
-            addDataButton.Location = new System.Drawing.Point(777, 202);
+            addDataButton.Location = new System.Drawing.Point(777, 154);
             addDataButton.Name = "addDataButton";
             addDataButton.Size = new System.Drawing.Size(144, 38);
             addDataButton.TabIndex = 4;
@@ -206,7 +207,7 @@
             // 
             // updateDataButton
             // 
-            updateDataButton.Location = new System.Drawing.Point(777, 246);
+            updateDataButton.Location = new System.Drawing.Point(777, 198);
             updateDataButton.Name = "updateDataButton";
             updateDataButton.Size = new System.Drawing.Size(144, 38);
             updateDataButton.TabIndex = 6;
@@ -216,25 +217,27 @@
             // 
             // overdueButton
             // 
-            overdueButton.Location = new System.Drawing.Point(777, 412);
+            overdueButton.Location = new System.Drawing.Point(777, 332);
             overdueButton.Name = "overdueButton";
             overdueButton.Size = new System.Drawing.Size(144, 38);
             overdueButton.TabIndex = 9;
             overdueButton.Text = "Overdue";
             overdueButton.UseVisualStyleBackColor = true;
+            overdueButton.Click += overdueButton_Click;
             // 
             // arrivedButton
             // 
-            arrivedButton.Location = new System.Drawing.Point(777, 368);
+            arrivedButton.Location = new System.Drawing.Point(777, 288);
             arrivedButton.Name = "arrivedButton";
             arrivedButton.Size = new System.Drawing.Size(144, 38);
             arrivedButton.TabIndex = 8;
             arrivedButton.Text = "Arrived";
             arrivedButton.UseVisualStyleBackColor = true;
+            arrivedButton.Click += arrivedButton_Click;
             // 
             // deleteDataButton
             // 
-            deleteDataButton.Location = new System.Drawing.Point(777, 292);
+            deleteDataButton.Location = new System.Drawing.Point(777, 244);
             deleteDataButton.Name = "deleteDataButton";
             deleteDataButton.Size = new System.Drawing.Size(144, 38);
             deleteDataButton.TabIndex = 7;
@@ -341,12 +344,23 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(777, 377);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(144, 38);
+            button2.TabIndex = 19;
+            button2.Text = "Delete Arrived/Overdue";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // StockDataShowForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(933, 519);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(priceUpperLabel);
             Controls.Add(dataOfArrivalUpperLabel);
@@ -403,5 +417,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDateOfArrival;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPrice;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
