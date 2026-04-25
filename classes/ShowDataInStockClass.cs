@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StockMaster.Classes
 {
@@ -19,6 +21,7 @@ namespace StockMaster.Classes
         private IServiceProvider _serviceProvider;
         private StockStorage _mainStock;
         private FunctionalDataStorage _currentDataSelected;
+        private ValidationService _validation;
 
         private Dictionary<int, List<Panel>> _rowGroups = new Dictionary<int, List<Panel>>();
         private int _lastSelectedId = -1;
@@ -28,12 +31,15 @@ namespace StockMaster.Classes
         private Panel _quantityPanel;
         private Panel _dataPanel;
         private Panel _pricePanel;
-        public ShowDataInStockClass(IServiceScopeFactory scopeFactory, IServiceProvider serviceProvider, StockStorage mainStock, FunctionalDataStorage currentDataSelected)
+        public ShowDataInStockClass(IServiceScopeFactory scopeFactory, IServiceProvider serviceProvider, 
+            StockStorage mainStock, FunctionalDataStorage currentDataSelected, ValidationService validation)
         {
             _scopeFactory = scopeFactory;
             _serviceProvider = serviceProvider;
             _mainStock = mainStock;
             _currentDataSelected = currentDataSelected;
+            _validation = validation;
+            
         }
         public void Init(Panel idp, Panel namep, Panel quantityp, Panel datap, Panel pricep ) {
             _idPanel = idp;
@@ -43,7 +49,7 @@ namespace StockMaster.Classes
             _pricePanel = pricep;
         }
         public async Task UpdateDataTableWithNewData() {
-            ClearRowsWithdata();
+            ClearRowCompletely();
             using (var scopedQueries = _scopeFactory.CreateScope()) {
                 var queries = scopedQueries.ServiceProvider.GetRequiredService<DataBaseQueries>();
                 var temp = await queries.GetAllFunctionDataStocksById(_mainStock.Current.Id);
@@ -119,27 +125,18 @@ namespace StockMaster.Classes
             }
             return true;
         }
-        private void ClearRows() {
-            _idPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
-            _idPanel.Controls.Clear();
-
-            _namePanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
-            _namePanel.Controls.Clear();
-
-            _quantityPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
-            _quantityPanel.Controls.Clear();
-
-            _dataPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
-            _dataPanel.Controls.Clear();
-
-            _pricePanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
-            _pricePanel.Controls.Clear();
-        }
-        private void ClearRowsWithdata() {
-            ClearRows();
-
-            _rowGroups.Clear();
-            _lastSelectedId = -1;
+        private void ClearRowCompletely() {
+            foreach (var item in _rowGroups) {
+                foreach (Panel panel in item.Value) {
+                    while (panel.Controls.Count > 0) {
+                        var ctrl = panel.Controls[0];
+                        panel.Controls.RemoveAt(0);
+                        ctrl.Dispose();
+                    }
+                    panel.Dispose();
+                }
+                _rowGroups.Remove(item.Key);
+            }
         }
         private void UpdateEveryRow(List<FunctionStockData> data) {
             foreach (var item in data) {
@@ -279,6 +276,52 @@ namespace StockMaster.Classes
         public void SortDataByPriceColumn(bool isFromHigher) {
             _rowGroups = SortPanelDataService.SortByPrice(_rowGroups, isFromHigher);
             RefreshDataTable();
+        }
+        public async Task<bool> DoSearch(int Index, string inputData) {
+            using (var scope = _scopeFactory.CreateScope()) {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+
+                switch (Index)
+                {
+                    case 0:
+                        if (!_validation.IsOnlyIntegers(inputData))
+                            return false;
+                        var searchedDataId = queries.GetFunctionDataStockById(int.TryParse(inputData, out int id) ? id : 0);
+                        ClearRowCompletely();
+                        UpdateEveryRow(new List<FunctionStockData> { searchedDataId });
+                        break;
+                    case 1:
+                        if (!_validation.IsValidNameGood(inputData))
+                            return false;
+                        // Зроблю це пізніше
+                        break;
+                    case 2:
+                        if (!_validation.IsOnlyIntegers(inputData))
+                            return false;
+                        var searchedDataQuantity = await queries.SearchFunctionDataByQuantity(int.TryParse(inputData, out int quantity) ? quantity : 0);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataQuantity);
+                        break;
+                    case 3:
+                        if (!_validation.IsDate(inputData))
+                            return false;
+                        var searcgedDataDate = await queries.SearchFunctionDataByDate(DateTime.TryParseExact(inputData, "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime date) ? date : DateTime.MinValue);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searcgedDataDate);
+                        break;
+                    case 4:
+                        if (!_validation.IsFloatPointInteger(inputData))
+                            return false;
+                        var searchedDataPrice = await queries.SearchFunctionDataByQuantity(int.TryParse(inputData, out int price) ? price : 0);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataPrice);
+                        break;
+                    default:
+                        MessageBox.Show("You didn't choose what column search by");
+                        break;
+                } 
+            }
+            return true;
         }
     }
 }

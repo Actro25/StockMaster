@@ -204,5 +204,22 @@ namespace StockMaster
                 return;
             }
         }
+
+        private async void searchDataButton_Click(object sender, EventArgs e)
+        {
+            if (!(await _showDataInStock.DoSearch(searchByComboBox.SelectedIndex, inputDataTextBox.Text)))
+            {
+                MessageBox.Show("You entered incorrect data.");
+                return;
+            }
+        }
+
+        private async void clearShearchButton_Click(object sender, EventArgs e)
+        {
+            inputDataTextBox.Text = "";
+            searchByComboBox.SelectedIndex = -1;
+            searchByComboBox.Text = "Search by";
+            await _showDataInStock.UpdateDataTableWithNewData();
+        }
     }
 }

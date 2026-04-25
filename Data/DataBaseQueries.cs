@@ -100,5 +100,15 @@ namespace StockMaster.Data
                 _context.SaveChanges();
             }
         }
+        public async Task<List<FunctionStockData>> SearchFunctionDataByQuantity(int quantity) => await _context.FunctionStockData.Where(d => d.Quantity == quantity).ToListAsync();
+        public async Task<List<FunctionStockData>> SearchFunctionDataByPrice(decimal price) => await _context.FunctionStockData.Where(d => d.Price == price).ToListAsync();
+        public async Task<List<FunctionStockData>> SearchFunctionDataByDate(DateTime date) {
+            var startDate = date.AddMinutes(-30);
+            var endDate = date.AddMinutes(+30);
+            return await _context.FunctionStockData
+                .Where(d => d.DateOfArrival >= startDate && d.DateOfArrival <= endDate)
+                .OrderBy(d => d.DateOfArrival)
+                .ToListAsync();
+        }
     }
 }

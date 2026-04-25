@@ -53,6 +53,7 @@
             priceUpperLabel = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
+            clearShearchButton = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
             SuspendLayout();
@@ -247,28 +248,30 @@
             // 
             // inputDataTextBox
             // 
-            inputDataTextBox.Location = new System.Drawing.Point(12, 74);
+            inputDataTextBox.Location = new System.Drawing.Point(12, 52);
             inputDataTextBox.Name = "inputDataTextBox";
-            inputDataTextBox.Size = new System.Drawing.Size(388, 23);
+            inputDataTextBox.Size = new System.Drawing.Size(396, 23);
             inputDataTextBox.TabIndex = 10;
             // 
             // searchByComboBox
             // 
             searchByComboBox.FormattingEnabled = true;
-            searchByComboBox.Items.AddRange(new object[] { "Search by" });
-            searchByComboBox.Location = new System.Drawing.Point(417, 74);
+            searchByComboBox.Items.AddRange(new object[] { "Id", "Name", "Quantity", "Date", "Price" });
+            searchByComboBox.Location = new System.Drawing.Point(417, 52);
             searchByComboBox.Name = "searchByComboBox";
             searchByComboBox.Size = new System.Drawing.Size(121, 23);
             searchByComboBox.TabIndex = 11;
+            searchByComboBox.Text = "Search by";
             // 
             // searchDataButton
             // 
-            searchDataButton.Location = new System.Drawing.Point(556, 74);
+            searchDataButton.Location = new System.Drawing.Point(284, 81);
             searchDataButton.Name = "searchDataButton";
-            searchDataButton.Size = new System.Drawing.Size(109, 23);
+            searchDataButton.Size = new System.Drawing.Size(124, 34);
             searchDataButton.TabIndex = 12;
             searchDataButton.Text = "Search";
             searchDataButton.UseVisualStyleBackColor = true;
+            searchDataButton.Click += searchDataButton_Click;
             // 
             // idUpperLabel
             // 
@@ -354,12 +357,23 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // clearShearchButton
+            // 
+            clearShearchButton.Location = new System.Drawing.Point(414, 81);
+            clearShearchButton.Name = "clearShearchButton";
+            clearShearchButton.Size = new System.Drawing.Size(124, 34);
+            clearShearchButton.TabIndex = 20;
+            clearShearchButton.Text = "Clear search";
+            clearShearchButton.UseVisualStyleBackColor = true;
+            clearShearchButton.Click += clearShearchButton_Click;
+            // 
             // StockDataShowForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(933, 519);
+            Controls.Add(clearShearchButton);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(priceUpperLabel);
@@ -418,5 +432,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPrice;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button clearShearchButton;
     }
 }
