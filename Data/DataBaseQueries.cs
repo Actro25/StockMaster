@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FuzzySharp;
+using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
 using StockMaster.Models;
 using System;
@@ -82,7 +83,7 @@ namespace StockMaster.Data
             _context.SaveChanges();
         }
         public async Task<List<FunctionStockData>> GetAllFunctionDataStocksById(int id) => await _context.FunctionStockData.Where(f => f.StockId == id).ToListAsync();
-        public FunctionStockData GetFunctionDataStockById(int id) => _context.FunctionStockData.FirstOrDefault(f => f.Id == id);
+        public FunctionStockData GetFunctionDataStockById(int id, int stockId) => _context.FunctionStockData.FirstOrDefault(f => f.Id == id && f.StockId == stockId);
         public void UpdateFunctionDataStock(FunctionStockData data) {
             var local = _context.FunctionStockData.Local.FirstOrDefault(entry => entry.Id == data.Id);
             if (local != null)
@@ -100,15 +101,21 @@ namespace StockMaster.Data
                 _context.SaveChanges();
             }
         }
-        public async Task<List<FunctionStockData>> SearchFunctionDataByQuantity(int quantity) => await _context.FunctionStockData.Where(d => d.Quantity == quantity).ToListAsync();
-        public async Task<List<FunctionStockData>> SearchFunctionDataByPrice(decimal price) => await _context.FunctionStockData.Where(d => d.Price == price).ToListAsync();
-        public async Task<List<FunctionStockData>> SearchFunctionDataByDate(DateTime date) {
+        public async Task<List<FunctionStockData>> SearchFunctionDataByQuantity(int quantity, int stockId) => await _context.FunctionStockData.AsNoTracking().Where(d => d.Quantity == quantity && d.StockId == stockId).ToListAsync();
+        public async Task<List<FunctionStockData>> SearchFunctionDataByPrice(decimal price, int stockId) => await _context.FunctionStockData.AsNoTracking().Where(d => d.Price == price && d.StockId == stockId).ToListAsync();
+        public async Task<List<FunctionStockData>> SearchFunctionDataByDate(DateTime date, int stockId) {
             var startDate = date.AddMinutes(-30);
             var endDate = date.AddMinutes(+30);
             return await _context.FunctionStockData
-                .Where(d => d.DateOfArrival >= startDate && d.DateOfArrival <= endDate)
+                .AsNoTracking()
+                .Where(d => d.DateOfArrival >= startDate && d.DateOfArrival <= endDate && d.StockId == stockId)
                 .OrderBy(d => d.DateOfArrival)
                 .ToListAsync();
+        }
+        public async Task<List<FunctionStockData>> SearchFunctionDataByName(string name, int stockId) { 
+            var data =  await _context.FunctionStockData.AsNoTracking().Where(d => d.StockId == stockId).ToListAsync();
+            var searchedData = data.Where(d => Fuzz.Ratio(name, d.NameOfGood) > 80).ToList();
+            return searchedData;
         }
     }
 }

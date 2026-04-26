@@ -54,6 +54,10 @@
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             clearShearchButton = new System.Windows.Forms.Button();
+            nameStockLabel = new System.Windows.Forms.Label();
+            stockAccess = new System.Windows.Forms.Label();
+            nameOfStockLabel = new System.Windows.Forms.Label();
+            accessStock = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
             SuspendLayout();
@@ -367,12 +371,54 @@
             clearShearchButton.UseVisualStyleBackColor = true;
             clearShearchButton.Click += clearShearchButton_Click;
             // 
+            // nameStockLabel
+            // 
+            nameStockLabel.AutoSize = true;
+            nameStockLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            nameStockLabel.Location = new System.Drawing.Point(601, 47);
+            nameStockLabel.Name = "nameStockLabel";
+            nameStockLabel.Size = new System.Drawing.Size(121, 25);
+            nameStockLabel.TabIndex = 21;
+            nameStockLabel.Text = "Stock name:";
+            // 
+            // stockAccess
+            // 
+            stockAccess.AutoSize = true;
+            stockAccess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            stockAccess.Location = new System.Drawing.Point(601, 81);
+            stockAccess.Name = "stockAccess";
+            stockAccess.Size = new System.Drawing.Size(64, 21);
+            stockAccess.TabIndex = 22;
+            stockAccess.Text = "Access:";
+            // 
+            // nameOfStockLabel
+            // 
+            nameOfStockLabel.AutoSize = true;
+            nameOfStockLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            nameOfStockLabel.Location = new System.Drawing.Point(728, 47);
+            nameOfStockLabel.Name = "nameOfStockLabel";
+            nameOfStockLabel.Size = new System.Drawing.Size(0, 25);
+            nameOfStockLabel.TabIndex = 23;
+            // 
+            // accessStock
+            // 
+            accessStock.AutoSize = true;
+            accessStock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            accessStock.Location = new System.Drawing.Point(671, 81);
+            accessStock.Name = "accessStock";
+            accessStock.Size = new System.Drawing.Size(0, 21);
+            accessStock.TabIndex = 24;
+            // 
             // StockDataShowForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(933, 519);
+            Controls.Add(accessStock);
+            Controls.Add(nameOfStockLabel);
+            Controls.Add(stockAccess);
+            Controls.Add(nameStockLabel);
             Controls.Add(clearShearchButton);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -433,5 +479,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button clearShearchButton;
+        private System.Windows.Forms.Label nameStockLabel;
+        private System.Windows.Forms.Label stockAccess;
+        private System.Windows.Forms.Label nameOfStockLabel;
+        private System.Windows.Forms.Label accessStock;
     }
 }

@@ -57,12 +57,19 @@ namespace StockMaster
 
         private async void StockDataShowForm_Load(object sender, EventArgs e)
         {
+            inputDataTextBox.Text = "";
+            searchByComboBox.SelectedIndex = -1;
+            searchByComboBox.Text = "Search by";
+
             flowLayoutPanelId.BackColor = ColorTranslator.FromHtml("#B3E5FC");
             flowLayoutPanelNameOfGood.BackColor = ColorTranslator.FromHtml("#A5D4F0");
             flowLayoutPanelQuantity.BackColor = ColorTranslator.FromHtml("#B3E5FC");
             flowLayoutPanelDateOfArrival.BackColor = ColorTranslator.FromHtml("#A5D4F0");
             flowLayoutPanelPrice.BackColor = ColorTranslator.FromHtml("#B3E5FC");
             flowLayoutPanelStockInfo.BackColor = Color.FromArgb(128, 135, 215, 255);
+
+            nameOfStockLabel.Text = _mainStock.Current.StockName;
+            accessStock.Text = _mainStock.Current.AccessStock == AccessOfStocks.Private ? "Private" : "Public";
 
             await _showDataInStock.UpdateDataTableWithNewData();
         }

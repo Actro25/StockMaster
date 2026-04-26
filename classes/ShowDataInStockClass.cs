@@ -99,7 +99,7 @@ namespace StockMaster.Classes
             {
                 FunctionStockData currentFunctionStockData;
                 var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
-                currentFunctionStockData = queries.GetFunctionDataStockById(_lastSelectedId);
+                currentFunctionStockData = queries.GetFunctionDataStockById(_lastSelectedId, _mainStock.Current.Id);
 
                 currentFunctionStockData.isArrived = isArrived;
                 currentFunctionStockData.isOverdue = isOverdue;
@@ -121,7 +121,7 @@ namespace StockMaster.Classes
             using (var scope = _scopeFactory.CreateScope())
             {
                 var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
-                _currentDataSelected.Current = queries.GetFunctionDataStockById(_lastSelectedId);
+                _currentDataSelected.Current = queries.GetFunctionDataStockById(_lastSelectedId, _mainStock.Current.Id);
             }
             return true;
         }
@@ -286,33 +286,35 @@ namespace StockMaster.Classes
                     case 0:
                         if (!_validation.IsOnlyIntegers(inputData))
                             return false;
-                        var searchedDataId = queries.GetFunctionDataStockById(int.TryParse(inputData, out int id) ? id : 0);
+                        var searchedDataId = queries.GetFunctionDataStockById(int.TryParse(inputData, out int id) ? id : 0, _mainStock.Current.Id);
                         ClearRowCompletely();
-                        UpdateEveryRow(new List<FunctionStockData> { searchedDataId });
+                        UpdateEveryRow(searchedDataId == null ? new List<FunctionStockData>() : new List<FunctionStockData> { searchedDataId });
                         break;
                     case 1:
                         if (!_validation.IsValidNameGood(inputData))
                             return false;
-                        // Зроблю це пізніше
+                        var searchedDataName = await queries.SearchFunctionDataByName(inputData, _mainStock.Current.Id);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataName);
                         break;
                     case 2:
                         if (!_validation.IsOnlyIntegers(inputData))
                             return false;
-                        var searchedDataQuantity = await queries.SearchFunctionDataByQuantity(int.TryParse(inputData, out int quantity) ? quantity : 0);
+                        var searchedDataQuantity = await queries.SearchFunctionDataByQuantity(int.TryParse(inputData, out int quantity) ? quantity : 0, _mainStock.Current.Id);
                         ClearRowCompletely();
                         UpdateEveryRow(searchedDataQuantity);
                         break;
                     case 3:
                         if (!_validation.IsDate(inputData))
                             return false;
-                        var searcgedDataDate = await queries.SearchFunctionDataByDate(DateTime.TryParseExact(inputData, "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime date) ? date : DateTime.MinValue);
+                        var searcgedDataDate = await queries.SearchFunctionDataByDate(DateTime.TryParseExact(inputData, "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime date) ? date : DateTime.MinValue, _mainStock.Current.Id);
                         ClearRowCompletely();
                         UpdateEveryRow(searcgedDataDate);
                         break;
                     case 4:
                         if (!_validation.IsFloatPointInteger(inputData))
                             return false;
-                        var searchedDataPrice = await queries.SearchFunctionDataByQuantity(int.TryParse(inputData, out int price) ? price : 0);
+                        var searchedDataPrice = await queries.SearchFunctionDataByPrice(decimal.TryParse(inputData, out decimal price) ? price : 0.0M, _mainStock.Current.Id);
                         ClearRowCompletely();
                         UpdateEveryRow(searchedDataPrice);
                         break;
