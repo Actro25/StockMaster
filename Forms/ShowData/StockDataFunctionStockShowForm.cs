@@ -32,7 +32,7 @@ namespace StockMaster
             _mainStock = stock;
             _showDataInStock = showDataInStock;
 
-            _showDataInStock.Init(flowLayoutPanelId, flowLayoutPanelNameOfGood, flowLayoutPanelQuantity, flowLayoutPanelDateOfArrival, flowLayoutPanelPrice);
+            _showDataInStock.Init(new List<Panel> { flowLayoutPanelId, flowLayoutPanelNameOfGood, flowLayoutPanelQuantity, flowLayoutPanelDateOfArrival, flowLayoutPanelPrice });
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {

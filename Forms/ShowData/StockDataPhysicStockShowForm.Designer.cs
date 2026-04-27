@@ -53,6 +53,8 @@
             label2 = new System.Windows.Forms.Label();
             stockAccess = new System.Windows.Forms.Label();
             nameStockLabel = new System.Windows.Forms.Label();
+            nameOfStockLabel = new System.Windows.Forms.Label();
+            accessStock = new System.Windows.Forms.Label();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -311,22 +313,40 @@
             // stockAccess
             // 
             stockAccess.AutoSize = true;
-            stockAccess.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            stockAccess.Location = new System.Drawing.Point(550, 85);
+            stockAccess.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            stockAccess.Location = new System.Drawing.Point(550, 68);
             stockAccess.Name = "stockAccess";
-            stockAccess.Size = new System.Drawing.Size(64, 21);
+            stockAccess.Size = new System.Drawing.Size(44, 13);
             stockAccess.TabIndex = 34;
             stockAccess.Text = "Access:";
             // 
             // nameStockLabel
             // 
             nameStockLabel.AutoSize = true;
-            nameStockLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            nameStockLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             nameStockLabel.Location = new System.Drawing.Point(550, 51);
             nameStockLabel.Name = "nameStockLabel";
-            nameStockLabel.Size = new System.Drawing.Size(121, 25);
+            nameStockLabel.Size = new System.Drawing.Size(83, 17);
             nameStockLabel.TabIndex = 33;
             nameStockLabel.Text = "Stock name:";
+            // 
+            // nameOfStockLabel
+            // 
+            nameOfStockLabel.AutoSize = true;
+            nameOfStockLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            nameOfStockLabel.Location = new System.Drawing.Point(630, 51);
+            nameOfStockLabel.Name = "nameOfStockLabel";
+            nameOfStockLabel.Size = new System.Drawing.Size(0, 17);
+            nameOfStockLabel.TabIndex = 35;
+            // 
+            // accessStock
+            // 
+            accessStock.AutoSize = true;
+            accessStock.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            accessStock.Location = new System.Drawing.Point(589, 68);
+            accessStock.Name = "accessStock";
+            accessStock.Size = new System.Drawing.Size(0, 13);
+            accessStock.TabIndex = 36;
             // 
             // StockDataPhysicStockShowForm
             // 
@@ -334,6 +354,8 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(736, 405);
+            Controls.Add(accessStock);
+            Controls.Add(nameOfStockLabel);
             Controls.Add(stockAccess);
             Controls.Add(nameStockLabel);
             Controls.Add(label2);
@@ -356,6 +378,7 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "StockDataPhysicStockShowForm";
             Text = "StockDataPhysicStockShowForm";
+            Load += StockDataPhysicStockShowForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             flowLayoutPanelStockInfo.ResumeLayout(false);
@@ -392,5 +415,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label stockAccess;
         private System.Windows.Forms.Label nameStockLabel;
+        private System.Windows.Forms.Label nameOfStockLabel;
+        private System.Windows.Forms.Label accessStock;
     }
 }
