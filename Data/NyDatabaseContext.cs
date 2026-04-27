@@ -21,6 +21,7 @@ namespace StockMaster.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<FunctionStockData> FunctionStockData { get; set; }
+        public DbSet<PhysicStockData> PhysicStockData { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)

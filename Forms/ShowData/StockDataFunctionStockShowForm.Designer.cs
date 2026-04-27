@@ -1,6 +1,6 @@
 ﻿namespace StockMaster
 {
-    partial class StockDataShowForm
+    partial class StockDataFunctionStockShowForm
     {
         /// <summary>
         /// Required designer variable.

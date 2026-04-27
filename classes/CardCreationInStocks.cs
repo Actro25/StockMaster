@@ -15,7 +15,7 @@ namespace StockMaster.Classes.CardCreation
 {
     public class CardCreationInStocks
     {
-        private static StockDataShowForm _formStock;
+        private static StockDataFunctionStockShowForm _formStock;
         private List<(Panel panel, int idPanel)> _panels = new List<(Panel panel, int idPanel)>();
         private FlowLayoutPanel _flowPanel;
         private Form1 _myForm;
@@ -36,7 +36,7 @@ namespace StockMaster.Classes.CardCreation
             _scopeFactory = scopeFactory;
             _serviceProvider = serviceProvider;
 
-            _formStock = _serviceProvider.GetRequiredService<StockDataShowForm>();
+            _formStock = _serviceProvider.GetRequiredService<StockDataFunctionStockShowForm>();
         }
         public void Create(FlowLayoutPanel flowPanel, Form1 myForm) {
             _flowPanel = flowPanel;

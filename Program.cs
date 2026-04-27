@@ -58,7 +58,7 @@ namespace StockMaster
                 services.AddTransient<UpdateFunctionalStockData>();
                 services.AddTransient<AddFunctionalDataInStock>();
                 services.AddTransient<AddNewStockForm>();
-                services.AddTransient<StockDataShowForm>();
+                services.AddTransient<StockDataFunctionStockShowForm>();
                 services.AddTransient<Form1>(); //Незнаю
             }).Build();
 

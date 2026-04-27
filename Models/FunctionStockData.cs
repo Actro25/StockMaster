@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockMaster.Abstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,20 +9,8 @@ using System.Threading.Tasks;
 
 namespace StockMaster.Models
 {
-    public class FunctionStockData
+    public class FunctionStockData : BaseDataStock
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public int StockId { get; set; }
-        [ForeignKey("StockId")]
-        public virtual Stock MainStock { get; set; }
-        [MaxLength(10)]
-        [Required]
-        public string NameOfGood { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-
         private DateTime _dateOfArrival;
         [Required]
         public DateTime DateOfArrival {

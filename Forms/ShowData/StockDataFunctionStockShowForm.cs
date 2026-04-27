@@ -15,7 +15,7 @@ using StockMaster.Models;
 using StockMaster.Services;
 namespace StockMaster
 {
-    public partial class StockDataShowForm : Form
+    public partial class StockDataFunctionStockShowForm : Form
     {
         /*
             ЗАДВАННЯ:
@@ -25,7 +25,7 @@ namespace StockMaster
         private IServiceProvider _serviceProvider;
         private StockStorage _mainStock;
         private ShowDataInStockClass _showDataInStock;
-        public StockDataShowForm(IServiceProvider serviceProvider, StockStorage stock, ShowDataInStockClass showDataInStock)
+        public StockDataFunctionStockShowForm(IServiceProvider serviceProvider, StockStorage stock, ShowDataInStockClass showDataInStock)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
