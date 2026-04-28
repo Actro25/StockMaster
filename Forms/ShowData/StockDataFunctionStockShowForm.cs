@@ -149,7 +149,6 @@ namespace StockMaster
                 dataOfArrivalUpperLabel.Text = "Date of arrival";
                 priceUpperLabel.Text = "Price";
             }
-
         }
 
         private void dataOfArrivalUpperLabel_Click(object sender, EventArgs e)

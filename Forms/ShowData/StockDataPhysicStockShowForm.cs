@@ -100,5 +100,41 @@ namespace StockMaster.Forms.ShowData
                 }
             }
         }
+
+        private void idUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(idUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
+                _showDataInStock.SortDataByIdColumn(isFromHiger);
+                idUpperLabel.Tag = isFromHiger ? "false" : "true";
+                idUpperLabel.Text = isFromHiger ? "Id▼" : "Id▲";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+                quantityUpperLabel.Text = "Quantity";
+            }
+        }
+
+        private void nameOfGoodsUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(nameOfGoodsUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
+                _showDataInStock.SortDataByNameColumn(isFromHiger);
+                nameOfGoodsUpperLabel.Tag = isFromHiger ? "false" : "true";
+                nameOfGoodsUpperLabel.Text = isFromHiger ? "Name of good▼" : "Name of good▲";
+                idUpperLabel.Text = "Id";
+                quantityUpperLabel.Text = "Quantity";
+            }
+        }
+
+        private void quantityUpperLabel_Click(object sender, EventArgs e)
+        {
+            if (bool.TryParse(quantityUpperLabel.Tag?.ToString() ?? "", out bool isFromHiger))
+            {
+                _showDataInStock.SortDataByQuantityColumn(isFromHiger);
+                quantityUpperLabel.Tag = isFromHiger ? "false" : "true";
+                quantityUpperLabel.Text = isFromHiger ? "Quantity▼" : "Quantity▲";
+                idUpperLabel.Text = "Id";
+                nameOfGoodsUpperLabel.Text = "Name of good";
+            }
+        }
     }
 }

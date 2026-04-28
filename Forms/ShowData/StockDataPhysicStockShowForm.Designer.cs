@@ -172,34 +172,37 @@
             // 
             quantityUpperLabel.AutoSize = true;
             quantityUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            quantityUpperLabel.Location = new System.Drawing.Point(443, 105);
+            quantityUpperLabel.Location = new System.Drawing.Point(443, 117);
             quantityUpperLabel.Name = "quantityUpperLabel";
             quantityUpperLabel.Size = new System.Drawing.Size(77, 21);
             quantityUpperLabel.TabIndex = 18;
             quantityUpperLabel.Tag = "false";
             quantityUpperLabel.Text = "Quantity";
+            quantityUpperLabel.Click += quantityUpperLabel_Click;
             // 
             // nameOfGoodsUpperLabel
             // 
             nameOfGoodsUpperLabel.AutoSize = true;
             nameOfGoodsUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            nameOfGoodsUpperLabel.Location = new System.Drawing.Point(87, 105);
+            nameOfGoodsUpperLabel.Location = new System.Drawing.Point(87, 117);
             nameOfGoodsUpperLabel.Name = "nameOfGoodsUpperLabel";
             nameOfGoodsUpperLabel.Size = new System.Drawing.Size(120, 21);
             nameOfGoodsUpperLabel.TabIndex = 17;
             nameOfGoodsUpperLabel.Tag = "false";
             nameOfGoodsUpperLabel.Text = "Name of good";
+            nameOfGoodsUpperLabel.Click += nameOfGoodsUpperLabel_Click;
             // 
             // idUpperLabel
             // 
             idUpperLabel.AutoSize = true;
             idUpperLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            idUpperLabel.Location = new System.Drawing.Point(15, 105);
+            idUpperLabel.Location = new System.Drawing.Point(15, 117);
             idUpperLabel.Name = "idUpperLabel";
             idUpperLabel.Size = new System.Drawing.Size(25, 21);
             idUpperLabel.TabIndex = 16;
             idUpperLabel.Tag = "false";
             idUpperLabel.Text = "Id";
+            idUpperLabel.Click += idUpperLabel_Click;
             // 
             // clearShearchButton
             // 
