@@ -248,6 +248,7 @@
             button1.TabIndex = 25;
             button1.Text = "Main menu";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // deleteDataButton
             // 
@@ -257,6 +258,7 @@
             deleteDataButton.TabIndex = 28;
             deleteDataButton.Text = "Delete data";
             deleteDataButton.UseVisualStyleBackColor = true;
+            deleteDataButton.Click += deleteDataButton_Click;
             // 
             // updateDataButton
             // 
@@ -266,6 +268,7 @@
             updateDataButton.TabIndex = 27;
             updateDataButton.Text = "Update data";
             updateDataButton.UseVisualStyleBackColor = true;
+            updateDataButton.Click += updateDataButton_Click;
             // 
             // addDataButton
             // 
@@ -275,6 +278,7 @@
             addDataButton.TabIndex = 26;
             addDataButton.Text = "Add data";
             addDataButton.UseVisualStyleBackColor = true;
+            addDataButton.Click += addDataButton_Click;
             // 
             // numericUpDown1
             // 

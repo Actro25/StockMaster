@@ -117,5 +117,26 @@ namespace StockMaster.Data
             var searchedData = data.Where(d => Fuzz.Ratio(name, d.NameOfGood) > 80).ToList();
             return searchedData;
         }
+        public void AddPhysicDataStock(PhysicStockData data) {
+            _context.PhysicStockData.Add(data);
+            _context.SaveChanges();
+        }
+        public async Task<List<PhysicStockData>> GetAllPhysicDataStockById(int id) => await _context.PhysicStockData.Where(f => f.StockId == id).ToListAsync();
+        public void DeletePhysicDataById(int id) {
+            var temp = _context.PhysicStockData.Find(id);
+            if (temp != null) {
+                _context.PhysicStockData.Remove(temp);
+                _context.SaveChanges();
+            }
+        }
+        public PhysicStockData GetPhysicDataStockById(int id, int stockId) => _context.PhysicStockData.FirstOrDefault(f => f.Id == id && f.StockId == stockId);
+        public void UpdatePhysicDataStock(PhysicStockData data) {
+            var local = _context.PhysicStockData.Local.FirstOrDefault(entry => entry.Id == data.Id);
+            if (local != null) {
+                _context.Entry(local).State = EntityState.Detached;
+            }
+            _context.PhysicStockData.Update(data);
+            _context.SaveChanges();
+        }
     }
 }

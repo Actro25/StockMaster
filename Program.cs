@@ -6,6 +6,7 @@ using StockMaster.Classes;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Data;
 using StockMaster.Forms.Quick;
+using StockMaster.Forms.ShowData;
 using StockMaster.Models;
 using StockMaster.Services;
 using System;
@@ -51,14 +52,19 @@ namespace StockMaster
                 services.AddSingleton<CardCreationInStocks>(); // Клас для виведення карточок
                 services.AddSingleton<UserSession>(); // Клас для зберігання сесії
                 services.AddSingleton<StockStorage>(); // Передаємо данні про сто між головною формою та формою показу данних
-                services.AddSingleton<ShowDataInStockClass>(); // Для вивода данних в таблицю
+                services.AddSingleton<ShowFunctionDataInStockClass>(); // Для вивода данних в таблицю
+                services.AddSingleton<ShowPhysicDataInStockClass>();
                 services.AddSingleton<FunctionalDataStorage>();
+                services.AddSingleton<PhysicDataStorage>();
 
                 services.AddTransient<StockSettingsForm>();
                 services.AddTransient<UpdateFunctionalStockData>();
+                services.AddTransient<UpdatePhysicStockData>();
                 services.AddTransient<AddFunctionalDataInStock>();
+                services.AddTransient<AddPhysicDataInStock>();
                 services.AddTransient<AddNewStockForm>();
                 services.AddTransient<StockDataFunctionStockShowForm>();
+                services.AddTransient<StockDataPhysicStockShowForm>();
                 services.AddTransient<Form1>(); //Незнаю
             }).Build();
 

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Data;
 using StockMaster.Forms.Quick;
+using StockMaster.Forms.ShowData;
 using StockMaster.Models;
 using StockMaster.Services;
 using System;
@@ -15,7 +16,8 @@ namespace StockMaster.Classes.CardCreation
 {
     public class CardCreationInStocks
     {
-        private static StockDataFunctionStockShowForm _formStock;
+        private static StockDataFunctionStockShowForm _formFunStock;
+        private static StockDataPhysicStockShowForm _formPhyStock;
         private List<(Panel panel, int idPanel)> _panels = new List<(Panel panel, int idPanel)>();
         private FlowLayoutPanel _flowPanel;
         private Form1 _myForm;
@@ -36,7 +38,8 @@ namespace StockMaster.Classes.CardCreation
             _scopeFactory = scopeFactory;
             _serviceProvider = serviceProvider;
 
-            _formStock = _serviceProvider.GetRequiredService<StockDataFunctionStockShowForm>();
+            _formFunStock = _serviceProvider.GetRequiredService<StockDataFunctionStockShowForm>();
+            _formPhyStock = _serviceProvider.GetRequiredService<StockDataPhysicStockShowForm>();
         }
         public void Create(FlowLayoutPanel flowPanel, Form1 myForm) {
             _flowPanel = flowPanel;
@@ -81,34 +84,34 @@ namespace StockMaster.Classes.CardCreation
                 {
                     if (checkPsw.ShowDialog() == DialogResult.OK)
                     {
-                        if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                        var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
+                        stockToTransfer.Current = stock;
+                        _myForm.Hide();
+                        if (stock.KindOfStock == TypeOfStocks.FunctionalStock && (_formFunStock.ShowDialog() == DialogResult.Abort))
                         {
-                            var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
-                            stockToTransfer.Current = stock;
-
-                            _myForm.Hide();
-                            if (_formStock.ShowDialog() == DialogResult.Abort) {
-                                Application.Exit();
-                            }
-                            _myForm.Show();
+                            Application.Exit();
                         }
+                        else if(stock.KindOfStock == TypeOfStocks.PhysicalStock && (_formPhyStock.ShowDialog() == DialogResult.Abort)) {
+                            Application.Exit();
+                        }
+                        _myForm.Show();
                     }
                 }
             }
             else
             {
-                if (stock.KindOfStock == TypeOfStocks.FunctionalStock)
+                var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
+                stockToTransfer.Current = stock;
+                _myForm.Hide();
+                if (stock.KindOfStock == TypeOfStocks.FunctionalStock && (_formFunStock.ShowDialog() == DialogResult.Abort))
                 {
-                    var stockToTransfer = _serviceProvider.GetRequiredService<StockStorage>();
-                    stockToTransfer.Current = stock;
-
-                    _myForm.Hide();
-                    if (_formStock.ShowDialog() == DialogResult.Abort)
-                    {
-                        Application.Exit();
-                    }
-                    _myForm.Show();
+                    Application.Exit();
                 }
+                else if (stock.KindOfStock == TypeOfStocks.PhysicalStock && (_formPhyStock.ShowDialog() == DialogResult.Abort))
+                {
+                    Application.Exit();
+                }
+                _myForm.Show();
             }
         }
         public void AddPanel(Stock stock) 

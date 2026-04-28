@@ -17,10 +17,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StockMaster.Classes
 {
-    public class ShowDataInStockClass : BaseDataToReflectInForm<FunctionStockData>, IAdvancedSortable
+    public class ShowFunctionDataInStockClass : BaseDataToReflectInForm<FunctionStockData>, IAdvancedSortable
     {
         private FunctionalDataStorage _currentDataSelected;
-        public ShowDataInStockClass(IServiceScopeFactory scopeFactory, StockStorage mainStock, 
+        public ShowFunctionDataInStockClass(IServiceScopeFactory scopeFactory, StockStorage mainStock, 
             FunctionalDataStorage currentDataSelected, ValidationService validation) : base(scopeFactory, mainStock, validation)
         {
             _currentDataSelected = currentDataSelected;
