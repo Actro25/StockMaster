@@ -55,9 +55,41 @@ namespace StockMaster.Classes
             }
         }
 
-        public override Task<bool> DoSearch(int Index, string inputData)
+        public override async Task<bool> DoSearch(int Index, string inputData)
         {
-            throw new NotImplementedException();
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+
+                switch (Index)
+                {
+                    case 0:
+                        if (!_validation.IsOnlyIntegers(inputData))
+                            return false;
+                        var searchedDataId = queries.GetPhysicDataStockById(int.TryParse(inputData, out int id) ? id : 0, _mainStock.Current.Id);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataId == null ? new List<PhysicStockData>() : new List<PhysicStockData> { searchedDataId });
+                        break;
+                    case 1:
+                        if (!_validation.IsValidNameGood(inputData))
+                            return false;
+                        var searchedDataName = await queries.SearchPhysicDataByName(inputData, _mainStock.Current.Id);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataName);
+                        break;
+                    case 2:
+                        if (!_validation.IsOnlyIntegers(inputData))
+                            return false;
+                        var searchedDataQuantity = await queries.SearchPhysicDataByQantity(int.TryParse(inputData, out int quantity) ? quantity : 0, _mainStock.Current.Id);
+                        ClearRowCompletely();
+                        UpdateEveryRow(searchedDataQuantity);
+                        break;
+                    default:
+                        MessageBox.Show("You didn't choose what column search by");
+                        break;
+                }
+            }
+            return true;
         }
 
         protected override void UpdateEveryRow(List<PhysicStockData> data)

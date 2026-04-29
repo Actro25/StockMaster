@@ -112,8 +112,8 @@ namespace StockMaster.Data
                 .OrderBy(d => d.DateOfArrival)
                 .ToListAsync();
         }
-        public async Task<List<FunctionStockData>> SearchFunctionDataByName(string name, int stockId) { 
-            var data =  await _context.FunctionStockData.AsNoTracking().Where(d => d.StockId == stockId).ToListAsync();
+        public async Task<List<FunctionStockData>> SearchFunctionDataByName(string name, int stockId) {
+            var data = await _context.FunctionStockData.AsNoTracking().Where(d => d.StockId == stockId).ToListAsync();
             var searchedData = data.Where(d => Fuzz.Ratio(name, d.NameOfGood) > 80).ToList();
             return searchedData;
         }
@@ -138,5 +138,11 @@ namespace StockMaster.Data
             _context.PhysicStockData.Update(data);
             _context.SaveChanges();
         }
+        public async Task<List<PhysicStockData>> SearchPhysicDataByName(string name, int stockId) {
+            var data = await _context.PhysicStockData.AsNoTracking().Where(d => d.StockId == stockId).ToListAsync();
+            var searchedData = data.Where(d => Fuzz.Ratio(name, d.NameOfGood) > 80).ToList();
+            return searchedData;
+        }
+        public async Task<List<PhysicStockData>> SearchPhysicDataByQantity(int quantity, int stockId) => await _context.PhysicStockData.AsNoTracking().Where(d => d.Quantity == quantity && d.StockId == stockId).ToListAsync();
     }
 }

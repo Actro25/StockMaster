@@ -212,6 +212,7 @@
             clearShearchButton.TabIndex = 24;
             clearShearchButton.Text = "Clear search";
             clearShearchButton.UseVisualStyleBackColor = true;
+            clearShearchButton.Click += clearShearchButton_Click;
             // 
             // searchDataButton
             // 
@@ -221,11 +222,12 @@
             searchDataButton.TabIndex = 23;
             searchDataButton.Text = "Search";
             searchDataButton.UseVisualStyleBackColor = true;
+            searchDataButton.Click += searchDataButton_Click;
             // 
             // searchByComboBox
             // 
             searchByComboBox.FormattingEnabled = true;
-            searchByComboBox.Items.AddRange(new object[] { "Id", "Name", "Quantity", "Date", "Price" });
+            searchByComboBox.Items.AddRange(new object[] { "Id", "Name", "Quantity" });
             searchByComboBox.Location = new System.Drawing.Point(423, 53);
             searchByComboBox.Name = "searchByComboBox";
             searchByComboBox.Size = new System.Drawing.Size(121, 23);
