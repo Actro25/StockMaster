@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StockMaster.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StockMaster.Data
@@ -71,6 +72,7 @@ namespace StockMaster.Data
             _context.SaveChanges();
         }
         public async Task<List<Stock>> GetAllStocks() => await _context.Stocks.AsNoTracking().Include(s => s.Creator).ToListAsync();
+        public async Task<List<Stock>> GetAllPhysicStocks() => await _context.Stocks.AsNoTracking().Where(s => s.KindOfStock == TypeOfStocks.PhysicalStock).Include(s => s.Creator).ToListAsync();
         public void DeleteStockById(int id) {
             var stock = _context.Stocks.Find(id);
             if (stock == null)
@@ -144,5 +146,14 @@ namespace StockMaster.Data
             return searchedData;
         }
         public async Task<List<PhysicStockData>> SearchPhysicDataByQantity(int quantity, int stockId) => await _context.PhysicStockData.AsNoTracking().Where(d => d.Quantity == quantity && d.StockId == stockId).ToListAsync();
+        public void UpdatePhysicDataQuantity(int dataId ,int stockId ,int quantity) {
+            var currentDataToAdd = GetPhysicDataStockById(dataId,stockId);
+            if (currentDataToAdd.Quantity + quantity <= 0)
+                currentDataToAdd.Quantity = 0;
+            else
+                currentDataToAdd.Quantity += quantity;
+
+            UpdatePhysicDataStock(currentDataToAdd);
+        }
     }
 }

@@ -50,9 +50,14 @@
             label8 = new System.Windows.Forms.Label();
             addButton = new System.Windows.Forms.Button();
             denyButton = new System.Windows.Forms.Button();
+            clearButton = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            linkedStockPanel = new System.Windows.Forms.Panel();
             panel1.SuspendLayout();
             accessPrivatePanel.SuspendLayout();
             importantTextPanel.SuspendLayout();
+            linkedStockPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -309,6 +314,46 @@
             denyButton.UseVisualStyleBackColor = false;
             denyButton.Click += denyButton_Click;
             // 
+            // clearButton
+            // 
+            clearButton.Location = new System.Drawing.Point(130, 37);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new System.Drawing.Size(67, 23);
+            clearButton.TabIndex = 22;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += clearButton_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(0, 6);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(139, 15);
+            label11.TabIndex = 20;
+            label11.Text = "Linked with physic stock:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new System.Drawing.Point(3, 37);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(121, 23);
+            comboBox1.TabIndex = 19;
+            comboBox1.Text = "Nothing";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // linkedStockPanel
+            // 
+            linkedStockPanel.Controls.Add(clearButton);
+            linkedStockPanel.Controls.Add(label11);
+            linkedStockPanel.Controls.Add(comboBox1);
+            linkedStockPanel.Location = new System.Drawing.Point(171, 114);
+            linkedStockPanel.Name = "linkedStockPanel";
+            linkedStockPanel.Size = new System.Drawing.Size(200, 60);
+            linkedStockPanel.TabIndex = 23;
+            linkedStockPanel.Visible = false;
+            // 
             // AddNewStockForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -316,6 +361,7 @@
             BackColor = System.Drawing.SystemColors.ButtonHighlight;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             ClientSize = new System.Drawing.Size(640, 340);
+            Controls.Add(linkedStockPanel);
             Controls.Add(denyButton);
             Controls.Add(addButton);
             Controls.Add(importantTextPanel);
@@ -339,6 +385,8 @@
             accessPrivatePanel.PerformLayout();
             importantTextPanel.ResumeLayout(false);
             importantTextPanel.PerformLayout();
+            linkedStockPanel.ResumeLayout(false);
+            linkedStockPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
@@ -368,5 +416,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button denyButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel linkedStockPanel;
     }
 }

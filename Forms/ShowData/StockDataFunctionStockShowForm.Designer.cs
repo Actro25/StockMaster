@@ -58,6 +58,7 @@
             stockAccess = new System.Windows.Forms.Label();
             nameOfStockLabel = new System.Windows.Forms.Label();
             accessStock = new System.Windows.Forms.Label();
+            transferDataButton = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             flowLayoutPanelStockInfo.SuspendLayout();
             SuspendLayout();
@@ -409,12 +410,22 @@
             accessStock.Size = new System.Drawing.Size(0, 21);
             accessStock.TabIndex = 24;
             // 
-            // StockDataShowForm
+            // transferDataButton
+            // 
+            transferDataButton.Location = new System.Drawing.Point(777, 421);
+            transferDataButton.Name = "transferDataButton";
+            transferDataButton.Size = new System.Drawing.Size(144, 38);
+            transferDataButton.TabIndex = 25;
+            transferDataButton.Text = "Transfer data to physical stock";
+            transferDataButton.UseVisualStyleBackColor = true;
+            // 
+            // StockDataFunctionStockShowForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(933, 519);
+            Controls.Add(transferDataButton);
             Controls.Add(accessStock);
             Controls.Add(nameOfStockLabel);
             Controls.Add(stockAccess);
@@ -439,7 +450,7 @@
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            Name = "StockDataShowForm";
+            Name = "StockDataFunctionStockShowForm";
             Text = "StockDataShowForm";
             Load += StockDataShowForm_Load;
             panel1.ResumeLayout(false);
@@ -483,5 +494,6 @@
         private System.Windows.Forms.Label stockAccess;
         private System.Windows.Forms.Label nameOfStockLabel;
         private System.Windows.Forms.Label accessStock;
+        private System.Windows.Forms.Button transferDataButton;
     }
 }

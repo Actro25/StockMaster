@@ -21,6 +21,18 @@ namespace StockMaster.Classes
         {
             _currentDataSelected = currentDataSelected;
         }
+
+        public bool UpdateQuantityDataRow(int quantity) {
+            if (_lastSelectedId == -1)
+                return false;
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                queries.UpdatePhysicDataQuantity(_lastSelectedId, _mainStock.Current.Id, quantity);
+            }
+            return true;
+        }
+
         public override bool GetCurrentDataRow()
         {
             if (_lastSelectedId == -1)
@@ -32,6 +44,7 @@ namespace StockMaster.Classes
             }
             return true;
         }
+        
         public override bool DeleteCurrentDataRow()
         {
             if (_lastSelectedId == -1)
@@ -40,6 +53,7 @@ namespace StockMaster.Classes
             {
                 var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
                 queries.DeletePhysicDataById(_lastSelectedId);
+                _lastSelectedId = -1;
             }
             return true;
         }

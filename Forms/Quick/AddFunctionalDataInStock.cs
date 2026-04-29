@@ -19,6 +19,7 @@ namespace StockMaster
         private ValidationService _validation;
         private DataBaseQueries _queries;
         private StockStorage _mainStock;
+        private List<Stock> _allPhysicStocks;
         public AddFunctionalDataInStock(ValidationService validation, DataBaseQueries queries, StockStorage stock)
         {
             InitializeComponent();

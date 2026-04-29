@@ -288,9 +288,11 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new System.Drawing.Point(550, 159);
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new System.Drawing.Size(114, 23);
             numericUpDown1.TabIndex = 29;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // addQuantityButton
             // 
@@ -300,6 +302,7 @@
             addQuantityButton.TabIndex = 30;
             addQuantityButton.Text = "+";
             addQuantityButton.UseVisualStyleBackColor = true;
+            addQuantityButton.Click += addQuantityButton_Click;
             // 
             // minusQuantityButton
             // 
@@ -309,6 +312,7 @@
             minusQuantityButton.TabIndex = 31;
             minusQuantityButton.Text = "-";
             minusQuantityButton.UseVisualStyleBackColor = true;
+            minusQuantityButton.Click += minusQuantityButton_Click;
             // 
             // label2
             // 

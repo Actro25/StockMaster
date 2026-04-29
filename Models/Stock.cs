@@ -46,5 +46,15 @@ namespace StockMaster.Models
         public AccessOfStocks AccessStock { get; set; }
         [MaxLength(30)]
         public string? Password { get; set; }
+        
+        public int? LinkedPhysicStockId { get; set; } = null;
+        [ForeignKey("LinkedPhysicStockId")]
+        public Stock LinkedStock { get; set; }
+
+        public override string ToString()
+        {
+            var acsSt = (AccessStock == AccessOfStocks.Private) ? "Private" : "Public";
+            return $"{StockName} - {acsSt} - {Creator.UserName}";
+        }
     }
 }

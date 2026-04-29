@@ -121,7 +121,6 @@
             // 
             quantityNumericUpDown.Location = new System.Drawing.Point(212, 49);
             quantityNumericUpDown.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            quantityNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             quantityNumericUpDown.Name = "quantityNumericUpDown";
             quantityNumericUpDown.Size = new System.Drawing.Size(200, 23);
             quantityNumericUpDown.TabIndex = 23;

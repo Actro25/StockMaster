@@ -153,5 +153,25 @@ namespace StockMaster.Forms.ShowData
                 return;
             }
         }
+
+        private async void addQuantityButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.UpdateQuantityDataRow((int)numericUpDown1.Value))
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+            await _showDataInStock.UpdateDataTableWithNewData();
+        }
+
+        private async void minusQuantityButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.UpdateQuantityDataRow(-(int)numericUpDown1.Value))
+            {
+                MessageBox.Show("You don't choose data to update");
+                return;
+            }
+            await _showDataInStock.UpdateDataTableWithNewData();
+        }
     }
 }

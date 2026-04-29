@@ -42,6 +42,7 @@ namespace StockMaster.Classes
             {
                 var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
                 queries.DeleteFunctionDataById(_lastSelectedId);
+                _lastSelectedId = -1;
             }
             return true;
         }

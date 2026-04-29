@@ -49,9 +49,14 @@
             nameOfStock = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            linkedStockPanel = new System.Windows.Forms.Panel();
+            clearButton = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            comboBox1 = new System.Windows.Forms.ComboBox();
             panel1.SuspendLayout();
             importantTextPanel.SuspendLayout();
             accessPrivatePanel.SuspendLayout();
+            linkedStockPanel.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -294,12 +299,53 @@
             label2.TabIndex = 15;
             label2.Text = "Name of stock:";
             // 
+            // linkedStockPanel
+            // 
+            linkedStockPanel.Controls.Add(clearButton);
+            linkedStockPanel.Controls.Add(label11);
+            linkedStockPanel.Controls.Add(comboBox1);
+            linkedStockPanel.Location = new System.Drawing.Point(178, 112);
+            linkedStockPanel.Name = "linkedStockPanel";
+            linkedStockPanel.Size = new System.Drawing.Size(200, 60);
+            linkedStockPanel.TabIndex = 26;
+            linkedStockPanel.Visible = false;
+            // 
+            // clearButton
+            // 
+            clearButton.Location = new System.Drawing.Point(130, 37);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new System.Drawing.Size(67, 23);
+            clearButton.TabIndex = 22;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += clearButton_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(0, 6);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(139, 15);
+            label11.TabIndex = 20;
+            label11.Text = "Linked with physic stock:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new System.Drawing.Point(3, 37);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(121, 23);
+            comboBox1.TabIndex = 19;
+            comboBox1.Text = "Nothing";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // StockSettingsForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ButtonHighlight;
             ClientSize = new System.Drawing.Size(640, 340);
+            Controls.Add(linkedStockPanel);
             Controls.Add(denyButton);
             Controls.Add(updateButton);
             Controls.Add(importantTextPanel);
@@ -322,6 +368,8 @@
             importantTextPanel.PerformLayout();
             accessPrivatePanel.ResumeLayout(false);
             accessPrivatePanel.PerformLayout();
+            linkedStockPanel.ResumeLayout(false);
+            linkedStockPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -349,5 +397,9 @@
         private System.Windows.Forms.TextBox nameOfStock;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel linkedStockPanel;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

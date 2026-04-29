@@ -18,9 +18,11 @@ namespace StockMaster.Forms.Quick
 {
     public partial class StockSettingsForm : Form
     {
-        StockStorage _currentStock;
-        DataBaseQueries _queries;
-        ValidationService _validation;
+        private StockStorage _currentStock;
+        private DataBaseQueries _queries;
+        private ValidationService _validation;
+        private Stock _selectedStock = null;
+        private bool _isInitializingComboBox = true;
         public StockSettingsForm(StockStorage currentStock, DataBaseQueries queries, ValidationService validation)
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace StockMaster.Forms.Quick
             _validation = validation;
         }
 
-        private void StockSettingsForm_Load(object sender, EventArgs e)
+        private async void StockSettingsForm_Load(object sender, EventArgs e)
         {
             nameOfStock.Text = _currentStock.Current.StockName;
             chooseTypeOfStock.DataSource = Enum.GetValues(typeof(TypeOfStocks));
@@ -40,9 +42,19 @@ namespace StockMaster.Forms.Quick
                 passwordTextBox.Text = _currentStock.Current.Password;
                 confirmPasswordTextBox.Text = _currentStock.Current.Password;
             }
-            else {
+            else
+            {
                 publicRadioButton.Checked = true;
             }
+            var allPhysicStocks = await _queries.GetAllPhysicStocks(); ;
+            foreach (var item in allPhysicStocks)
+            {
+                comboBox1.Items.Add(item);
+                if (_currentStock.Current.LinkedPhysicStockId == item.Id) {
+                    comboBox1.SelectedItem = item;
+                }
+            }
+            _isInitializingComboBox = false;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -85,7 +97,8 @@ namespace StockMaster.Forms.Quick
                 Password = (privatRadioButton.Checked ? passwordTextBox.Text : null),
                 KindOfStock = (TypeOfStocks)chooseTypeOfStock.SelectedItem,
                 AccessStock = (privatRadioButton.Checked ? AccessOfStocks.Private : AccessOfStocks.Public),
-                CreatorId = _currentStock.Current.CreatorId
+                CreatorId = _currentStock.Current.CreatorId,
+                LinkedPhysicStockId = (_selectedStock != null) ? _selectedStock.Id : null
             });
 
             _currentStock.Current = null;
@@ -140,12 +153,50 @@ namespace StockMaster.Forms.Quick
             {
                 case TypeOfStocks.FunctionalStock:
                     infoStockLabel.Text = "This stock is better suited for tracking batches and materials.";
+                    linkedStockPanel.Visible = true;
                     break;
                 case TypeOfStocks.PhysicalStock:
                     infoStockLabel.Text = "This stock is better suited for storing goods.";
+                    linkedStockPanel.Visible = false;
+                    clearButton.PerformClick();
                     break;
             }
 
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            _selectedStock = null;
+            comboBox1.SelectedIndex = -1;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_isInitializingComboBox)
+                return;
+            if (comboBox1.SelectedItem != null)
+            {
+                var selectedOption = (Stock)comboBox1.SelectedItem;
+                if (selectedOption.AccessStock == AccessOfStocks.Private)
+                {
+                    using (var checkPsw = new CheckPasswordForm(selectedOption.Password))
+                    {
+                        if (checkPsw.ShowDialog() == DialogResult.OK)
+                        {
+                            _selectedStock = selectedOption;
+                        }
+                        else
+                        {
+                            _selectedStock = null;
+                            comboBox1.SelectedIndex = -1;
+                        }
+                    }
+                }
+                else
+                {
+                    _selectedStock = selectedOption;
+                }
+            }
         }
     }
 }
