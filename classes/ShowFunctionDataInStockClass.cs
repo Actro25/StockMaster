@@ -172,6 +172,38 @@ namespace StockMaster.Classes
             _rowGroups = SortPanelDataService.SortByPrice(_rowGroups, isFromHigher);
             RefreshDataTable();
         }
+
+        public bool TransferDataToPhysicStock() {
+            if (_lastSelectedId == -1)
+                return false;
+            if (_mainStock.Current.LinkedPhysicStockId == null)
+            {
+                MessageBox.Show("This Function stock didn't have a linked Physic stock. Please head to setting and choose Physic stock to transfer data into it.");
+                return true;
+            }
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var queries = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
+                var dataToTransfer = queries.GetFunctionDataStockById(_lastSelectedId, _mainStock.Current.Id);
+                var dataInPhysicStock = queries.GetPhysicDataByName(dataToTransfer.NameOfGood, (int)_mainStock.Current.LinkedPhysicStockId);
+                if (dataInPhysicStock != null)
+                {
+                    queries.UpdatePhysicDataQuantity(dataInPhysicStock.Id, dataInPhysicStock.StockId, dataToTransfer.Quantity);
+                }
+                else
+                {
+                    queries.AddPhysicDataStock(new PhysicStockData
+                    {
+                        NameOfGood = dataToTransfer.NameOfGood,
+                        Quantity = dataToTransfer.Quantity,
+                        StockId = (int)_mainStock.Current.LinkedPhysicStockId,
+                        MainStock = dataToTransfer.MainStock
+                    });
+                }
+                queries.DeleteFunctionDataById(dataToTransfer.Id);
+            }
+            return true;
+        }
         
         public override async Task<bool> DoSearch(int Index, string inputData) {
             using (var scope = _scopeFactory.CreateScope()) {

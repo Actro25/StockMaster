@@ -73,10 +73,17 @@ namespace StockMaster.Data
         }
         public async Task<List<Stock>> GetAllStocks() => await _context.Stocks.AsNoTracking().Include(s => s.Creator).ToListAsync();
         public async Task<List<Stock>> GetAllPhysicStocks() => await _context.Stocks.AsNoTracking().Where(s => s.KindOfStock == TypeOfStocks.PhysicalStock).Include(s => s.Creator).ToListAsync();
-        public void DeleteStockById(int id) {
+        public void DeleteStockById(int id)
+        {
             var stock = _context.Stocks.Find(id);
-            if (stock == null)
+            if (stock == null) 
                 return;
+
+            var linkedStocks = _context.Stocks.Where(s => s.LinkedPhysicStockId == id).ToList();
+
+            foreach (var linked in linkedStocks)
+                linked.LinkedPhysicStockId = null;
+
             _context.Stocks.Remove(stock);
             _context.SaveChanges();
         }
@@ -155,5 +162,6 @@ namespace StockMaster.Data
 
             UpdatePhysicDataStock(currentDataToAdd);
         }
+        public PhysicStockData GetPhysicDataByName(string name, int stockId) => _context.PhysicStockData.FirstOrDefault(s => s.NameOfGood == name && s.StockId == stockId);
     }
 }

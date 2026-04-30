@@ -418,6 +418,7 @@
             transferDataButton.TabIndex = 25;
             transferDataButton.Text = "Transfer data to physical stock";
             transferDataButton.UseVisualStyleBackColor = true;
+            transferDataButton.Click += transferDataButton_Click;
             // 
             // StockDataFunctionStockShowForm
             // 

@@ -222,5 +222,14 @@ namespace StockMaster
             searchByComboBox.Text = "Search by";
             await _showDataInStock.UpdateDataTableWithNewData();
         }
+
+        private async void transferDataButton_Click(object sender, EventArgs e)
+        {
+            if (!_showDataInStock.TransferDataToPhysicStock()) {
+                MessageBox.Show("You entered incorrect data.");
+                return;
+            }
+            await _showDataInStock.UpdateDataTableWithNewData();
+        }
     }
 }
