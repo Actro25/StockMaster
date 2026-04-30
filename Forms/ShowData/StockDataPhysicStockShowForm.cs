@@ -79,7 +79,7 @@ namespace StockMaster.Forms.ShowData
         {
             if (!_showDataInStock.DeleteCurrentDataRow())
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             await _showDataInStock.UpdateDataTableWithNewData();
@@ -89,7 +89,7 @@ namespace StockMaster.Forms.ShowData
         {
             if (!_showDataInStock.GetCurrentDataRow())
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             using (var updateDataForStock = _serviceProvider.GetRequiredService<UpdatePhysicStockData>())
@@ -149,7 +149,7 @@ namespace StockMaster.Forms.ShowData
         {
             if (!(await _showDataInStock.DoSearch(searchByComboBox.SelectedIndex, inputDataTextBox.Text)))
             {
-                MessageBox.Show("You entered incorrect data.");
+                MessageBox.Show("You entered incorrect data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -158,7 +158,7 @@ namespace StockMaster.Forms.ShowData
         {
             if (!_showDataInStock.UpdateQuantityDataRow((int)numericUpDown1.Value))
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             await _showDataInStock.UpdateDataTableWithNewData();
@@ -168,7 +168,7 @@ namespace StockMaster.Forms.ShowData
         {
             if (!_showDataInStock.UpdateQuantityDataRow(-(int)numericUpDown1.Value))
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             await _showDataInStock.UpdateDataTableWithNewData();

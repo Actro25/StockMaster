@@ -38,7 +38,7 @@ namespace StockMaster
                 this.Close();
             }
             else {
-                MessageBox.Show("Wrong password");
+                MessageBox.Show("Wrong password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

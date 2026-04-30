@@ -178,7 +178,7 @@ namespace StockMaster.Classes
                 return false;
             if (_mainStock.Current.LinkedPhysicStockId == null)
             {
-                MessageBox.Show("This Function stock didn't have a linked Physic stock. Please head to setting and choose Physic stock to transfer data into it.");
+                MessageBox.Show("This Function stock didn't have a linked Physic stock. Please head to setting and choose Physic stock to transfer data into it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
             using (var scope = _scopeFactory.CreateScope())
@@ -247,7 +247,7 @@ namespace StockMaster.Classes
                         UpdateEveryRow(searchedDataPrice);
                         break;
                     default:
-                        MessageBox.Show("You didn't choose what column search by");
+                        MessageBox.Show("You didn't choose what column search by", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
                         break;
                 } 
             }

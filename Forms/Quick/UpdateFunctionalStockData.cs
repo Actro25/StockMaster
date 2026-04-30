@@ -59,12 +59,12 @@ namespace StockMaster.Forms.Quick
         {
             if (!_validation.IsValidNameGood(nameOfGoodTextBox.Text))
             {
-                MessageBox.Show("You entered incorrect name.");
+                MessageBox.Show("You entered incorrect name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (priceTextBox.Text == "")
             {
-                MessageBox.Show("You don't enter price for your data.");
+                MessageBox.Show("You don't enter price for your data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _queries.UpdateFunctionDataStock(new Models.FunctionStockData

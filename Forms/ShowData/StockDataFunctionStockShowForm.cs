@@ -79,7 +79,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.GetCurrentDataRow())
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -87,7 +87,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.GetCurrentDataRow())
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             using (var updateDataForStock = _serviceProvider.GetRequiredService<UpdateFunctionalStockData>())
@@ -103,7 +103,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.DeleteCurrentDataRow())
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             await _showDataInStock.UpdateDataTableWithNewData();
@@ -183,7 +183,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(true, false))
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -192,7 +192,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(false, true))
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -201,7 +201,7 @@ namespace StockMaster
         {
             if (!_showDataInStock.ArrivedOrOverdueCurrentDataRow(false, false))
             {
-                MessageBox.Show("You don't choose data to update");
+                MessageBox.Show("You don't choose data to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -210,7 +210,7 @@ namespace StockMaster
         {
             if (!(await _showDataInStock.DoSearch(searchByComboBox.SelectedIndex, inputDataTextBox.Text)))
             {
-                MessageBox.Show("You entered incorrect data.");
+                MessageBox.Show("You entered incorrect data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -226,7 +226,7 @@ namespace StockMaster
         private async void transferDataButton_Click(object sender, EventArgs e)
         {
             if (!_showDataInStock.TransferDataToPhysicStock()) {
-                MessageBox.Show("You entered incorrect data.");
+                MessageBox.Show("You entered incorrect data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             await _showDataInStock.UpdateDataTableWithNewData();

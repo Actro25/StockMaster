@@ -54,7 +54,7 @@ namespace StockMaster
             var user = _queries.IsUserExist(new User { UserName = userNameLogInBox.Text, UserPassword = passwordLogInBox.Text });
             if (user == null)
             {
-                MessageBox.Show("You entered wrong username or password.");
+                MessageBox.Show("You entered wrong username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace StockMaster
         {
             if (!_validation.IsValidName(userNameSingUpBox.Text) || _queries.IsNameTaken(userNameSingUpBox.Text))
             {
-                MessageBox.Show("You entered an incorrect username or username is already taken.");
+                MessageBox.Show("You entered an incorrect username or username is already taken.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -78,7 +78,7 @@ namespace StockMaster
 
             if (!_validation.IsValidPassword(pas) || !_validation.IsValidPassword(pasC) || pas != pasC)
             {
-                MessageBox.Show("You entered an incorrect password.");
+                MessageBox.Show("You entered an incorrect password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace StockMaster
         {
             if (!_userSession.IsLogined())
                 MessageBox.Show("First, you need to log in to your account\r" +
-                    "If you don't have an account, please sign up");
+                    "If you don't have an account, please sign up", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
             _userSession.Logout();
             userNameShowlabel.Text = "none";
@@ -103,7 +103,7 @@ namespace StockMaster
         {
             if (!_userSession.IsLogined())
                 MessageBox.Show("First, you need to log in to your account\r" +
-                    "If you don't have an account, please sign up");
+                    "If you don't have an account, please sign up", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             _queries.DeleteUser(_userSession.CurrentUser);
             _userSession.Logout();
@@ -113,7 +113,7 @@ namespace StockMaster
         private void addButton_Click(object sender, EventArgs e)
         {
             if (!_userSession.IsLogined()) {
-                MessageBox.Show("Please, firstly login or sing up in your account to create your own stocks.");
+                MessageBox.Show("Please, firstly login or sing up in your account to create your own stocks.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             using (var addNewStock = _serviceProcider.GetRequiredService<AddNewStockForm>())

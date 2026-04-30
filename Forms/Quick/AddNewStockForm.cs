@@ -110,7 +110,7 @@ namespace StockMaster
         {
             if (!_validation.IsValidName(nameOfStock.Text))
             {
-                MessageBox.Show("You entered an incorrect stock name.", "", MessageBoxButtons.OK);
+                MessageBox.Show("You entered an incorrect stock name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -119,7 +119,7 @@ namespace StockMaster
 
             if (privatRadioButton.Checked && (!_validation.IsValidPassword(pas) || !_validation.IsValidPassword(pasC) || (pas != pasC)))
             {
-                MessageBox.Show("Your passwords don't match each other.", "", MessageBoxButtons.OK);
+                MessageBox.Show("Your passwords don't match each other.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

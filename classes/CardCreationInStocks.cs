@@ -232,7 +232,7 @@ namespace StockMaster.Classes.CardCreation
                 }
                 else
                 {
-                    if (MessageBox.Show("Чи ви дійсно хочете удалити цей склад?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Do you really want to delete this stock FOREVER", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         _flowPanel.Controls.Remove(tempPanel);
                         _panels.Remove((tempPanel, stock.Id));

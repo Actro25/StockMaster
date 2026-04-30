@@ -99,7 +99,7 @@ namespace StockMaster.Classes
                         UpdateEveryRow(searchedDataQuantity);
                         break;
                     default:
-                        MessageBox.Show("You didn't choose what column search by");
+                        MessageBox.Show("You didn't choose what column search by", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
