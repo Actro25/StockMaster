@@ -1,18 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using StockMaster.Classes;
 using StockMaster.Classes.CardCreation;
 using StockMaster.Data;
 using StockMaster.Forms.Quick;
 using StockMaster.Forms.ShowData;
-using StockMaster.Models;
 using StockMaster.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 namespace StockMaster
 {

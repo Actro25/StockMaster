@@ -7,13 +7,8 @@ using StockMaster.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StockMaster.Classes
 {

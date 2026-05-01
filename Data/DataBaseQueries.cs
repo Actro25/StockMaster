@@ -1,14 +1,10 @@
 ﻿using FuzzySharp;
 using Microsoft.EntityFrameworkCore;
-using SQLitePCL;
 using StockMaster.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using StockMaster.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StockMaster.Data
 {

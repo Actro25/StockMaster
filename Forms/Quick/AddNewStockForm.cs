@@ -1,17 +1,11 @@
-﻿using StockMaster.Classes.CardCreation;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using StockMaster.Classes;
 using StockMaster.Classes.MoveForm;
-using StockMaster.Models;
-using StockMaster.Classes;
-using StockMaster.Services;
 using StockMaster.Data;
+using StockMaster.Models;
+using StockMaster.Services;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace StockMaster
 {
@@ -20,7 +14,6 @@ namespace StockMaster
         private UserSession _userSession;
         private ValidationService _validation;
         private DataBaseQueries _queries;
-        private CardCreationInStocks cardStocks;
         private Stock _selectedStock = null;
 
         public AddNewStockForm(UserSession userSession, ValidationService validation, DataBaseQueries queries)

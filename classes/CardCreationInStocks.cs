@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Data;
 using StockMaster.Forms.Quick;
 using StockMaster.Forms.ShowData;
@@ -9,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace StockMaster.Classes.CardCreation
@@ -45,7 +43,7 @@ namespace StockMaster.Classes.CardCreation
             _flowPanel = flowPanel;
             _myForm = myForm;
         }
-        public void ClearPanel() => _flowPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose()); // Перетворюємо наш контрол в зрозумілий для LINQ клас щоб пройтися по ньому та очистити всі данні з панелі
+        public void ClearPanel() => _flowPanel.Controls.Cast<Control>().ToList().ForEach(c => c.Dispose());
 
         public async void RefreshPanel() {
             _flowPanel.SuspendLayout();

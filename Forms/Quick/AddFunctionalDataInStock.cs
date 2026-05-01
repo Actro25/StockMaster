@@ -4,12 +4,6 @@ using StockMaster.Models;
 using StockMaster.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StockMaster
@@ -19,7 +13,6 @@ namespace StockMaster
         private ValidationService _validation;
         private DataBaseQueries _queries;
         private StockStorage _mainStock;
-        private List<Stock> _allPhysicStocks;
         public AddFunctionalDataInStock(ValidationService validation, DataBaseQueries queries, StockStorage stock)
         {
             InitializeComponent();

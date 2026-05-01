@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using StockMaster.Classes;
 using StockMaster.Classes.MoveForm;
 using StockMaster.Forms.Quick;
 using StockMaster.Models;
 using StockMaster.Services;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 namespace StockMaster
 {
     public partial class StockDataFunctionStockShowForm : Form

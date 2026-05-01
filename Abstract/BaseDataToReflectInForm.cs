@@ -1,15 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using StockMaster.Data;
-using StockMaster.Models;
+using StockMaster.Interfaces;
 using StockMaster.Services;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StockMaster.Interfaces;
 
 namespace StockMaster.Abstract
 {
