@@ -14,13 +14,13 @@ namespace StockMaster.Classes
         public event Action? OnLoginSuccess;
         public event Action? OnLogoutSuccess;
         public void Login(User user) { 
-            CurrentUser = user;  // Записуємо user в сесію
-            OnLoginSuccess?.Invoke(); // Запускаємо функції під час входу в акаунт
+            CurrentUser = user; 
+            OnLoginSuccess?.Invoke();
         }
         public void Logout() { 
-            CurrentUser = null;  // Видаляємо user з сесії
-            OnLogoutSuccess?.Invoke();// Запускаємо функції під час виходу з акаунту
+            CurrentUser = null;
+            OnLogoutSuccess?.Invoke();
         }
-        public bool IsLogined() => CurrentUser != null; // Перевіряємо чи user залогінений
+        public bool IsLogined() => CurrentUser != null;
     }
 }

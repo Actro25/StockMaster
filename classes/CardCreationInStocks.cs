@@ -67,11 +67,6 @@ namespace StockMaster.Classes.CardCreation
             }
         }
         private void DeleteData(int Id) {
-            /*
-                Це було додано для того щоб ми просто визивали функцію в якій є unmanaged data
-                Я насправді фнезнаю чиб код який нижце працював в лямда функції як і було заплановано
-                Але для страховки виніс в окрему функцію
-             */
             using (var scope = _scopeFactory.CreateScope()) {
                 var query = scope.ServiceProvider.GetRequiredService<DataBaseQueries>();
                 query.DeleteStockById(Id);

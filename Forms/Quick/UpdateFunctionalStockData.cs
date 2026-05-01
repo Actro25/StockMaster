@@ -84,16 +84,10 @@ namespace StockMaster.Forms.Quick
         }
         private void priceTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Перевіряється якщо клавіша не керуюча + клавіша не цифра + не кома то ми блокуємо ввід даних.
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
-            {
                 e.Handled = true;
-            }
-            // Якщо знаходимо що кома вже була а ми питаємося ввести кому то блокуємо ввід даних.
             if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-            {
                 e.Handled = true;
-            }
         }
     }
 }

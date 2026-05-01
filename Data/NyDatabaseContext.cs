@@ -15,9 +15,6 @@ namespace StockMaster.Data
         {
         }
 
-        /*
-         Тут пхеном наші моделі для таблиць
-         */
         public DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<FunctionStockData> FunctionStockData { get; set; }
@@ -27,9 +24,9 @@ namespace StockMaster.Data
             if (optionsBuilder.IsConfigured)
                 return;
 
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBase", "database.db"); // Створюємо шлях до місця де буде БД
-            if (!Directory.Exists(Path.GetDirectoryName(dbPath))) // Перевіряємо чи існує такий шлях
-                Directory.CreateDirectory(Path.GetDirectoryName(dbPath)); // Створюємо такий шлях якщо його неіснувало
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBase", "database.db");
+            if (!Directory.Exists(Path.GetDirectoryName(dbPath))) 
+                Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }
