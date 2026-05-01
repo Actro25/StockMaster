@@ -11,6 +11,7 @@ namespace StockMaster.Data
 {
     public class NyDatabaseContext : DbContext
     {
+        public NyDatabaseContext() { }
         public NyDatabaseContext(DbContextOptions<NyDatabaseContext> options) : base(options)
         {
         }
@@ -19,6 +20,7 @@ namespace StockMaster.Data
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<FunctionStockData> FunctionStockData { get; set; }
         public DbSet<PhysicStockData> PhysicStockData { get; set; }
+        public void InitializeDatabase() => Database.EnsureCreated();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured)

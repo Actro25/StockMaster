@@ -1,34 +1,38 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using StockMaster.Classes;
+using StockMaster.Classes.CardCreation;
+using StockMaster.Classes.MoveForm;
+using StockMaster.Data;
+using StockMaster.Models;
+using StockMaster.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using StockMaster.Classes.CardCreation;
-using StockMaster.Classes.MoveForm;
-using StockMaster.Data;
-using StockMaster.Services;
-using StockMaster.Classes;
-using StockMaster.Models;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace StockMaster
 {
     public partial class Form1 : Form
     {
-        DataBaseQueries _queries;
-        ValidationService _validation;
-        UserSession _userSession;
-        IServiceProvider _serviceProcider;
-        CardCreationInStocks _cardStocks;
+        private DataBaseQueries _queries;
+        private ValidationService _validation;
+        private UserSession _userSession;
+        private IServiceProvider _serviceProcider;
+        private CardCreationInStocks _cardStocks;
+        private IServiceProvider _serviceProvider;
 
-
-        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, IServiceProvider serviceProvider, CardCreationInStocks cardStocks)
+        public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, 
+            IServiceProvider serviceProvider, CardCreationInStocks cardStocks, IServiceScopeFactory scopeFactory)
         {
             InitializeComponent();
+
+
             _queries = queries;
             _validation = validation;
             _userSession = userSession;
@@ -38,6 +42,10 @@ namespace StockMaster
             _cardStocks.Create(flowLayoutPanel1, this);
             _userSession.OnLoginSuccess += _cardStocks.RefreshPanel;
             _userSession.OnLogoutSuccess += _cardStocks.ClearPanel;
+            using (var context = new NyDatabaseContext())
+            {
+                context.InitializeDatabase();
+            }
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
