@@ -25,13 +25,11 @@ namespace StockMaster
         private UserSession _userSession;
         private IServiceProvider _serviceProcider;
         private CardCreationInStocks _cardStocks;
-        private IServiceProvider _serviceProvider;
 
         public Form1(DataBaseQueries queries, ValidationService validation, UserSession userSession, 
-            IServiceProvider serviceProvider, CardCreationInStocks cardStocks, IServiceScopeFactory scopeFactory)
+            IServiceProvider serviceProvider, CardCreationInStocks cardStocks)
         {
             InitializeComponent();
-
 
             _queries = queries;
             _validation = validation;

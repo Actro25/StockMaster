@@ -11,8 +11,8 @@ using StockMaster.Data;
 namespace StockMaster.Migrations
 {
     [DbContext(typeof(NyDatabaseContext))]
-    [Migration("20260423152234_UpdateNameColumnInFunctionStock")]
-    partial class UpdateNameColumnInFunctionStock
+    [Migration("20260501143904_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,6 @@ namespace StockMaster.Migrations
 
                     b.Property<string>("NameOfGood")
                         .IsRequired()
-                        .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
@@ -56,6 +55,29 @@ namespace StockMaster.Migrations
                     b.ToTable("FunctionStockData");
                 });
 
+            modelBuilder.Entity("StockMaster.Models.PhysicStockData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NameOfGood")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("StockId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StockId");
+
+                    b.ToTable("PhysicStockData");
+                });
+
             modelBuilder.Entity("StockMaster.Models.Stock", b =>
                 {
                     b.Property<int>("Id")
@@ -71,6 +93,9 @@ namespace StockMaster.Migrations
                     b.Property<int>("KindOfStock")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("LinkedPhysicStockId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Password")
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
@@ -83,6 +108,8 @@ namespace StockMaster.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CreatorId");
+
+                    b.HasIndex("LinkedPhysicStockId");
 
                     b.ToTable("Stocks");
                 });
@@ -119,6 +146,17 @@ namespace StockMaster.Migrations
                     b.Navigation("MainStock");
                 });
 
+            modelBuilder.Entity("StockMaster.Models.PhysicStockData", b =>
+                {
+                    b.HasOne("StockMaster.Models.Stock", "MainStock")
+                        .WithMany()
+                        .HasForeignKey("StockId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MainStock");
+                });
+
             modelBuilder.Entity("StockMaster.Models.Stock", b =>
                 {
                     b.HasOne("StockMaster.Models.User", "Creator")
@@ -127,7 +165,13 @@ namespace StockMaster.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("StockMaster.Models.Stock", "LinkedStock")
+                        .WithMany()
+                        .HasForeignKey("LinkedPhysicStockId");
+
                     b.Navigation("Creator");
+
+                    b.Navigation("LinkedStock");
                 });
 #pragma warning restore 612, 618
         }
