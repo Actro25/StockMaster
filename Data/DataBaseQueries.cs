@@ -49,6 +49,11 @@ namespace StockMaster.Data
         }
         public User? IsUserExist(User user) => _context.Users.AsNoTracking().FirstOrDefault(u => u.UserName == user.UserName && u.UserPassword == user.UserPassword);
         public void DeleteUser(User user) {
+            var local = _context.Users.Local.FirstOrDefault(entry => entry.Id == user.Id);
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             _context.Users.Remove(user);
             _context.SaveChanges();
         }

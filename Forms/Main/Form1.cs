@@ -92,8 +92,11 @@ namespace StockMaster
         private void exitFromAccountButton_Click(object sender, EventArgs e)
         {
             if (!_userSession.IsLogined())
+            {
                 MessageBox.Show("First, you need to log in to your account\r" +
                     "If you don't have an account, please sign up", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             
             _userSession.Logout();
             userNameShowlabel.Text = "none";
@@ -102,8 +105,11 @@ namespace StockMaster
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (!_userSession.IsLogined())
+            {
                 MessageBox.Show("First, you need to log in to your account\r" +
                     "If you don't have an account, please sign up", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             _queries.DeleteUser(_userSession.CurrentUser);
             _userSession.Logout();
