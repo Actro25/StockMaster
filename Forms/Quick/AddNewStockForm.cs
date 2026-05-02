@@ -115,6 +115,10 @@ namespace StockMaster
                 MessageBox.Show("Your passwords don't match each other.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if ((TypeOfStocks?)chooseTypeOfStock.SelectedItem == null) {
+                MessageBox.Show("Please select type of the stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             var stock = _queries.AddStock(new Stock
             {

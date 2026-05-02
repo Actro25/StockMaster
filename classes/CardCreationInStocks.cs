@@ -220,6 +220,7 @@ namespace StockMaster.Classes.CardCreation
                             _panels.Remove((tempPanel, stock.Id));
                             tempPanel.Dispose();
                             DeleteData(stock.Id);
+                            RefreshPanel();
                         }
                     }
                 }
@@ -231,6 +232,7 @@ namespace StockMaster.Classes.CardCreation
                         _panels.Remove((tempPanel, stock.Id));
                         tempPanel.Dispose();
                         DeleteData(stock.Id);
+                        RefreshPanel();
                     }
                 }
 
